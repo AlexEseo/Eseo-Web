@@ -51,7 +51,7 @@
 - **IconBadge** (`icon-badge.jsx`): круглый значок 20px с белой иконкой 12px. `color` = green (как в Figma) / orange / pink / coral / brand.
 - **ChannelChip** (`channel-chip.jsx`): стеклянный круг 72px с иконкой 36px. Градиент, обводка, тень и размытие — токены `--gradient-chip-*`, `--shadow-chip`, `--blur-background-8`.
 - **PricingCard** (`pricing-card.jsx`): стеклянная тарифная карточка. `selected` — выделенный тариф (синяя обводка и свечение, синяя кнопка). Наведение и фокус как в Figma; фокус включается, когда до кнопки внутри доходят клавишей Tab. Градиенты, тени и размытие — токены `--gradient-pricing-*`, `--shadow-pricing-*`, `--blur-pricing`. Кнопка в обычной карточке — серая кнопка, перекрашенная как в Figma (белая с голубой обводкой и синим текстом).
-- **PlanCard** + **PlanRow** (`plan-card.jsx`, `plan-row.jsx`): карточка со строками; в строке 4 значка 2×2, заголовок, подзаголовок и синяя галочка (`checked`). Скругление карточки 24px — токен `rounded-24` (в Figma у него нет переменной).
+- **PlanCard** + **PlanRow** (`plan-card.jsx`, `plan-row.jsx`): карточка со строками; в строке 4 значка 2×2, заголовок, подзаголовок и синяя галочка (`checked`). Скругление карточки — `rounded-24` (Figma `radius/24`).
 - **StatCard** (`stat-card.jsx`), **CardCaption** (`card-caption.jsx`), **IndustryCard** + **PlaybookRow** (`industry-card.jsx`, `playbook-row.jsx`). У IndustryCard на телефоне отступы внутри 24px вместо 40px.
 - **Логотипы площадок** (Google Ads, Meta, TikTok) лежат в `src/assets/icons/*.svg` как файлы: у них фирменные цвета, токенами они не перекрашиваются.
 - **Иконки** лежат в `src/components/icons/`, по одной в файле. Цвет иконки берётся из цвета текста, поэтому её можно перекрасить классом (`text-brand-600`).

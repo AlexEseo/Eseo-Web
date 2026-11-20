@@ -164,7 +164,7 @@
   --radius-4: 0.25rem;
   --radius-8: 0.5rem;
   --radius-16: 1rem;
-  --radius-24: 1.5rem;          /* used by Plan card; Figma has no radius/24 variable */
+  --radius-24: 1.5rem;
   --radius-40: 2.5rem;
   --radius-full: 999px;
 
