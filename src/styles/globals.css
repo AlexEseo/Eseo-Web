@@ -6,7 +6,9 @@ html {
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-sans);
-  font-size: var(--text-body);
+  font-size: var(--text-body-lg);
+  line-height: var(--text-body-lg--line-height);
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Turn animations off for people who ask their system for less motion. */

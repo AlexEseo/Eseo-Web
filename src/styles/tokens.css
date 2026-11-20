@@ -1,35 +1,239 @@
 /*
-  Design tokens: the only place for colours, fonts, spacing, radii and animation timing.
-  Placeholder values for now. They will be replaced with the values from the approved design.
+  Design tokens: the only place for colours, fonts, sizes, radii, shadows and animation timing.
+  Source: Figma "eseo", page "Design System" (variables "base", text styles, effect styles).
+
+  Two layers:
+  1. Palette (:root, --palette-*) — raw colours exactly as named in Figma. Used only in this file.
+  2. Tokens (@theme, --color-*, --text-*, ...) — named by purpose. Components use only these.
 */
+
+/* ---------- 1. Palette: raw Figma colours ---------- */
+:root {
+  --palette-white: #ffffff;          /* gray/0 */
+  --palette-gray-25: #fdfdfd;
+  --palette-gray-50: #fafafa;
+  --palette-gray-100: #f5f5f5;
+  --palette-gray-200: #e9eaeb;
+  --palette-gray-300: #d5d7da;
+  --palette-gray-400: #a4a7ae;
+  --palette-gray-500: #717680;
+  --palette-gray-600: #535862;
+  --palette-gray-700: #414651;
+  --palette-gray-800: #252b37;
+  --palette-gray-900: #181d27;
+  --palette-gray-950: #0a0d12;
+
+  --palette-brand-50: #f4f7ff;
+  --palette-brand-100: #d4e0ff;
+  --palette-brand-200: #c9d9ff;
+  --palette-brand-600: #245be8;
+  --palette-brand-700: #1e4fd0;
+  --palette-brand-800: #1a43b0;
+
+  --palette-beige-100: #f6f0ea;
+  --palette-beige-200: #eee4da;
+  --palette-beige-300: #ddccbb;
+
+  --palette-coral-500: #ff6f5e;
+  --palette-green-500: #22c55e;
+  --palette-orange-500: #f97316;
+  --palette-pink-500: #ec4899;
+
+  --palette-accent-green: #14b8a0;
+  --palette-accent-orange: #ff9447;
+  --palette-accent-pink: #d65bd0;
+  --palette-accent-coral: #ff6b81;
+}
+
+/* ---------- Font: Inter, stored in public/fonts ---------- */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/inter-latin-wght-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/inter-latin-ext-wght-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/inter-cyrillic-wght-normal.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* ---------- 2. Tokens by purpose ---------- */
 @theme static {
-  /* Colours */
-  --color-bg: #ffffff;
-  --color-surface: #f5f5f5;
-  --color-text: #111111;
-  --color-text-muted: #666666;
-  --color-brand: #111111;
-  --color-brand-contrast: #ffffff;
-  --color-border: #e5e5e5;
+  /* Remove Tailwind's built-in colours so only our tokens can be used. */
+  --color-*: initial;
+
+  /* Backgrounds */
+  --color-bg: var(--palette-white);
+  --color-surface: var(--palette-gray-50);
+  --color-surface-muted: var(--palette-gray-100);
+  --color-surface-brand: var(--palette-brand-50);
+  --color-surface-warm: var(--palette-beige-100);
+  --color-surface-inverse: var(--palette-gray-950);
+
+  /* Text */
+  --color-text: var(--palette-gray-950);
+  --color-text-secondary: var(--palette-gray-600);
+  --color-text-muted: var(--palette-gray-500);
+  --color-text-disabled: var(--palette-gray-400);
+  --color-text-inverse: var(--palette-white);
+  --color-text-brand: var(--palette-brand-600);
+  --color-text-brand-hover: var(--palette-brand-700);
+
+  /* Brand (buttons, links, accents) */
+  --color-brand: var(--palette-brand-600);
+  --color-brand-hover: var(--palette-brand-700);
+  --color-brand-press: var(--palette-brand-800);
+  --color-brand-contrast: var(--palette-white);
+  --color-brand-soft: var(--palette-brand-100);
+  --color-brand-softer: var(--palette-brand-200);
+
+  /* Borders */
+  --color-border: var(--palette-gray-200);
+  --color-border-strong: var(--palette-gray-300);
+  --color-border-focus: var(--palette-brand-600);
+
+  /* Status */
+  --color-success: var(--palette-green-500);
+  --color-warning: var(--palette-orange-500);
+  --color-error: var(--palette-coral-500);
+
+  /* Decorative (gradients, illustrations) */
+  --color-warm: var(--palette-beige-200);
+  --color-warm-strong: var(--palette-beige-300);
+  --color-accent-green: var(--palette-accent-green);
+  --color-accent-orange: var(--palette-accent-orange);
+  --color-accent-pink: var(--palette-accent-pink);
+  --color-accent-coral: var(--palette-accent-coral);
+  --color-accent-magenta: var(--palette-pink-500);
+
+  /* Aliases read by shadcn/ui components */
+  --color-background: var(--color-bg);
+  --color-foreground: var(--color-text);
+  --color-primary: var(--color-brand);
+  --color-primary-foreground: var(--color-brand-contrast);
+  --color-secondary: var(--color-surface-muted);
+  --color-secondary-foreground: var(--color-text);
+  --color-muted: var(--color-surface-muted);
+  --color-muted-foreground: var(--color-text-muted);
+  --color-accent: var(--color-surface-brand);
+  --color-accent-foreground: var(--color-text);
+  --color-destructive: var(--color-error);
+  --color-card: var(--color-bg);
+  --color-card-foreground: var(--color-text);
+  --color-popover: var(--color-bg);
+  --color-popover-foreground: var(--color-text);
+  --color-input: var(--color-border);
+  --color-ring: var(--color-border-focus);
 
   /* Fonts */
-  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
-  /* Fluid text sizes: min, preferred, max */
-  --text-body: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
-  --text-h1: clamp(2.25rem, 1.5rem + 3vw, 4rem);
+  /* Text sizes. Big ones are fluid: min on phone (390px), max on desktop (1440px). */
+  --text-giant-lg: clamp(10rem, 1.6429rem + 34.286vw, 32.5rem);   /* 160 → 520 */
+  --text-giant-lg--line-height: 1;
+  --text-giant-lg--letter-spacing: -0.06em;
+  --text-giant-md: clamp(6rem, 3.1214rem + 11.81vw, 13.75rem);     /* 96 → 220 */
+  --text-giant-md--line-height: 1;
+  --text-giant-md--letter-spacing: -0.06em;
 
-  /* Spacing */
+  --text-display-xl: clamp(2.5rem, 1.7571rem + 3.048vw, 4.5rem);   /* 40 → 72 */
+  --text-display-xl--line-height: 1.05;
+  --text-display-xl--letter-spacing: -0.03em;
+  --text-display-lg: clamp(2.25rem, 1.6rem + 2.667vw, 4rem);        /* 36 → 64 */
+  --text-display-lg--line-height: 1.05;
+  --text-display-lg--letter-spacing: -0.03em;
+  --text-display-md: clamp(2rem, 1.6286rem + 1.524vw, 3rem);        /* 32 → 48 */
+  --text-display-md--line-height: 1.1;
+  --text-display-md--letter-spacing: -0.04em;
+  --text-display-sm: clamp(1.75rem, 1.4714rem + 1.143vw, 2.5rem);   /* 28 → 40 */
+  --text-display-sm--line-height: 1.1;
+  --text-display-sm--letter-spacing: -0.03em;
+
+  --text-heading-lg: clamp(1.5rem, 1.3143rem + 0.762vw, 2rem);      /* 24 → 32 */
+  --text-heading-lg--line-height: 1.15;
+  --text-heading-lg--letter-spacing: -0.02em;
+  --text-heading-md: clamp(1.25rem, 1.1571rem + 0.381vw, 1.5rem);   /* 20 → 24 */
+  --text-heading-md--line-height: 1.15;
+  --text-heading-sm: clamp(1.125rem, 1.0786rem + 0.19vw, 1.25rem);  /* 18 → 20, Bold */
+  --text-heading-sm--line-height: 1.4;
+
+  --text-body-lg: 1rem;          /* 16 */
+  --text-body-lg--line-height: 1.4;
+  --text-body-md: 0.875rem;      /* 14 */
+  --text-body-md--line-height: 1.6;
+  --text-body-sm: 0.75rem;       /* 12 */
+  --text-body-sm--line-height: 1.3;
+
+  --text-label-lg: 1rem;         /* 16, Medium */
+  --text-label-lg--line-height: 1.3;
+  --text-label-lg--letter-spacing: -0.01em;
+  --text-label-md: 0.875rem;     /* 14 */
+  --text-label-md--line-height: 1.2;
+  --text-label-sm: 0.75rem;      /* 12, Semi Bold */
+  --text-label-sm--line-height: 1.3;
+  --text-label-sm--letter-spacing: 0.04em;
+
+  --text-caption: 0.75rem;       /* 12, Bold, lowercase */
+  --text-caption--line-height: 1.3;
+  --text-caption--letter-spacing: 0.08em;
+  --text-caption-sm: 0.625rem;   /* 10, Bold */
+  --text-caption-sm--line-height: 1.3;
+  --text-caption-sm--letter-spacing: 0.08em;
+
+  --text-button-lg: 1rem;        /* 16, Medium */
+  --text-button-lg--line-height: 1;
+  --text-button-lg--letter-spacing: -0.01em;
+  --text-button-md: 0.9375rem;   /* 15, Medium */
+  --text-button-md--line-height: 1;
+  --text-button-md--letter-spacing: -0.006em;
+  --text-button-sm: 0.8125rem;   /* 13, Medium */
+  --text-button-sm--line-height: 1;
+
+  /* Spacing: Figma has no spacing variables, so we use a 4px step (p-1 = 4px, p-4 = 16px). */
   --spacing: 0.25rem;
-  --space-section: clamp(3rem, 2rem + 5vw, 7rem);
+  --space-section: clamp(4rem, 2.5143rem + 6.095vw, 8rem);        /* gap between sections, 64 → 128 */
 
   /* Layout */
-  --container-page: 72rem;
+  --container-page: 72rem;       /* placeholder: will be taken from the Home page in stage 5 */
 
   /* Radii */
-  --radius-md: 0.5rem;
+  --radius-sm: 0.25rem;          /* 4 */
+  --radius-md: 0.5rem;           /* 8 */
+  --radius-lg: 1rem;             /* 16 */
+  --radius-xl: 2.5rem;           /* 40 */
+  --radius-full: 999px;
 
-  /* Animation */
+  /* Shadows */
+  --shadow-card: 0 1px 2px 0 rgb(10 13 18 / 0.04), 0 12px 32px -8px rgb(10 13 18 / 0.08);
+  --shadow-glass: 0 2px 4px 0 rgb(10 13 18 / 0.04), 0 24px 56px 0 rgb(36 91 232 / 0.22);
+  --shadow-device: -8px 12px 32px 0 rgb(10 13 18 / 0.16);
+
+  /* Blurs: "glass" is for backdrop-blur, the rest blur decorative shapes */
+  --blur-glass: 8px;
+  --blur-shape-xs: 24px;
+  --blur-shape-sm: 40px;
+  --blur-shape-md: 56px;
+  --blur-shape-lg: 90px;
+  --blur-shape-xl: 140px;
+
+  /* Animation timing (not in Figma yet; starting values) */
+  --duration-fast: 150ms;
   --duration-base: 300ms;
+  --duration-slow: 600ms;
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }

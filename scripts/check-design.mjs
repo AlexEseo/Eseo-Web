@@ -10,7 +10,7 @@ const rules = [
   { name: 'raw colour', re: /#[0-9a-fA-F]{3,8}\b|\b(rgb|rgba|hsl|hsla|oklch)\(/ },
   { name: 'pixel value', re: /\b\d+(\.\d+)?px\b/ },
   { name: 'hand-set Tailwind value', re: /\b[a-z-]+-\[[^\]]*\d[^\]]*\]/ },
-  { name: 'fixed width or height', re: /\b(w|h|min-w|min-h)-(\d+)\b/ },
+  { name: 'fixed width or height', re: /(?<![\w-])(w|h|min-w|min-h)-[1-9]\d*(?![\d/.])/ },
 ]
 
 function files(dir) {
