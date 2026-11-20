@@ -159,6 +159,7 @@
 
   /* Layout */
   --container-page: 72rem;       /* placeholder: will be taken from the Home page in stage 5 */
+  --container-roadmap-heading: 12.5rem; /* Roadmap heading width on desktop, from Figma: 200 */
 
   /* Radii: Figma "radius/..." → rounded-4, rounded-8, ... */
   --radius-4: 0.25rem;

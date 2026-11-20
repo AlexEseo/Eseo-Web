@@ -24,6 +24,7 @@ import { IndustryCard } from '@/components/ui/industry-card'
 import { PlanCard } from '@/components/ui/plan-card'
 import { PlanRow } from '@/components/ui/plan-row'
 import { PricingCard } from '@/components/ui/pricing-card'
+import { Roadmap } from '@/components/ui/roadmap'
 import IconSeo12 from '@/components/icons/IconSeo12'
 import IconTarget from '@/components/icons/IconTarget'
 import IconPercent from '@/components/icons/IconPercent'
@@ -202,6 +203,14 @@ const demoIndustry = {
     { label: 'Initial workstream', value: 'Margin-led feeds, search demand and paid social creative tests' },
   ],
   note: 'Illustrative approach. Final scope follows discovery.',
+}
+const demoRoadmap = {
+  heading: 'Your first six weeks, made visible.',
+  steps: [
+    { when: 'in 2 weeks', title: 'Diagnose', description: 'Agree business questions and audit the evidence.' },
+    { when: 'in 4 weeks', title: 'Design', description: 'Define measurement and prioritise experiments.' },
+    { when: 'in 6 weeks', title: 'Decide', description: 'Review the roadmap and agree the next investment.' },
+  ],
 }
 const logo = (src) => <img src={src} alt="" width="12" height="12" />
 const demoTabs = ['E-commerce', 'SaaS', 'Fintech', 'Healthcare']
@@ -461,6 +470,13 @@ export default function Styleguide() {
         <p className="text-body-14 text-gray-600">Сверху вниз справа: Stat card и Card caption.</p>
         <h3 className="text-header-20 font-bold">Industry card</h3>
         <IndustryCard {...demoIndustry} />
+      </Section>
+
+      <Section title="Roadmap">
+        <div className="rounded-16 bg-gray-100 p-6">
+          <Roadmap {...demoRoadmap} />
+        </div>
+        <p className="text-body-14 text-gray-600">На телефоне заголовок сверху, шаги столбиком.</p>
       </Section>
 
       <Section title="Colors">
