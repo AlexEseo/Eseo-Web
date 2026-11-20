@@ -277,7 +277,7 @@ export default function Styleguide() {
         </div>
         <h3 className="text-header-20 font-bold">Accordion · попробовать</h3>
         <div className="rounded-16 border border-gray-200 px-6">
-          <Accordion type="single" collapsible defaultValue="faq-1">
+          <Accordion defaultValue={['faq-1']}>
             {demoFaq.map(([q, a], i) => (
               <AccordionItem key={q} value={`faq-${i}`} className="last:border-b-0">
                 <AccordionTrigger>{q}</AccordionTrigger>
@@ -286,7 +286,7 @@ export default function Styleguide() {
             ))}
           </Accordion>
         </div>
-        <p className="text-body-14 text-gray-600">Закрытые вопросы — Closed, открытый — Open. Рамка фокуса у вопроса в Figma нет — добавлена для клавиатуры.</p>
+        <p className="text-body-14 text-gray-600">Закрытые вопросы — Closed, открытые — Open. Можно открыть сразу несколько. Рамка фокуса у вопроса в Figma нет — добавлена для клавиатуры.</p>
       </Section>
 
       <Section title="Icon badge · Channel chip">
@@ -319,15 +319,15 @@ export default function Styleguide() {
 
       <Section title="Slider · Slider row">
         <h3 className="text-header-20 font-bold">Slider</h3>
-        <div className="grid grid-cols-1 gap-8 rounded-16 border border-gray-200 p-6 md:grid-cols-3">
-          {[['Default', {}], ['Focus', { focus: true }], ['Disabled', { disabled: true }]].map(([name, { focus, ...props }]) => (
+        <div className="grid grid-cols-1 gap-8 rounded-16 border border-gray-200 p-6 md:grid-cols-2">
+          {[['Default', {}], ['Disabled', { disabled: true }]].map(([name, props]) => (
             <div key={name} className="flex flex-col gap-3">
               <Token>{name}</Token>
-              <Slider defaultValue={48} aria-label={`Slider ${name}`} {...props} className={focus ? '[&_[data-slot=slider-thumb]]:ring-2 [&_[data-slot=slider-thumb]]:ring-brand-600 [&_[data-slot=slider-thumb]]:ring-offset-2' : undefined} />
+              <Slider defaultValue={48} aria-label={`Slider ${name}`} {...props} />
             </div>
           ))}
         </div>
-        <p className="text-body-14 text-gray-600">В Figma у ползунка одно состояние. Focus (для клавиатуры) и Disabled добавлены.</p>
+        <p className="text-body-14 text-gray-600">В Figma у ползунка одно состояние. Disabled добавлено.</p>
         <h3 className="text-header-20 font-bold">Slider row · попробовать</h3>
         <div className="grid grid-cols-1 gap-8 rounded-16 border border-gray-200 p-6 md:grid-cols-2">
           <SliderRow id="try-margin" label="Contribution margin before media" defaultValue={40} format={(v) => `${v}%`} />

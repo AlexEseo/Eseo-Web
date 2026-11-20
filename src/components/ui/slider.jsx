@@ -3,7 +3,7 @@
 //   value / onValueChange(number), or defaultValue (number)
 //   min (0), max (100), step (1), disabled, name, aria-label or aria-labelledby
 // Drag with the mouse or finger; arrow keys, Page Up/Down, Home/End work too (Radix behaviour).
-// Figma has one state. Keyboard focus ring and Disabled are added here.
+// Figma has one state; no focus ring (owner's decision). Disabled is added here.
 import { Slider as SliderPrimitive } from 'radix-ui'
 import { cn } from '@/lib/utils'
 
@@ -30,7 +30,7 @@ function Slider({ className, value, defaultValue, onValueChange, min = 0, max = 
         data-slot="slider-thumb"
         aria-label={props['aria-label']}
         aria-labelledby={props['aria-labelledby']}
-        className="block size-4 shrink-0 rounded-full border-2 border-gray-0 bg-brand-600 outline-none transition-shadow duration-(--duration-fast) focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-0"
+        className="block size-4 shrink-0 rounded-full border-2 border-gray-0 bg-brand-600 outline-none"
       />
     </SliderPrimitive.Root>
   )

@@ -1,5 +1,5 @@
 // Accordion: shadcn accordion (Radix) restyled to Figma "Accordion item" (FAQ).
-// Parts: Accordion (root: type="single" collapsible, or type="multiple"),
+// Parts: Accordion (root: several items can stay open at once; defaultValue = list of open items),
 //        AccordionItem (value), AccordionTrigger (the question), AccordionContent (the answer).
 // States from Figma: Closed, Open. Keyboard focus outline is added here (not in Figma).
 import { Accordion as AccordionPrimitive } from 'radix-ui'
@@ -7,7 +7,7 @@ import IconChevronDown20 from '@/components/icons/IconChevronDown20'
 import { cn } from '@/lib/utils'
 
 function Accordion(props) {
-  return <AccordionPrimitive.Root data-slot="accordion" {...props} />
+  return <AccordionPrimitive.Root data-slot="accordion" type="multiple" {...props} />
 }
 
 function AccordionItem({ className, ...props }) {
