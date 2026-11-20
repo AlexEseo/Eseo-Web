@@ -9,6 +9,8 @@ import { SelectField } from '@/components/ui/select-field'
 import { Link } from '@/components/ui/link'
 import { Divider } from '@/components/ui/divider'
 import { SectionLabel } from '@/components/ui/section-label'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 
 const colorGroups = [
   { title: 'gray', items: ['gray-0', 'gray-25', 'gray-50', 'gray-100', 'gray-200', 'gray-300', 'gray-400', 'gray-500', 'gray-600', 'gray-700', 'gray-800', 'gray-900', 'gray-950'] },
@@ -142,6 +144,21 @@ function DemoSelect({ id, preview, disabled }) {
   return <SelectField id={id} preview={preview} disabled={disabled} options={demoOptions} defaultValue={demoOptions[0]} />
 }
 
+// Tab states: each sample is its own one-tab group, so it can be shown active or not.
+const tabStates = [
+  ['Default', {}],
+  ['Hover', { 'data-preview': 'hover' }],
+  ['Active', { active: true }],
+  ['Focus', { 'data-preview': 'focus' }],
+  ['Disabled', { disabled: true }],
+]
+const demoTabs = ['E-commerce', 'SaaS', 'Fintech', 'Healthcare']
+const demoFaq = [
+  ['How long does onboarding take?', 'Answer text goes here in one or two short sentences.'],
+  ['Do you work with small budgets?', 'Answer text goes here in one or two short sentences.'],
+  ['Which channels do you cover?', 'Answer text goes here in one or two short sentences.'],
+]
+
 function Section({ title, children }) {
   return (
     <section className="flex flex-col gap-6">
@@ -217,6 +234,53 @@ export default function Styleguide() {
           <SectionLabel>Section label</SectionLabel>
           <p className="text-display-40 font-semibold">Section heading</p>
         </div>
+      </Section>
+
+      <Section title="Tabs · Accordion">
+        <h3 className="text-header-20 font-bold">Tab</h3>
+        <div className="flex flex-wrap gap-10 rounded-16 border border-gray-200 p-6">
+          {tabStates.map(([name, { active, ...props }]) => (
+            <div key={name} className="flex flex-col gap-3">
+              <Token>{name}</Token>
+              <Tabs value={active ? 'tab' : 'other'}>
+                <TabsList>
+                  <TabsTrigger value="tab" {...props}>
+                    Tab
+                  </TabsTrigger>
+                </TabsList>
+              </Tabs>
+            </div>
+          ))}
+        </div>
+        <h3 className="text-header-20 font-bold">Tabs · попробовать</h3>
+        <div className="rounded-16 border border-gray-200 p-6">
+          <Tabs defaultValue={demoTabs[0]}>
+            <TabsList>
+              {demoTabs.map((t) => (
+                <TabsTrigger key={t} value={t}>
+                  {t}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+            {demoTabs.map((t) => (
+              <TabsContent key={t} value={t} className="text-body-14 text-gray-600">
+                Content for {t}.
+              </TabsContent>
+            ))}
+          </Tabs>
+        </div>
+        <h3 className="text-header-20 font-bold">Accordion · попробовать</h3>
+        <div className="rounded-16 border border-gray-200 px-6">
+          <Accordion type="single" collapsible defaultValue="faq-1">
+            {demoFaq.map(([q, a], i) => (
+              <AccordionItem key={q} value={`faq-${i}`} className="last:border-b-0">
+                <AccordionTrigger>{q}</AccordionTrigger>
+                <AccordionContent>{a}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+        <p className="text-body-14 text-gray-600">Закрытые вопросы — Closed, открытый — Open. Рамка фокуса у вопроса в Figma нет — добавлена для клавиатуры.</p>
       </Section>
 
       <Section title="Colors">
