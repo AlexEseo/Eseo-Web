@@ -51,6 +51,8 @@
 - **IconBadge** (`icon-badge.jsx`): круглый значок 20px с белой иконкой 12px. `color` = green (как в Figma) / orange / pink / coral / brand.
 - **ChannelChip** (`channel-chip.jsx`): стеклянный круг 72px с иконкой 36px. Градиент, обводка, тень и размытие — токены `--gradient-chip-*`, `--shadow-chip`, `--blur-background-8`.
 - **Иконки** лежат в `src/components/icons/`, по одной в файле. Цвет иконки берётся из цвета текста, поэтому её можно перекрасить классом (`text-brand-600`).
+- **Slider** (`slider.jsx`, shadcn): ползунок. Дорожка 4px (`h-slider-track`), синяя заливка, синий кружок с белой обводкой. Двигается мышью, пальцем и стрелками. Focus и Disabled добавлены (в Figma их нет).
+- **SliderRow** (`slider-row.jsx`): подпись слева, значение справа, ползунок снизу. `format` задаёт вид значения, например `40%`.
 - На /styleguide состояния показаны без мыши с помощью `data-preview="hover"`, `"active"` или `"focus"`. На сайте они работают как обычно.
 
 ## Блоки с фиксированным размером

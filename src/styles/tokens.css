@@ -152,6 +152,8 @@
   --spacing-button-white: 2.75rem;
   /* Field and Select field input height from Figma: 40 → h-field */
   --spacing-field: 2.5rem;
+  /* Slider track thickness from Figma: 4 → h-slider-track */
+  --spacing-slider-track: 0.25rem;
 
   /* Layout */
   --container-page: 72rem;       /* placeholder: will be taken from the Home page in stage 5 */

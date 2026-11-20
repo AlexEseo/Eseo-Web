@@ -15,6 +15,8 @@ import { IconBadge } from '@/components/ui/icon-badge'
 import { ChannelChip } from '@/components/ui/channel-chip'
 import IconBars from '@/components/icons/IconBars'
 import IconSeo from '@/components/icons/IconSeo'
+import { Slider } from '@/components/ui/slider'
+import { SliderRow } from '@/components/ui/slider-row'
 
 const colorGroups = [
   { title: 'gray', items: ['gray-0', 'gray-25', 'gray-50', 'gray-100', 'gray-200', 'gray-300', 'gray-400', 'gray-500', 'gray-600', 'gray-700', 'gray-800', 'gray-900', 'gray-950'] },
@@ -312,6 +314,24 @@ export default function Styleguide() {
               </div>
             </div>
           ))}
+        </div>
+      </Section>
+
+      <Section title="Slider · Slider row">
+        <h3 className="text-header-20 font-bold">Slider</h3>
+        <div className="grid grid-cols-1 gap-8 rounded-16 border border-gray-200 p-6 md:grid-cols-3">
+          {[['Default', {}], ['Focus', { focus: true }], ['Disabled', { disabled: true }]].map(([name, { focus, ...props }]) => (
+            <div key={name} className="flex flex-col gap-3">
+              <Token>{name}</Token>
+              <Slider defaultValue={48} aria-label={`Slider ${name}`} {...props} className={focus ? '[&_[data-slot=slider-thumb]]:ring-2 [&_[data-slot=slider-thumb]]:ring-brand-600 [&_[data-slot=slider-thumb]]:ring-offset-2' : undefined} />
+            </div>
+          ))}
+        </div>
+        <p className="text-body-14 text-gray-600">В Figma у ползунка одно состояние. Focus (для клавиатуры) и Disabled добавлены.</p>
+        <h3 className="text-header-20 font-bold">Slider row · попробовать</h3>
+        <div className="grid grid-cols-1 gap-8 rounded-16 border border-gray-200 p-6 md:grid-cols-2">
+          <SliderRow id="try-margin" label="Contribution margin before media" defaultValue={40} format={(v) => `${v}%`} />
+          <SliderRow id="try-change" label="Hypothetical revenue change" defaultValue={10} min={-50} max={50} format={(v) => `${v}%`} />
         </div>
       </Section>
 
