@@ -25,6 +25,7 @@ import { PlanCard } from '@/components/ui/plan-card'
 import { PlanRow } from '@/components/ui/plan-row'
 import { PricingCard } from '@/components/ui/pricing-card'
 import { Roadmap } from '@/components/ui/roadmap'
+import { Planner } from '@/components/ui/planner'
 import IconSeo12 from '@/components/icons/IconSeo12'
 import IconTarget from '@/components/icons/IconTarget'
 import IconPercent from '@/components/icons/IconPercent'
@@ -179,10 +180,10 @@ const tabStates = [
   ['Disabled', { disabled: true }],
 ]
 const demoCurrencies = [
-  { value: 'USD', code: 'USD $', name: 'US dollar' },
-  { value: 'EUR', code: 'EUR €', name: 'Euro' },
-  { value: 'GBP', code: 'GBP £', name: 'British pound' },
-  { value: 'CAD', code: 'CAD C$', name: 'Canadian dollar' },
+  { value: 'USD', code: 'USD $', name: 'US dollar', symbol: '$' },
+  { value: 'EUR', code: 'EUR €', name: 'Euro', symbol: '€' },
+  { value: 'GBP', code: 'GBP £', name: 'British pound', symbol: '£' },
+  { value: 'CAD', code: 'CAD C$', name: 'Canadian dollar', symbol: 'C$' },
 ]
 // Sample texts for the cards, as in Figma. On the landing page they come from site.json.
 const demoPricing = {
@@ -212,6 +213,18 @@ const demoRoadmap = {
     { when: 'in 6 weeks', title: 'Decide', description: 'Review the roadmap and agree the next investment.' },
   ],
 }
+const demoPlannerText = {
+  currency: 'Currency',
+  revenue: 'Net revenue',
+  media: 'Media spend',
+  mediaHint: 'All channels',
+  margin: 'Contribution margin before media',
+  change: 'Hypothetical revenue change',
+  current: 'Current contribution after media',
+  scenario: 'Scenario contribution after media',
+  mer: 'Current → scenario MER',
+}
+const demoPlannerStart = { currency: 'EUR', revenue: 1200000, media: 300000, margin: 40, change: 10 }
 const logo = (src) => <img src={src} alt="" width="12" height="12" />
 const demoTabs = ['E-commerce', 'SaaS', 'Fintech', 'Healthcare']
 const demoFaq = [
@@ -477,6 +490,13 @@ export default function Styleguide() {
           <Roadmap {...demoRoadmap} />
         </div>
         <p className="text-body-14 text-gray-600">На телефоне заголовок сверху, шаги столбиком.</p>
+      </Section>
+
+      <Section title="Planner · попробовать">
+        <Planner text={demoPlannerText} currencies={demoCurrencies} initial={demoPlannerStart} />
+        <p className="text-body-14 text-gray-600">
+          Меняйте суммы, ползунки и валюту — результат пересчитывается сразу. Валюта меняет только знак, суммы не конвертируются.
+        </p>
       </Section>
 
       <Section title="Colors">
