@@ -2,6 +2,23 @@
 @import 'tailwindcss';
 @import './tokens.css';
 
+/*
+  Styleguide previews: data-preview="hover" | "active" | "focus" shows a state without the mouse.
+  Real hover, press and keyboard focus work as usual.
+*/
+@custom-variant hover {
+  @media (hover: hover) {
+    &:hover {
+      @slot;
+    }
+  }
+  &[data-preview~='hover'] {
+    @slot;
+  }
+}
+@custom-variant active (&:active, &[data-preview~='active']);
+@custom-variant focus-visible (&:focus-visible, &[data-preview~='focus']);
+
 html {
   background: var(--color-gray-0);
   color: var(--color-gray-950);

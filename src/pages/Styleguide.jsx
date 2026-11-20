@@ -1,5 +1,8 @@
 // Styleguide (/styleguide): shows design tokens and every component in all its states.
 // Names match Figma one to one. When a token is added to tokens.css, add it here too.
+// data-preview="hover" | "active" | "focus" shows a state without the mouse (see globals.css).
+import { Button } from '@/components/ui/button'
+import IconLocation from '@/components/icons/IconLocation'
 
 const colorGroups = [
   { title: 'gray', items: ['gray-0', 'gray-25', 'gray-50', 'gray-100', 'gray-200', 'gray-300', 'gray-400', 'gray-500', 'gray-600', 'gray-700', 'gray-800', 'gray-900', 'gray-950'] },
@@ -53,6 +56,52 @@ const shadows = [
   ['shadow/device', 'shadow-device'],
 ]
 
+// Columns of the button tables: Figma state name → how to show it here.
+const buttonStates = [
+  ['Default', {}],
+  ['Hover', { 'data-preview': 'hover' }],
+  ['Pressed', { 'data-preview': 'active' }],
+  ['Focus', { 'data-preview': 'focus' }],
+  ['Disabled', { disabled: true }],
+  ['Loading', { loading: true }],
+]
+
+function ButtonTable({ variant, sizes, icon }) {
+  return (
+    <div className="overflow-x-auto rounded-16 border border-gray-200 p-6">
+      <table className="border-separate border-spacing-x-6 border-spacing-y-4">
+        <thead>
+          <tr>
+            <th />
+            {buttonStates.map(([name]) => (
+              <th key={name} className="text-left font-normal">
+                <Token>{name}</Token>
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {sizes.map((size) => (
+            <tr key={size ?? 'one'}>
+              <td>
+                <Token>{size ? size.toUpperCase() : ''}</Token>
+              </td>
+              {buttonStates.map(([name, props]) => (
+                <td key={name}>
+                  <Button variant={variant} size={size} {...props}>
+                    {icon}
+                    Button
+                  </Button>
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )
+}
+
 function Section({ title, children }) {
   return (
     <section className="flex flex-col gap-6">
@@ -70,6 +119,21 @@ export default function Styleguide() {
   return (
     <main className="mx-auto flex w-full max-w-(--container-page) flex-col gap-16 overflow-hidden px-6 py-(--space-section)">
       <h1 className="text-display-64 font-semibold">Styleguide</h1>
+
+      <Section title="Buttons">
+        <p className="text-body-14 text-gray-600">
+          Наведите мышь, нажмите или пройдите по кнопкам клавишей Tab — состояния работают по-настоящему.
+          «Loading» в Figma нет, добавлено для формы.
+        </p>
+        <h3 className="text-header-20 font-bold">Button / primary</h3>
+        <ButtonTable variant="primary" sizes={['s', 'm', 'l']} />
+        <h3 className="text-header-20 font-bold">Button / secondary</h3>
+        <ButtonTable variant="secondary" sizes={['s', 'm', 'l']} />
+        <h3 className="text-header-20 font-bold">Button / tertiary</h3>
+        <ButtonTable variant="tertiary" sizes={[undefined]} />
+        <h3 className="text-header-20 font-bold">Button / white</h3>
+        <ButtonTable variant="white" sizes={[undefined]} icon={<IconLocation />} />
+      </Section>
 
       <Section title="Colors">
         {colorGroups.map((group) => (

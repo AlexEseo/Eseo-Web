@@ -33,6 +33,15 @@
 
 В Figma нет переменных для отступов, поэтому используется шаг 4px: `p-1` = 4px, `p-4` = 16px, `gap-6` = 24px. Расстояние между секциями задаёт токен `--space-section`.
 
+## Высота кнопок
+
+Высота кнопок задана в Figma, поэтому для неё есть токены: `h-button-s` (26px), `h-button-m` (32px), `h-button-l` (38px), `h-button-white` (44px). Ширина всегда подстраивается под текст.
+
+## Компоненты
+
+- **Button** (`src/components/ui/button.jsx`): `variant` = primary / secondary / tertiary / white, `size` = s / m / l (только primary и secondary). Состояния как в Figma: Default, Hover, Pressed, Focus, Disabled. Дополнительно есть `loading` (крутилка вместо текста) — в Figma его нет.
+- На /styleguide состояния показаны без мыши с помощью `data-preview="hover"`, `"active"` или `"focus"`. На сайте они работают как обычно.
+
 ## Блоки с фиксированным размером
 
 Пока нет. Если какой-то блок должен иметь точный размер в пикселях, он записывается сюда.

@@ -145,6 +145,12 @@
   --spacing: 0.25rem;
   --space-section: clamp(4rem, 2.5143rem + 6.095vw, 8rem);        /* gap between sections, 64 → 128 */
 
+  /* Control heights from Figma: Button sizes S 26 · M 32 · L 38, Button / white 44 → h-button-s ... */
+  --spacing-button-s: 1.625rem;
+  --spacing-button-m: 2rem;
+  --spacing-button-l: 2.375rem;
+  --spacing-button-white: 2.75rem;
+
   /* Layout */
   --container-page: 72rem;       /* placeholder: will be taken from the Home page in stage 5 */
 
