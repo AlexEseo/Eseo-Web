@@ -15,8 +15,8 @@ const twMerge = extendTailwindMerge({
         'caption-12', 'caption-10',
         'button-16', 'button-15', 'button-13',
       ],
-      radius: ['4', '8', '16', '40'],
-      shadow: ['card', 'glass-card', 'device', 'chip'],
+      radius: ['4', '8', '16', '24', '40'],
+      shadow: ['card', 'glass-card', 'device', 'chip', 'pricing', 'pricing-hover', 'pricing-selected', 'pricing-selected-hover', 'pricing-focus', 'pricing-selected-focus'],
     },
   },
 })

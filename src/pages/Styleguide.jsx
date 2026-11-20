@@ -18,6 +18,23 @@ import IconSeo from '@/components/icons/IconSeo'
 import { Slider } from '@/components/ui/slider'
 import { SliderRow } from '@/components/ui/slider-row'
 import { CurrencySelect } from '@/components/ui/currency-select'
+import { CardCaption } from '@/components/ui/card-caption'
+import { StatCard } from '@/components/ui/stat-card'
+import { IndustryCard } from '@/components/ui/industry-card'
+import { PlanCard } from '@/components/ui/plan-card'
+import { PlanRow } from '@/components/ui/plan-row'
+import { PricingCard } from '@/components/ui/pricing-card'
+import IconSeo12 from '@/components/icons/IconSeo12'
+import IconTarget from '@/components/icons/IconTarget'
+import IconPercent from '@/components/icons/IconPercent'
+import IconCheck from '@/components/icons/IconCheck'
+import IconEuro from '@/components/icons/IconEuro'
+import IconSwap from '@/components/icons/IconSwap'
+import IconArrowUp from '@/components/icons/IconArrowUp'
+import IconCalendar from '@/components/icons/IconCalendar'
+import logoGoogleAds from '@/assets/icons/google-ads.svg'
+import logoMeta from '@/assets/icons/meta.svg'
+import logoTiktok from '@/assets/icons/tiktok.svg'
 
 const colorGroups = [
   { title: 'gray', items: ['gray-0', 'gray-25', 'gray-50', 'gray-100', 'gray-200', 'gray-300', 'gray-400', 'gray-500', 'gray-600', 'gray-700', 'gray-800', 'gray-900', 'gray-950'] },
@@ -165,6 +182,27 @@ const demoCurrencies = [
   { value: 'GBP', code: 'GBP £', name: 'British pound' },
   { value: 'CAD', code: 'CAD C$', name: 'Canadian dollar' },
 ]
+// Sample texts for the cards, as in Figma. On the landing page they come from site.json.
+const demoPricing = {
+  label: 'Label',
+  title: 'Card title',
+  description: 'Short description of the offer in one or two lines.',
+  price: '€0,000',
+  from: 'from',
+  period: 'period',
+  features: ['List item one', 'List item two', 'List item three', 'List item four', 'List item five', 'List item six', 'List item seven', 'List item eight'],
+  cta: 'Button',
+}
+const demoIndustry = {
+  heading: 'Your strategy starting point',
+  rows: [
+    { label: 'Business question', value: 'Which products and customers deserve the next euro?' },
+    { label: 'Success measures', value: 'Contribution after media · New-customer CAC · MER' },
+    { label: 'Initial workstream', value: 'Margin-led feeds, search demand and paid social creative tests' },
+  ],
+  note: 'Illustrative approach. Final scope follows discovery.',
+}
+const logo = (src) => <img src={src} alt="" width="12" height="12" />
 const demoTabs = ['E-commerce', 'SaaS', 'Fintech', 'Healthcare']
 const demoFaq = [
   ['How long does onboarding take?', 'Answer text goes here in one or two short sentences.'],
@@ -360,6 +398,68 @@ export default function Styleguide() {
             </div>
           </div>
         </div>
+      </Section>
+
+      <Section title="Cards">
+        <h3 className="text-header-20 font-bold">Pricing card</h3>
+        <div className="grid grid-cols-1 gap-6 rounded-16 bg-gray-100 p-6 md:grid-cols-2 lg:grid-cols-3">
+          {[
+            ['Default', {}],
+            ['Hover', { preview: 'hover' }],
+            ['Focus', { preview: 'focus' }],
+            ['Selected · Default', { selected: true }],
+            ['Selected · Hover', { selected: true, preview: 'hover' }],
+            ['Selected · Focus', { selected: true, preview: 'focus' }],
+          ].map(([name, props]) => (
+            <div key={name} className="flex flex-col gap-3">
+              <Token>{name}</Token>
+              <PricingCard {...demoPricing} {...props} />
+            </div>
+          ))}
+        </div>
+        <h3 className="text-header-20 font-bold">Plan card · Plan row</h3>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <PlanCard>
+            <PlanRow
+              title="Growth plan"
+              subtitle="4 channels"
+              checked
+              badges={[
+                <IconBadge key="seo" color="white"><IconSeo12 /></IconBadge>,
+                <IconBadge key="ads" color="white">{logo(logoGoogleAds)}</IconBadge>,
+                <IconBadge key="meta" color="white">{logo(logoMeta)}</IconBadge>,
+                <IconBadge key="tt" color="white">{logo(logoTiktok)}</IconBadge>,
+              ]}
+            />
+            <PlanRow
+              title="Measurement"
+              subtitle="1 shared scorecard"
+              badges={[
+                <IconBadge key="r" color="green"><IconBars /></IconBadge>,
+                <IconBadge key="t" color="orange"><IconTarget /></IconBadge>,
+                <IconBadge key="p" color="pink"><IconPercent /></IconBadge>,
+                <IconBadge key="c" color="gray-900"><IconCheck /></IconBadge>,
+              ]}
+            />
+            <PlanRow
+              title="Budget"
+              subtitle="Reviewed quarterly"
+              badges={[
+                <IconBadge key="e" color="coral"><IconEuro /></IconBadge>,
+                <IconBadge key="s" color="brand"><IconSwap /></IconBadge>,
+                <IconBadge key="u" color="green"><IconArrowUp /></IconBadge>,
+                <IconBadge key="q" color="gray-500"><IconCalendar /></IconBadge>,
+              ]}
+            />
+          </PlanCard>
+          <div className="flex flex-col gap-6">
+            <StatCard label="Label" value="€0.00m" caption="Caption" />
+            <CardCaption title="Title" description="Description" />
+          </div>
+        </div>
+        <p className="text-body-14 text-gray-600">Сверху вниз справа: Stat card и Card caption.</p>
+        <h3 className="text-header-20 font-bold">Industry card</h3>
+        <IndustryCard {...demoIndustry} />
       </Section>
 
       <Section title="Colors">

@@ -13,7 +13,7 @@ function ChannelChip({ label, className, children, ...props }) {
       aria-label={label}
       aria-hidden={label ? undefined : true}
       className={cn(
-        'border-gradient-chip inline-flex size-chip shrink-0 items-center justify-center rounded-full bg-(image:--gradient-chip-fill) text-gray-900 shadow-chip backdrop-blur-background-8',
+        'border-gradient [--border-gradient:var(--gradient-chip-stroke)] [--border-gradient-width:var(--border-width-chip)] inline-flex size-chip shrink-0 items-center justify-center rounded-full bg-(image:--gradient-chip-fill) text-gray-900 shadow-chip backdrop-blur-background-8',
         className,
       )}
       {...props}
