@@ -3,11 +3,11 @@
 @import './tokens.css';
 
 html {
-  background: var(--color-bg);
-  color: var(--color-text);
+  background: var(--color-gray-0);
+  color: var(--color-gray-950);
   font-family: var(--font-sans);
-  font-size: var(--text-body-lg);
-  line-height: var(--text-body-lg--line-height);
+  font-size: var(--text-body-16);
+  line-height: var(--text-body-16--line-height);
   -webkit-font-smoothing: antialiased;
 }
 

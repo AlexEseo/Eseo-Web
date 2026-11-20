@@ -1,90 +1,88 @@
 // Styleguide (/styleguide): shows design tokens and every component in all its states.
-// Lists below mirror tokens.css. When a token is added there, add it here too.
+// Names match Figma one to one. When a token is added to tokens.css, add it here too.
 
 const colorGroups = [
-  { title: 'Фон', items: ['bg', 'surface', 'surface-muted', 'surface-brand', 'surface-warm', 'surface-inverse'] },
-  { title: 'Текст', items: ['text', 'text-secondary', 'text-muted', 'text-disabled', 'text-inverse', 'text-brand', 'text-brand-hover'] },
-  { title: 'Бренд', items: ['brand', 'brand-hover', 'brand-press', 'brand-contrast', 'brand-soft', 'brand-softer'] },
-  { title: 'Границы', items: ['border', 'border-strong', 'border-focus'] },
-  { title: 'Статусы', items: ['success', 'warning', 'error'] },
-  { title: 'Декор', items: ['warm', 'warm-strong', 'accent-green', 'accent-orange', 'accent-pink', 'accent-coral', 'accent-magenta'] },
+  { title: 'gray', items: ['gray-0', 'gray-25', 'gray-50', 'gray-100', 'gray-200', 'gray-300', 'gray-400', 'gray-500', 'gray-600', 'gray-700', 'gray-800', 'gray-900', 'gray-950'] },
+  { title: 'brand', items: ['brand-50', 'brand-100', 'brand-200', 'brand-600', 'brand-700', 'brand-800'] },
+  { title: 'beige', items: ['beige-100', 'beige-200', 'beige-300'] },
+  { title: 'coral · green · orange · pink', items: ['coral-500', 'green-500', 'orange-500', 'pink-500'] },
+  { title: 'accent', items: ['accent-green', 'accent-orange', 'accent-pink', 'accent-coral'] },
 ]
 
+// Tailwind needs full class names written out, so each style lists its classes.
 const textStyles = [
-  { token: 'display-xl', weight: 'font-semibold', note: '40 → 72' },
-  { token: 'display-lg', weight: 'font-semibold', note: '36 → 64' },
-  { token: 'display-md', weight: 'font-semibold', note: '32 → 48' },
-  { token: 'display-sm', weight: 'font-semibold', note: '28 → 40' },
-  { token: 'heading-lg', weight: 'font-semibold', note: '24 → 32' },
-  { token: 'heading-md', weight: 'font-semibold', note: '20 → 24' },
-  { token: 'heading-sm', weight: 'font-bold', note: '18 → 20' },
-  { token: 'body-lg', weight: 'font-normal', note: '16' },
-  { token: 'body-md', weight: 'font-normal', note: '14' },
-  { token: 'body-sm', weight: 'font-normal', note: '12' },
-  { token: 'label-lg', weight: 'font-medium', note: '16' },
-  { token: 'label-md', weight: 'font-medium', note: '14' },
-  { token: 'label-sm', weight: 'font-semibold', note: '12' },
-  { token: 'caption', weight: 'font-bold lowercase', note: '12' },
-  { token: 'caption-sm', weight: 'font-bold', note: '10' },
-  { token: 'button-lg', weight: 'font-medium', note: '16' },
-  { token: 'button-md', weight: 'font-medium', note: '15' },
-  { token: 'button-sm', weight: 'font-medium', note: '13' },
+  ['typo/display/520 - semibold', 'text-display-520 font-semibold', '160 → 520', 'Ag'],
+  ['typo/display/220 - semibold', 'text-display-220 font-semibold', '96 → 220', 'Ag'],
+  ['typo/display/72 - semibold', 'text-display-72 font-semibold', '40 → 72'],
+  ['typo/display/64 - semibold', 'text-display-64 font-semibold', '36 → 64'],
+  ['typo/display/48 - semibold', 'text-display-48 font-semibold', '32 → 48'],
+  ['typo/display/40 - semibold', 'text-display-40 font-semibold', '28 → 40'],
+  ['typo/header/32 - semibold', 'text-header-32 font-semibold', '24 → 32'],
+  ['typo/header/24 - semibold', 'text-header-24 font-semibold', '20 → 24'],
+  ['typo/header/20 - bold', 'text-header-20 font-bold', '18 → 20'],
+  ['typo/body/16 - semibold', 'text-body-16 font-semibold', '16'],
+  ['typo/body/16 - regular', 'text-body-16 font-normal', '16'],
+  ['typo/body/14 - semibold', 'text-body-14 font-semibold', '14'],
+  ['typo/body/14 - medium', 'text-body-14 font-medium', '14'],
+  ['typo/body/14 - regular', 'text-body-14 font-normal', '14'],
+  ['typo/body/12 - semibold', 'text-body-12 font-semibold', '12'],
+  ['typo/body/12 - medium', 'text-body-12 font-medium', '12'],
+  ['typo/body/12 - regular', 'text-body-12 font-normal', '12'],
+  ['typo/label/16 - medium', 'text-label-16 font-medium', '16'],
+  ['typo/label/14 - semibold', 'text-label-14 font-semibold', '14'],
+  ['typo/label/14 - medium', 'text-label-14-medium font-medium', '14'],
+  ['typo/label/12 - medium', 'text-label-12 font-semibold', '12'],
+  ['typo/caption/12 - bold', 'text-caption-12 font-bold lowercase', '12'],
+  ['typo/caption/10 - bold', 'text-caption-10 font-bold capitalize', '10'],
+  ['typo/button/16 - medium', 'text-button-16 font-medium', '16'],
+  ['typo/button/15 - medium', 'text-button-15 font-medium', '15'],
+  ['typo/button/13 - medium', 'text-button-13 font-medium', '13'],
 ]
-
-// Tailwind needs full class names written out, so sizes are listed here.
-const textClass = {
-  'display-xl': 'text-display-xl', 'display-lg': 'text-display-lg', 'display-md': 'text-display-md',
-  'display-sm': 'text-display-sm', 'heading-lg': 'text-heading-lg', 'heading-md': 'text-heading-md',
-  'heading-sm': 'text-heading-sm', 'body-lg': 'text-body-lg', 'body-md': 'text-body-md',
-  'body-sm': 'text-body-sm', 'label-lg': 'text-label-lg', 'label-md': 'text-label-md',
-  'label-sm': 'text-label-sm', caption: 'text-caption', 'caption-sm': 'text-caption-sm',
-  'button-lg': 'text-button-lg', 'button-md': 'text-button-md', 'button-sm': 'text-button-sm',
-}
 
 const radii = [
-  { token: 'sm', cls: 'rounded-sm', note: '4' },
-  { token: 'md', cls: 'rounded-md', note: '8' },
-  { token: 'lg', cls: 'rounded-lg', note: '16' },
-  { token: 'xl', cls: 'rounded-xl', note: '40' },
-  { token: 'full', cls: 'rounded-full', note: '999' },
+  ['radius/4', 'rounded-4'],
+  ['radius/8', 'rounded-8'],
+  ['radius/16', 'rounded-16'],
+  ['radius/40', 'rounded-40'],
+  ['radius/full', 'rounded-full'],
 ]
 
 const shadows = [
-  { token: 'card', cls: 'shadow-card' },
-  { token: 'glass', cls: 'shadow-glass' },
-  { token: 'device', cls: 'shadow-device' },
+  ['shadow/card', 'shadow-card'],
+  ['shadow/glass-card', 'shadow-glass-card'],
+  ['shadow/device', 'shadow-device'],
 ]
 
 function Section({ title, children }) {
   return (
     <section className="flex flex-col gap-6">
-      <h2 className="text-heading-lg font-semibold">{title}</h2>
+      <h2 className="text-header-32 font-semibold">{title}</h2>
       {children}
     </section>
   )
 }
 
 function Token({ children }) {
-  return <code className="text-body-sm text-text-muted">{children}</code>
+  return <code className="text-body-12 text-gray-500">{children}</code>
 }
 
 export default function Styleguide() {
   return (
-    <main className="mx-auto flex w-full max-w-(--container-page) flex-col gap-16 px-6 py-(--space-section)">
-      <h1 className="text-display-lg font-semibold">Styleguide</h1>
+    <main className="mx-auto flex w-full max-w-(--container-page) flex-col gap-16 overflow-hidden px-6 py-(--space-section)">
+      <h1 className="text-display-64 font-semibold">Styleguide</h1>
 
-      <Section title="Цвета">
+      <Section title="Colors">
         {colorGroups.map((group) => (
           <div key={group.title} className="flex flex-col gap-3">
-            <h3 className="text-label-md font-medium text-text-secondary">{group.title}</h3>
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-7">
+            <h3 className="text-label-14-medium font-medium text-gray-600">{group.title}</h3>
+            <div className="grid grid-cols-3 gap-4 md:grid-cols-5 lg:grid-cols-7">
               {group.items.map((name) => (
                 <div key={name} className="flex flex-col gap-2">
                   <div
-                    className="aspect-square w-full rounded-lg border border-border"
+                    className="aspect-square w-full rounded-16 border border-gray-200"
                     style={{ background: `var(--color-${name})` }}
                   />
-                  <Token>{name}</Token>
+                  <Token>{name.replace('-', '/')}</Token>
                 </div>
               ))}
             </div>
@@ -92,37 +90,37 @@ export default function Styleguide() {
         ))}
       </Section>
 
-      <Section title="Типографика · Inter">
-        <div className="flex flex-col divide-y divide-border">
-          {textStyles.map(({ token, weight, note }) => (
-            <div key={token} className="flex flex-col gap-2 py-4 md:flex-row md:items-baseline md:gap-8">
+      <Section title="Typography · Inter">
+        <div className="flex flex-col divide-y divide-gray-200">
+          {textStyles.map(([figma, cls, note, sample]) => (
+            <div key={figma} className="flex flex-col gap-2 py-4 md:flex-row md:items-baseline md:gap-8">
               <div className="flex shrink-0 flex-col gap-1 md:w-1/4">
-                <Token>text-{token}</Token>
+                <Token>{figma}</Token>
                 <Token>{note}</Token>
               </div>
-              <p className={`${textClass[token]} ${weight} min-w-0 break-words`}>Design that drives growth</p>
+              <p className={`${cls} min-w-0 break-words`}>{sample || 'Design that drives growth'}</p>
             </div>
           ))}
         </div>
       </Section>
 
-      <Section title="Скругления">
+      <Section title="Radius">
         <div className="grid grid-cols-2 gap-4 md:grid-cols-5">
-          {radii.map(({ token, cls, note }) => (
-            <div key={token} className="flex flex-col gap-2">
-              <div className={`aspect-square w-full bg-surface-brand ${cls}`} />
-              <Token>rounded-{token} · {note}</Token>
+          {radii.map(([figma, cls]) => (
+            <div key={figma} className="flex flex-col gap-2">
+              <div className={`aspect-square w-full bg-brand-50 ${cls}`} />
+              <Token>{figma}</Token>
             </div>
           ))}
         </div>
       </Section>
 
-      <Section title="Тени">
+      <Section title="Shadows">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          {shadows.map(({ token, cls }) => (
-            <div key={token} className="flex flex-col gap-3">
-              <div className={`aspect-video w-full rounded-lg bg-bg ${cls}`} />
-              <Token>shadow-{token}</Token>
+          {shadows.map(([figma, cls]) => (
+            <div key={figma} className="flex flex-col gap-3">
+              <div className={`aspect-video w-full rounded-16 bg-gray-0 ${cls}`} />
+              <Token>{figma}</Token>
             </div>
           ))}
         </div>
