@@ -43,6 +43,9 @@
 - **Field** (`field.jsx`): подпись слева, подсказка (`hint`) справа, под ними поле. `error` — текст ошибки вместо подсказки, рамка становится coral. `disabled` — подпись серая.
 - **Input** (`input.jsx`): поле ввода. Состояния: Default, Hover, Focus, Error, Disabled. Цвет подсказки внутри пустого поля (placeholder) в Figma не задан — взят gray/400.
 - **SelectField** (`select-field.jsx`): выпадающий список на основе shadcn Select. Принимает `options` — список вариантов. Состояния поля: Default, Hover, Focus, Open, Error, Disabled; пункты меню: Default, Hover, Selected. Галочки у выбранного пункта нет, как в Figma.
+- **Link** (`link.jsx`): синяя ссылка со стрелкой, `arrow={false}` убирает стрелку. Hover и Focus в Figma нет — добавлены (синий темнеет, стрелка сдвигается).
+- **Divider** (`divider.jsx`): линия 1px gray/200 на всю ширину.
+- **SectionLabel** (`section-label.jsx`): серая подпись над заголовком секции.
 - На /styleguide состояния показаны без мыши с помощью `data-preview="hover"`, `"active"` или `"focus"`. На сайте они работают как обычно.
 
 ## Блоки с фиксированным размером

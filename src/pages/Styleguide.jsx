@@ -6,6 +6,9 @@ import IconLocation from '@/components/icons/IconLocation'
 import { Field } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
 import { SelectField } from '@/components/ui/select-field'
+import { Link } from '@/components/ui/link'
+import { Divider } from '@/components/ui/divider'
+import { SectionLabel } from '@/components/ui/section-label'
 
 const colorGroups = [
   { title: 'gray', items: ['gray-0', 'gray-25', 'gray-50', 'gray-100', 'gray-200', 'gray-300', 'gray-400', 'gray-500', 'gray-600', 'gray-700', 'gray-800', 'gray-900', 'gray-950'] },
@@ -185,6 +188,34 @@ export default function Styleguide() {
           <Field id="try-goal" label="What would you like to improve?">
             <SelectField id="try-goal" options={demoOptions} placeholder="Choose one" />
           </Field>
+        </div>
+      </Section>
+
+      <Section title="Link · Divider · Section label">
+        <h3 className="text-header-20 font-bold">Link</h3>
+        <div className="flex flex-wrap gap-10 rounded-16 border border-gray-200 p-6">
+          {[['Default', {}], ['Hover', { 'data-preview': 'hover' }], ['Focus', { 'data-preview': 'focus' }], ['No arrow', { arrow: false }]].map(
+            ([name, props]) => (
+              <div key={name} className="flex flex-col gap-3">
+                <Token>{name}</Token>
+                <Link href="#" {...props}>
+                  Link
+                </Link>
+              </div>
+            ),
+          )}
+        </div>
+        <p className="text-body-14 text-gray-600">Hover и Focus у ссылки в Figma нет — добавлены: синий темнеет, стрелка чуть сдвигается.</p>
+        <h3 className="text-header-20 font-bold">Divider</h3>
+        <div className="flex flex-col gap-4 rounded-16 border border-gray-200 p-6">
+          <p className="text-body-14">Text above</p>
+          <Divider />
+          <p className="text-body-14">Text below</p>
+        </div>
+        <h3 className="text-header-20 font-bold">Section label</h3>
+        <div className="flex flex-col gap-2 rounded-16 border border-gray-200 p-6">
+          <SectionLabel>Section label</SectionLabel>
+          <p className="text-display-40 font-semibold">Section heading</p>
         </div>
       </Section>
 
