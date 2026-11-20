@@ -1,0 +1,35 @@
+/*
+  Design tokens: the only place for colours, fonts, spacing, radii and animation timing.
+  Placeholder values for now. They will be replaced with the values from the approved design.
+*/
+@theme static {
+  /* Colours */
+  --color-bg: #ffffff;
+  --color-surface: #f5f5f5;
+  --color-text: #111111;
+  --color-text-muted: #666666;
+  --color-brand: #111111;
+  --color-brand-contrast: #ffffff;
+  --color-border: #e5e5e5;
+
+  /* Fonts */
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* Fluid text sizes: min, preferred, max */
+  --text-body: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --text-h1: clamp(2.25rem, 1.5rem + 3vw, 4rem);
+
+  /* Spacing */
+  --spacing: 0.25rem;
+  --space-section: clamp(3rem, 2rem + 5vw, 7rem);
+
+  /* Layout */
+  --container-page: 72rem;
+
+  /* Radii */
+  --radius-md: 0.5rem;
+
+  /* Animation */
+  --duration-base: 300ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+}
