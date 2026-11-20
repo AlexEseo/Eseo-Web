@@ -150,6 +150,8 @@
   --spacing-button-m: 2rem;
   --spacing-button-l: 2.375rem;
   --spacing-button-white: 2.75rem;
+  /* Field and Select field input height from Figma: 40 → h-field */
+  --spacing-field: 2.5rem;
 
   /* Layout */
   --container-page: 72rem;       /* placeholder: will be taken from the Home page in stage 5 */

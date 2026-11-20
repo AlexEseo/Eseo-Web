@@ -3,6 +3,9 @@
 // data-preview="hover" | "active" | "focus" shows a state without the mouse (see globals.css).
 import { Button } from '@/components/ui/button'
 import IconLocation from '@/components/icons/IconLocation'
+import { Field } from '@/components/ui/field'
+import { Input } from '@/components/ui/input'
+import { SelectField } from '@/components/ui/select-field'
 
 const colorGroups = [
   { title: 'gray', items: ['gray-0', 'gray-25', 'gray-50', 'gray-100', 'gray-200', 'gray-300', 'gray-400', 'gray-500', 'gray-600', 'gray-700', 'gray-800', 'gray-900', 'gray-950'] },
@@ -102,6 +105,40 @@ function ButtonTable({ variant, sizes, icon }) {
   )
 }
 
+// Field and Select field states: Figma state name → props.
+const fieldStates = [
+  ['Default', {}],
+  ['Hover', { preview: 'hover' }],
+  ['Focus', { preview: 'focus' }],
+  ['Error', { error: 'Error text' }],
+  ['Disabled', { disabled: true }],
+]
+const selectStates = [...fieldStates.slice(0, 3), ['Open', { preview: 'open' }], ...fieldStates.slice(3)]
+const demoOptions = ['Profitable customer acquisition', 'Scaling into new markets', 'Measurement & attribution', 'Something else']
+
+function FieldGrid({ kind, states, render }) {
+  return (
+    <div className="grid grid-cols-1 gap-6 rounded-16 border border-gray-200 p-6 md:grid-cols-3 lg:grid-cols-6">
+      {states.map(([name, { preview, error, disabled }]) => (
+        <div key={name} className="flex flex-col gap-3">
+          <Token>{name}</Token>
+          <Field id={`demo-${kind}-${name}`} label="Label" hint="Hint" error={error} disabled={disabled}>
+            {render({ id: `demo-${kind}-${name}`, preview, disabled })}
+          </Field>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function DemoInput({ id, preview, disabled }) {
+  return <Input id={id} data-preview={preview} disabled={disabled} defaultValue="Value" />
+}
+
+function DemoSelect({ id, preview, disabled }) {
+  return <SelectField id={id} preview={preview} disabled={disabled} options={demoOptions} defaultValue={demoOptions[0]} />
+}
+
 function Section({ title, children }) {
   return (
     <section className="flex flex-col gap-6">
@@ -133,6 +170,22 @@ export default function Styleguide() {
         <ButtonTable variant="tertiary" sizes={[undefined]} />
         <h3 className="text-header-20 font-bold">Button / white</h3>
         <ButtonTable variant="white" sizes={[undefined]} icon={<IconLocation />} />
+      </Section>
+
+      <Section title="Field · Select field">
+        <h3 className="text-header-20 font-bold">Field</h3>
+        <FieldGrid kind="field" states={fieldStates} render={DemoInput} />
+        <h3 className="text-header-20 font-bold">Select field</h3>
+        <FieldGrid kind="select" states={selectStates} render={DemoSelect} />
+        <h3 className="text-header-20 font-bold">Попробовать</h3>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <Field id="try-name" label="Name" hint="Optional">
+            <Input id="try-name" placeholder="Your name" />
+          </Field>
+          <Field id="try-goal" label="What would you like to improve?">
+            <SelectField id="try-goal" options={demoOptions} placeholder="Choose one" />
+          </Field>
+        </div>
       </Section>
 
       <Section title="Colors">

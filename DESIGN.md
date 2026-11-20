@@ -35,11 +35,14 @@
 
 ## Высота кнопок
 
-Высота кнопок задана в Figma, поэтому для неё есть токены: `h-button-s` (26px), `h-button-m` (32px), `h-button-l` (38px), `h-button-white` (44px). Ширина всегда подстраивается под текст.
+Высота кнопок задана в Figma, поэтому для неё есть токены: `h-button-s` (26px), `h-button-m` (32px), `h-button-l` (38px), `h-button-white` (44px). Ширина всегда подстраивается под текст. Высота поля ввода и выпадающего списка — `h-field` (40px).
 
 ## Компоненты
 
 - **Button** (`src/components/ui/button.jsx`): `variant` = primary / secondary / tertiary / white, `size` = s / m / l (только primary и secondary). Состояния как в Figma: Default, Hover, Pressed, Focus, Disabled. Дополнительно есть `loading` (крутилка вместо текста) — в Figma его нет.
+- **Field** (`field.jsx`): подпись слева, подсказка (`hint`) справа, под ними поле. `error` — текст ошибки вместо подсказки, рамка становится coral. `disabled` — подпись серая.
+- **Input** (`input.jsx`): поле ввода. Состояния: Default, Hover, Focus, Error, Disabled. Цвет подсказки внутри пустого поля (placeholder) в Figma не задан — взят gray/400.
+- **SelectField** (`select-field.jsx`): выпадающий список на основе shadcn Select. Принимает `options` — список вариантов. Состояния поля: Default, Hover, Focus, Open, Error, Disabled; пункты меню: Default, Hover, Selected. Галочки у выбранного пункта нет, как в Figma.
 - На /styleguide состояния показаны без мыши с помощью `data-preview="hover"`, `"active"` или `"focus"`. На сайте они работают как обычно.
 
 ## Блоки с фиксированным размером
