@@ -16,7 +16,7 @@ const twMerge = extendTailwindMerge({
         'button-16', 'button-15', 'button-13',
       ],
       radius: ['4', '8', '16', '40'],
-      shadow: ['card', 'glass-card', 'device'],
+      shadow: ['card', 'glass-card', 'device', 'chip'],
     },
   },
 })

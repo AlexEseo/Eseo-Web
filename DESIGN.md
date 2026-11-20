@@ -48,6 +48,9 @@
 - **SectionLabel** (`section-label.jsx`): серая подпись над заголовком секции.
 - **Tabs** (`tabs.jsx`, shadcn): вкладки с полоской снизу. Состояния: Default, Hover, Active, Focus, Disabled. Переключаются стрелками на клавиатуре.
 - **Accordion** (`accordion.jsx`, shadcn): список вопросов (FAQ). Состояния: Closed, Open. Раскрывается плавно (`--duration-base`), анимация отключается, если в системе включено «уменьшить движение». Рамка фокуса у вопроса добавлена (в Figma её нет).
+- **IconBadge** (`icon-badge.jsx`): круглый значок 20px с белой иконкой 12px. `color` = green (как в Figma) / orange / pink / coral / brand.
+- **ChannelChip** (`channel-chip.jsx`): стеклянный круг 72px с иконкой 36px. Градиент, обводка, тень и размытие — токены `--gradient-chip-*`, `--shadow-chip`, `--blur-background-8`.
+- **Иконки** лежат в `src/components/icons/`, по одной в файле. Цвет иконки берётся из цвета текста, поэтому её можно перекрасить классом (`text-brand-600`).
 - На /styleguide состояния показаны без мыши с помощью `data-preview="hover"`, `"active"` или `"focus"`. На сайте они работают как обычно.
 
 ## Блоки с фиксированным размером

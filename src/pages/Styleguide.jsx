@@ -11,6 +11,10 @@ import { Divider } from '@/components/ui/divider'
 import { SectionLabel } from '@/components/ui/section-label'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+import { IconBadge } from '@/components/ui/icon-badge'
+import { ChannelChip } from '@/components/ui/channel-chip'
+import IconBars from '@/components/icons/IconBars'
+import IconSeo from '@/components/icons/IconSeo'
 
 const colorGroups = [
   { title: 'gray', items: ['gray-0', 'gray-25', 'gray-50', 'gray-100', 'gray-200', 'gray-300', 'gray-400', 'gray-500', 'gray-600', 'gray-700', 'gray-800', 'gray-900', 'gray-950'] },
@@ -281,6 +285,34 @@ export default function Styleguide() {
           </Accordion>
         </div>
         <p className="text-body-14 text-gray-600">Закрытые вопросы — Closed, открытый — Open. Рамка фокуса у вопроса в Figma нет — добавлена для клавиатуры.</p>
+      </Section>
+
+      <Section title="Icon badge · Channel chip">
+        <h3 className="text-header-20 font-bold">Icon badge</h3>
+        <div className="flex flex-wrap gap-10 rounded-16 border border-gray-200 p-6">
+          {['green', 'orange', 'pink', 'coral', 'brand'].map((color) => (
+            <div key={color} className="flex flex-col items-start gap-3">
+              <Token>{color === 'green' ? 'green (Figma)' : color}</Token>
+              <IconBadge color={color}>
+                <IconBars />
+              </IconBadge>
+            </div>
+          ))}
+        </div>
+        <p className="text-body-14 text-gray-600">В Figma значок только зелёный. Другие цвета — из палитры, на случай если понадобятся.</p>
+        <h3 className="text-header-20 font-bold">Channel chip</h3>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {[['on gray/0', 'bg-gray-0'], ['on beige/100', 'bg-beige-100'], ['on brand/50', 'bg-brand-50']].map(([name, bg]) => (
+            <div key={name} className="flex flex-col gap-3">
+              <Token>{name}</Token>
+              <div className={`flex items-center justify-center rounded-16 border border-gray-200 p-10 ${bg}`}>
+                <ChannelChip label="SEO">
+                  <IconSeo />
+                </ChannelChip>
+              </div>
+            </div>
+          ))}
+        </div>
       </Section>
 
       <Section title="Colors">

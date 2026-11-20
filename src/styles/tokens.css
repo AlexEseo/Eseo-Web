@@ -168,6 +168,14 @@
   --shadow-glass-card: 0 2px 4px 0 rgb(10 13 18 / 0.04), 0 24px 56px 0 rgb(36 91 232 / 0.22);
   --shadow-device: -8px 12px 32px 0 rgb(10 13 18 / 0.16);
 
+  /* Channel chip (Figma "Channel chip"): glass circle. Values copied from the Figma layer. */
+  --shadow-chip: 0 8px 16px -4px rgb(36 91 232 / 0.14), inset 0 1.5px 0 0 rgb(255 255 255), inset 0 -4px 6px 0 rgb(36 91 232 / 0.12);
+  --gradient-chip-fill: linear-gradient(135deg, rgb(255 255 255 / 0.95), rgb(255 255 255 / 0.6));
+  --gradient-chip-stroke: linear-gradient(135deg, rgb(255 255 255), rgb(201 217 255 / 0.9) 50%, rgb(127 162 255 / 0.9));
+  --border-width-chip: 1.5px;
+  --spacing-chip: 4.5rem;        /* 72 → size-chip */
+  --spacing-icon-badge: 1.25rem; /* 20 → size-icon-badge */
+
   /* Blurs: Figma "blur/..." → backdrop-blur-background-8, blur-layer-md, ... */
   --blur-background-8: 8px;
   --blur-layer-xs: 24px;

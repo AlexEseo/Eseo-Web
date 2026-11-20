@@ -19,6 +19,22 @@
 @custom-variant active (&:active, &[data-preview~='active']);
 @custom-variant focus-visible (&:focus-visible, &[data-preview~='focus']);
 
+/* Gradient outline for round glass elements (Channel chip). Colours and width come from tokens.css. */
+@utility border-gradient-chip {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: var(--border-width-chip);
+    background: var(--gradient-chip-stroke);
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); /* design-ok: stencil, not a visible colour */
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
 html {
   background: var(--color-gray-0);
   color: var(--color-gray-950);
