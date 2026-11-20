@@ -17,6 +17,7 @@ import IconBars from '@/components/icons/IconBars'
 import IconSeo from '@/components/icons/IconSeo'
 import { Slider } from '@/components/ui/slider'
 import { SliderRow } from '@/components/ui/slider-row'
+import { CurrencySelect } from '@/components/ui/currency-select'
 
 const colorGroups = [
   { title: 'gray', items: ['gray-0', 'gray-25', 'gray-50', 'gray-100', 'gray-200', 'gray-300', 'gray-400', 'gray-500', 'gray-600', 'gray-700', 'gray-800', 'gray-900', 'gray-950'] },
@@ -157,6 +158,12 @@ const tabStates = [
   ['Active', { active: true }],
   ['Focus', { 'data-preview': 'focus' }],
   ['Disabled', { disabled: true }],
+]
+const demoCurrencies = [
+  { value: 'USD', code: 'USD $', name: 'US dollar' },
+  { value: 'EUR', code: 'EUR €', name: 'Euro' },
+  { value: 'GBP', code: 'GBP £', name: 'British pound' },
+  { value: 'CAD', code: 'CAD C$', name: 'Canadian dollar' },
 ]
 const demoTabs = ['E-commerce', 'SaaS', 'Fintech', 'Healthcare']
 const demoFaq = [
@@ -332,6 +339,26 @@ export default function Styleguide() {
         <div className="grid grid-cols-1 gap-8 rounded-16 border border-gray-200 p-6 md:grid-cols-2">
           <SliderRow id="try-margin" label="Contribution margin before media" defaultValue={40} format={(v) => `${v}%`} />
           <SliderRow id="try-change" label="Hypothetical revenue change" defaultValue={10} min={-50} max={50} format={(v) => `${v}%`} />
+        </div>
+      </Section>
+
+      <Section title="Currency select">
+        <div className="flex flex-wrap gap-10 rounded-16 border border-gray-200 p-6">
+          {[['Default', {}], ['Hover', { preview: 'hover' }], ['Open', { preview: 'open' }], ['Disabled', { disabled: true }]].map(([name, props]) => (
+            <div key={name} className="flex flex-col items-start gap-3">
+              <Token>{name}</Token>
+              <CurrencySelect currencies={demoCurrencies} defaultValue="EUR" aria-label={`Currency ${name}`} {...props} />
+            </div>
+          ))}
+          <div className="flex flex-col items-start gap-3">
+            <Token>Попробовать</Token>
+            <div className="flex items-center gap-2">
+              <span id="try-currency-label" className="text-body-12 text-gray-500">
+                Currency
+              </span>
+              <CurrencySelect id="try-currency" currencies={demoCurrencies} defaultValue="EUR" aria-labelledby="try-currency-label" />
+            </div>
+          </div>
         </div>
       </Section>
 

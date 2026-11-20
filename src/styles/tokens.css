@@ -154,6 +154,8 @@
   --spacing-field: 2.5rem;
   /* Slider track thickness from Figma: 4 → h-slider-track */
   --spacing-slider-track: 0.25rem;
+  /* Currency menu width from Figma: 200 → min-w-currency-menu */
+  --spacing-currency-menu: 12.5rem;
 
   /* Layout */
   --container-page: 72rem;       /* placeholder: will be taken from the Home page in stage 5 */
