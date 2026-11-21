@@ -6,6 +6,7 @@ import { Footer } from '@/components/sections/Footer'
 import { Header } from '@/components/sections/Header'
 import { Hero } from '@/components/sections/Hero'
 import { LetsTalk } from '@/components/sections/LetsTalk'
+import { Principles } from '@/components/sections/Principles'
 import IconSeo from '@/components/icons/IconSeo'
 import logoGoogleAds from '@/assets/icons/google-ads.svg'
 import logoMeta from '@/assets/icons/meta.svg'
@@ -44,6 +45,7 @@ export default function App() {
           channels={site.hero.channels.map((c) => ({ name: c.name, icon: channelIcons[c.icon] }))}
           onCta={openTalk}
         />
+        <Principles text={site.principles} />
       </main>
       <Footer {...chrome} />
       <LetsTalk text={site.form} open={talkOpen} onOpenChange={setTalkOpen} />

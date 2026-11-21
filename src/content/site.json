@@ -117,5 +117,38 @@
         "href": "/legal"
       }
     ]
+  },
+  "principles": {
+    "title": "Built around \nyour business model.",
+    "cards": [
+      {
+        "key": "ecommerce",
+        "title": "E-commerce",
+        "description": "30+ brands · €1m managed",
+        "rows": [
+          "Revenue",
+          "Orders",
+          "Margin",
+          "Returns"
+        ]
+      },
+      {
+        "key": "subscriptions",
+        "title": "Subscriptions & apps",
+        "description": "7 apps · 42% retention lift",
+        "button": "Subscribe"
+      },
+      {
+        "key": "education",
+        "title": "Education",
+        "description": "4 programmes · 50+ enrolments"
+      },
+      {
+        "key": "multilocation",
+        "title": "Multi-location",
+        "description": "17 locations · 10+ markets",
+        "market": "Market"
+      }
+    ]
   }
 }
