@@ -204,15 +204,15 @@
           "rows": [
             {
               "label": "Business question",
-              "value": "Which products and customers deserve the next euro?"
+              "value": "Which channels bring subscribers who stay past the first renewal?"
             },
             {
               "label": "Success measures",
-              "value": "Contribution after media · New-customer CAC · MER"
+              "value": "Trial-to-paid rate · Payback period · 90-day retention"
             },
             {
               "label": "Initial workstream",
-              "value": "Margin-led feeds, search demand and paid social creative tests."
+              "value": "Paid social and app campaigns optimised to retained subscribers, not installs."
             }
           ],
           "note": "Illustrative approach. Final scope follows discovery."
@@ -229,15 +229,15 @@
           "rows": [
             {
               "label": "Business question",
-              "value": "Which products and customers deserve the next euro?"
+              "value": "Which campaigns bring students who apply and enrol, not just enquire?"
             },
             {
               "label": "Success measures",
-              "value": "Contribution after media · New-customer CAC · MER"
+              "value": "Cost per enrolment · Application-to-enrolment rate · Intake fill rate"
             },
             {
               "label": "Initial workstream",
-              "value": "Margin-led feeds, search demand and paid social creative tests."
+              "value": "Programme-level search demand, intake-timed paid social and lead scoring."
             }
           ],
           "note": "Illustrative approach. Final scope follows discovery."
@@ -254,15 +254,15 @@
           "rows": [
             {
               "label": "Business question",
-              "value": "Which products and customers deserve the next euro?"
+              "value": "Which locations and markets can absorb the next budget profitably?"
             },
             {
               "label": "Success measures",
-              "value": "Contribution after media · New-customer CAC · MER"
+              "value": "Revenue per location · Local cost per acquisition · Market-level MER"
             },
             {
               "label": "Initial workstream",
-              "value": "Margin-led feeds, search demand and paid social creative tests."
+              "value": "Location-level search and maps, local paid social and market-by-market reporting."
             }
           ],
           "note": "Illustrative approach. Final scope follows discovery."
