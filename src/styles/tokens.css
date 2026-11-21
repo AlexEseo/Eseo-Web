@@ -163,6 +163,10 @@
   --container-page: 70rem;       /* content width 1120 from Figma Header and Footer */
   --container-hero-copy: 47.5rem; /* Hero title width, from Figma: 760 */
   --container-hero-sub: 30rem;    /* Hero subtitle width, from Figma: 480 */
+  --container-convergence: 55rem; /* Channel convergence illustration width, from Figma: 880 */
+  --container-hero-frame: 80rem;  /* Figma Home frame width 1280: glass orbs in the Hero are placed inside it */
+  --hero-glow-shift-phone: 12.82%;  /* gradient square starts 50 of 390 above the illustration */
+  --hero-glow-shift-desktop: 7.66%; /* and 98 of 1280 on desktop */
   --container-modal: 31.25rem;   /* Let's talk modal width on desktop, from Figma: 500 */
   --container-roadmap-heading: 12.5rem; /* Roadmap heading width on desktop, from Figma: 200 */
 
@@ -202,6 +206,26 @@
   --shadow-pricing-focus: 0 0 0 4px rgb(36 91 232 / 0.25), 0 8px 24px 0 rgb(10 13 18 / 0.03), inset 0 1px 0 0 rgb(255 255 255 / 0.7);
   --shadow-pricing-selected-focus: 0 0 0 4px rgb(36 91 232 / 0.25), 0 2px 4px 0 rgb(10 13 18 / 0.04), 0 24px 56px 0 rgb(36 91 232 / 0.22), inset 0 1px 0 0 rgb(255 255 255 / 0.7);
   --border-width-pricing: 1px;
+
+  /* Hero background (Figma Home → "Hero→Principles gradient"). Soft blobs: each colour fades to transparent at its edge,
+     instead of the heavy Figma blur, so phones draw it easily. */
+  --gradient-hero-base: linear-gradient(180deg, rgb(244 247 255 / 0), rgb(244 247 255) 22%, rgb(244 247 255) 78%, rgb(244 247 255 / 0));
+  --gradient-hero-blob-1: radial-gradient(closest-side, rgb(36 91 232 / 0.85), rgb(91 134 255 / 0.51) 45%, rgb(220 231 255 / 0));
+  --gradient-hero-blob-2: radial-gradient(closest-side, rgb(127 162 255 / 0.7), rgb(169 193 255 / 0.42) 45%, rgb(232 239 255 / 0));
+  --gradient-hero-blob-3: radial-gradient(closest-side, rgb(169 193 255 / 0.7), rgb(201 217 255 / 0.42) 45%, rgb(244 247 255 / 0));
+  --gradient-hero-highlight-1: radial-gradient(closest-side, rgb(255 255 255 / 0.95), rgb(255 255 255 / 0.475) 50%, rgb(255 255 255 / 0));
+  --gradient-hero-highlight-2: radial-gradient(closest-side, rgb(255 255 255 / 0.85), rgb(255 255 255 / 0.425) 50%, rgb(255 255 255 / 0));
+  --gradient-hero-sweep: conic-gradient(rgb(227 235 255), rgb(191 208 255) 25%, rgb(244 247 255) 50%, rgb(143 174 255) 75%, rgb(227 235 255));
+
+  /* Channel convergence hub (Figma "Hub") */
+  --gradient-hub: radial-gradient(circle at 30% 25%, rgb(111 150 255), rgb(36 91 232) 50%, rgb(26 67 176));
+
+  /* Glass orb (Figma "Glass orb") */
+  --gradient-orb: radial-gradient(circle at 28% 22%, rgb(255 255 255 / 0.85), rgb(255 255 255 / 0) 30%), radial-gradient(circle at 35% 30%, rgb(255 255 255), rgb(255 255 255 / 0.9) 30%, rgb(255 255 255 / 0) 60%), linear-gradient(135deg, rgb(255 255 255 / 0.55), rgb(237 242 255 / 0.18) 55%, rgb(184 204 255 / 0.35));
+  --gradient-orb-stroke: linear-gradient(135deg, rgb(255 255 255), rgb(204 217 250 / 0.5) 40%, rgb(140 166 242 / 0.55) 75%, rgb(255 255 255 / 0.9));
+  --shadow-orb: 0 18px 36px -4px rgb(23 51 140 / 0.16), inset 3px 4px 6px 0 rgb(255 255 255 / 0.9), inset -6px -10px 18px 0 rgb(77 107 217 / 0.22);
+  --border-width-orb: 1.5px;
+  --blur-orb: 16px;
   --border-width-pricing-selected: 2px;
   --blur-pricing: 28px;
 

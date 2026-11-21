@@ -7,7 +7,25 @@
     "title": "Growth you can account for",
     "subtitle": "SEO, Google Ads, Meta and TikTok — aligned to one measurement plan and your business economics.",
     "cta": "Discuss your growth goals",
-    "convergenceLabel": "One measurement plan"
+    "convergenceLabel": "One measurement plan",
+    "channels": [
+      {
+        "name": "SEO",
+        "icon": "seo"
+      },
+      {
+        "name": "Google Ads",
+        "icon": "google-ads"
+      },
+      {
+        "name": "Meta",
+        "icon": "meta"
+      },
+      {
+        "name": "TikTok",
+        "icon": "tiktok"
+      }
+    ]
   },
   "form": {
     "provider": "web3forms",
