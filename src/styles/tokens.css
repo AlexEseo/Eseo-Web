@@ -230,6 +230,7 @@
   --gradient-orb: radial-gradient(circle at 28% 22%, rgb(255 255 255 / 0.85), rgb(255 255 255 / 0) 30%), radial-gradient(circle at 35% 30%, rgb(255 255 255), rgb(255 255 255 / 0.9) 30%, rgb(255 255 255 / 0) 60%), linear-gradient(135deg, rgb(255 255 255 / 0.55), rgb(237 242 255 / 0.18) 55%, rgb(184 204 255 / 0.35));
   --gradient-orb-stroke: linear-gradient(135deg, rgb(255 255 255), rgb(204 217 250 / 0.5) 40%, rgb(140 166 242 / 0.55) 75%, rgb(255 255 255 / 0.9));
   --shadow-orb: 0 18px 36px -4px rgb(23 51 140 / 0.16), inset 3px 4px 6px 0 rgb(255 255 255 / 0.9), inset -6px -10px 18px 0 rgb(77 107 217 / 0.22);
+  --shadow-magnet: 0 6px 10px -2px rgb(10 13 18 / 0.28), inset 0 -3px 4px 0 rgb(128 0 0 / 0.35);
   --border-width-orb: 1.5px;
 
   /* Industries: warm circle behind the content (Figma "Floating gradient / right") */
@@ -255,6 +256,8 @@
   --gradient-closing-large: radial-gradient(closest-side, rgb(36 91 232 / 0.75), rgb(127 162 255 / 0.38) 55%, rgb(219 232 255 / 0));
   --gradient-closing-medium: radial-gradient(closest-side, rgb(91 134 255 / 0.6), rgb(127 162 255 / 0.3) 55%, rgb(219 232 255 / 0));
   --gradient-closing-small: radial-gradient(closest-side, rgb(36 91 232 / 0.8), rgb(127 162 255 / 0.4) 55%, rgb(219 232 255 / 0));
+  /* Closing "Magnet": the red pin on the Plan card. Figma fills, top to bottom: white shine spot, light-to-dark-red shade, coral base */
+  --gradient-magnet: radial-gradient(22.7% 22.7% at 38.6% 34.1%, rgb(255 255 255 / 0.7), rgb(255 255 255 / 0)), linear-gradient(to bottom, rgb(255 255 255 / 0.25), rgb(153 0 0 / 0.35)), linear-gradient(#ff6f5e, #ff6f5e);
   --blur-orb: 16px;
   --border-width-pricing-selected: 2px;
   --blur-pricing: 28px;

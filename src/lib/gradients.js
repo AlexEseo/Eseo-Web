@@ -28,8 +28,9 @@ export const industriesScene = {
     { token: '--gradient-ind-blob-4', x: 342, y: -136, w: 487, h: 487, blur: 60 },
     { token: '--gradient-ind-sweep', x: 0, y: 0, w: 974, h: 974, blur: 80, opacity: 0.5 },
     { token: '--gradient-ind-blob-5', x: 560, y: 540, w: 420, h: 420, blur: 56 },
-    { token: '--gradient-ind-highlight', x: 48, y: 167, w: 600, h: 600, blur: 64 },
-    { token: '--gradient-ind-highlight', x: 779, y: 635, w: 204, h: 253, blur: 64 },
+    // "Highlights" group is Linear dodge in Figma: orange over orange turns into the yellow glow.
+    { token: '--gradient-ind-highlight', x: 48, y: 167, w: 600, h: 600, blur: 64, blend: 'plus-lighter' },
+    { token: '--gradient-ind-highlight', x: 779, y: 635, w: 204, h: 253, blur: 64, rotate: 44, blend: 'plus-lighter' },
   ],
 }
 

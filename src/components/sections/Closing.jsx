@@ -1,5 +1,5 @@
 // Closing: last call to action on a light grey band — label, big title, button and a short note.
-// Desktop: blue circles and a slightly tilted Plan card on the right (decor). Phone: the Plan card under the text.
+// Desktop: blue circles, a slightly tilted Plan card and a red pin on it, on the right (decor). Phone: the Plan card under the text.
 // Figma Home → "Closing". The button opens the "Let's talk" form.
 // Props: text (site.closing), onCta.
 import { Button } from '@/components/ui/button'
@@ -39,7 +39,7 @@ function Plan({ rows }) {
 
 function Closing({ text, onCta }) {
   return (
-    <section data-slot="closing" className="relative isolate overflow-hidden bg-gray-100 px-5 py-16 md:px-10 lg:px-20">
+    <section data-slot="closing" className="relative isolate overflow-hidden bg-gray-100 px-5 py-16 md:px-10 lg:px-20 lg:py-21">
       {/* Decor on the right half (desktop) */}
       <div aria-hidden="true" className="absolute inset-y-0 right-0 -z-10 hidden w-1/2 lg:block">
         {circles.map(([token, x, y, size]) => (
@@ -49,9 +49,15 @@ function Closing({ text, onCta }) {
             style={{ left: pct(x, 640), top: pct(y, 380), width: pct(size, 640), aspectRatio: '1', backgroundImage: `var(${token})` }}
           />
         ))}
-        <div className="absolute -rotate-3" style={{ left: pct(86, 640), top: pct(60, 380), width: pct(400, 640) }}>
+        {/* Figma rotation −3° = 3° clockwise, turned around the card's top-left corner (Figma keeps x/y there) */}
+        <div className="absolute origin-top-left rotate-3" style={{ left: pct(86, 640), top: pct(60, 380), width: pct(400, 640) }}>
           <Plan rows={text.plan} />
         </div>
+        {/* Red "Magnet" pin on the card */}
+        <span
+          className="absolute aspect-square rounded-full shadow-magnet"
+          style={{ left: pct(327, 640), top: pct(52, 380), width: pct(32, 640), backgroundImage: 'var(--gradient-magnet)' }}
+        />
       </div>
 
       <div className="mx-auto flex max-w-(--container-page) flex-col gap-10">
