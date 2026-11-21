@@ -7,8 +7,9 @@ import IconLocation from '@/components/icons/IconLocation'
 import { Button } from '@/components/ui/button'
 import { ChannelConvergence } from '@/components/ui/channel-convergence'
 import { GlassOrb } from '@/components/ui/glass-orb'
-import { HeroGlow } from '@/components/ui/hero-glow'
+import { GradientScene } from '@/components/ui/gradient-scene'
 import { SectionLabel } from '@/components/ui/section-label'
+import { heroScene } from '@/lib/gradients'
 
 function Hero({ text, channels, onCta }) {
   return (
@@ -34,7 +35,7 @@ function Hero({ text, channels, onCta }) {
       {/* Channel illustration on the gradient. The gradient square starts a little above the illustration
           (Figma: 50 of 390 on phones, 98 of 1280 on desktop) and runs on behind the next section. */}
       <div className="relative mt-20 md:mt-51">
-        <HeroGlow className="inset-x-0 -z-10 -mt-(--hero-glow-shift-phone) md:-mt-(--hero-glow-shift-desktop)" />
+        <GradientScene scene={heroScene} className="inset-x-0 -z-10 -mt-(--hero-glow-shift-phone) md:-mt-(--hero-glow-shift-desktop)" />
         <div className="px-5 md:px-10">
           <ChannelConvergence label={text.convergenceLabel} channels={channels} />
         </div>

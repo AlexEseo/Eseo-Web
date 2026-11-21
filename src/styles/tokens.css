@@ -167,6 +167,7 @@
   --container-hero-frame: 80rem;  /* Figma Home frame width 1280: glass orbs in the Hero are placed inside it */
   --hero-glow-shift-phone: 12.82%;  /* gradient square starts 50 of 390 above the illustration */
   --hero-glow-shift-desktop: 7.66%; /* and 98 of 1280 on desktop */
+  --eng-glow-shift: 12.34%;         /* Engagements gradient starts 158 of 1280 above the section */
   --container-heading: 40rem;     /* Section heading title width (left aligned), from Figma: 640 */
   --container-card-wide: 35rem;    /* Industry card and calculation notes, from Figma: 560 */
   --container-footnote: 31.25rem;  /* Engagements footnote, from Figma: 500 */
@@ -212,15 +213,15 @@
   --shadow-pricing-selected-focus: 0 0 0 4px rgb(36 91 232 / 0.25), 0 2px 4px 0 rgb(10 13 18 / 0.04), 0 24px 56px 0 rgb(36 91 232 / 0.22), inset 0 1px 0 0 rgb(255 255 255 / 0.7);
   --border-width-pricing: 1px;
 
-  /* Hero background (Figma Home → "Hero→Principles gradient"). Soft blobs: each colour fades to transparent at its edge,
-     instead of the heavy Figma blur, so phones draw it easily. */
+  /* Decor gradients — exact copies of the Figma layers (colours, stops, direction). Blur, size and position
+     live in src/lib/gradients.js. Hero: Figma Home → "Hero→Principles gradient". */
   --gradient-hero-base: linear-gradient(180deg, rgb(244 247 255 / 0), rgb(244 247 255) 22%, rgb(244 247 255) 78%, rgb(244 247 255 / 0));
   --gradient-hero-blob-1: radial-gradient(closest-side, rgb(36 91 232 / 0.85), rgb(91 134 255 / 0.51) 45%, rgb(220 231 255 / 0));
   --gradient-hero-blob-2: radial-gradient(closest-side, rgb(127 162 255 / 0.7), rgb(169 193 255 / 0.42) 45%, rgb(232 239 255 / 0));
   --gradient-hero-blob-3: radial-gradient(closest-side, rgb(169 193 255 / 0.7), rgb(201 217 255 / 0.42) 45%, rgb(244 247 255 / 0));
   --gradient-hero-highlight-1: radial-gradient(closest-side, rgb(255 255 255 / 0.95), rgb(255 255 255 / 0.475) 50%, rgb(255 255 255 / 0));
   --gradient-hero-highlight-2: radial-gradient(closest-side, rgb(255 255 255 / 0.85), rgb(255 255 255 / 0.425) 50%, rgb(255 255 255 / 0));
-  --gradient-hero-sweep: conic-gradient(rgb(227 235 255), rgb(191 208 255) 25%, rgb(244 247 255) 50%, rgb(143 174 255) 75%, rgb(227 235 255));
+  --gradient-hero-sweep: conic-gradient(from 90deg, rgb(227 235 255), rgb(191 208 255) 25%, rgb(244 247 255) 50%, rgb(143 174 255) 75%, rgb(227 235 255));
 
   /* Channel convergence hub (Figma "Hub") */
   --gradient-hub: radial-gradient(circle at 30% 25%, rgb(111 150 255), rgb(36 91 232) 50%, rgb(26 67 176));
@@ -231,8 +232,25 @@
   --shadow-orb: 0 18px 36px -4px rgb(23 51 140 / 0.16), inset 3px 4px 6px 0 rgb(255 255 255 / 0.9), inset -6px -10px 18px 0 rgb(77 107 217 / 0.22);
   --border-width-orb: 1.5px;
 
-  /* Industries: soft beige circle behind the card (Figma "Floating gradient / right"); approximate, to refine in stage 6 */
-  --gradient-industries: radial-gradient(closest-side, rgb(238 228 218 / 0.9), rgb(246 240 234 / 0.6) 55%, rgb(246 240 234 / 0));
+  /* Industries: warm circle behind the content (Figma "Floating gradient / right") */
+  --color-industries-circle: rgb(244 234 223);
+  --gradient-ind-blob-1: radial-gradient(closest-side, rgb(221 204 187 / 0.85), rgb(221 204 187 / 0));
+  --gradient-ind-blob-2: radial-gradient(closest-side, rgb(252 249 246 / 0.9), rgb(252 249 246 / 0));
+  --gradient-ind-blob-3: radial-gradient(closest-side, rgb(255 111 94), rgb(255 148 134 / 0.75) 35%, rgb(255 201 192 / 0.35) 70%, rgb(255 230 225 / 0));
+  --gradient-ind-blob-4: radial-gradient(closest-side, rgb(255 162 148 / 0.75), rgb(255 211 203 / 0.35) 60%, rgb(255 237 233 / 0));
+  --gradient-ind-sweep: conic-gradient(from 90deg, rgb(240 232 223), rgb(255 212 169) 30%, rgb(255 242 226) 55%, rgb(255 154 92) 80%, rgb(255 240 223));
+  --gradient-ind-blob-5: radial-gradient(closest-side, rgb(255 90 31 / 0.95), rgb(255 111 94 / 0.7) 40%, rgb(255 180 138 / 0.3) 75%, rgb(255 227 207 / 0));
+  --gradient-ind-highlight: radial-gradient(closest-side, rgb(255 90 31 / 0.95), rgb(255 122 61 / 0.7) 40%, rgb(255 180 138 / 0.3) 72%, rgb(255 227 207 / 0));
+
+  /* Engagements: blue wash behind the pricing cards (Figma "Engagements gradient") */
+  --gradient-eng-base: linear-gradient(180deg, rgb(244 247 255 / 0), rgb(244 247 255) 16%, rgb(244 247 255) 84%, rgb(244 247 255 / 0));
+  --gradient-eng-blob-1: radial-gradient(closest-side, rgb(201 217 255 / 0.9), rgb(201 217 255 / 0));
+  --gradient-eng-blob-2: radial-gradient(closest-side, rgb(127 162 255 / 0.5), rgb(127 162 255 / 0));
+  --gradient-eng-blob-3: radial-gradient(closest-side, rgb(255 255 255 / 0.95), rgb(255 255 255 / 0));
+  --gradient-eng-blob-4: radial-gradient(closest-side, rgb(36 91 232 / 0.9), rgb(36 91 232 / 0.495) 45%, rgb(36 91 232 / 0));
+  --gradient-eng-blob-5: radial-gradient(closest-side, rgb(255 255 255 / 0.9), rgb(255 255 255 / 0));
+  --gradient-eng-blob-6: radial-gradient(closest-side, rgb(36 91 232 / 0.9), rgb(77 120 240 / 0.6) 40%, rgb(169 193 255 / 0.28) 75%, rgb(220 231 255 / 0));
+  --gradient-eng-highlight: radial-gradient(closest-side, rgb(36 91 232 / 0.95), rgb(91 134 255 / 0.7) 40%, rgb(169 193 255 / 0.3) 72%, rgb(220 231 255 / 0));
   /* Closing: blue circles (Figma "Blue circles") */
   --gradient-closing-large: radial-gradient(closest-side, rgb(36 91 232 / 0.75), rgb(127 162 255 / 0.38) 55%, rgb(219 232 255 / 0));
   --gradient-closing-medium: radial-gradient(closest-side, rgb(91 134 255 / 0.6), rgb(127 162 255 / 0.3) 55%, rgb(219 232 255 / 0));
