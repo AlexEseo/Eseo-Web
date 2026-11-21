@@ -1,7 +1,8 @@
 // LetsTalk: the "Let's talk" form in a window. Figma "Let's talk modal" (State=Form / State=Success, Desktop / Mobile).
 // Fields from Figma: name, work email, company website, "What would you like to improve?".
-// Checks (src/lib/form-checks.js): name — 3+ characters with letters; email — a correct work address
-// (not Gmail/Yahoo etc., not a temporary inbox). Each problem has its own message (site.json → form.fields.*.errors).
+// Checks (src/lib/form-checks.js): name — 3+ characters with letters; email — a correct address.
+// Each problem has its own message (site.json → form.fields.*.errors). A personal (Gmail etc.) or temporary address
+// is accepted, with a soft grey note under the field (form.fields.email.notes).
 // Fields are checked on leaving them (if something was typed) and on submit; an error disappears as soon as the person edits the field.
 // NOT CONNECTED YET: "Preview my request" only checks the fields and shows the "Thanks" screen.
 // Sending to Web3Forms (site.form.endpoint + accessKey) is added later, when the owner sends the key.
@@ -17,11 +18,12 @@ import { Field } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
 import { SelectField } from '@/components/ui/select-field'
 
-import { checkName, checkWorkEmail, emailDomain } from '@/lib/form-checks'
+import { checkEmail, checkName, emailDomain, emailNote } from '@/lib/form-checks'
 
 function LetsTalk({ text, open, onOpenChange, initialStep = 'form' }) {
   const [step, setStep] = useState(initialStep)
   const [errors, setErrors] = useState({})
+  const [note, setNote] = useState()
   const f = text.fields
 
   // An error disappears as soon as the person starts fixing the field.
@@ -29,11 +31,13 @@ function LetsTalk({ text, open, onOpenChange, initialStep = 'form' }) {
 
   // Turns a check result into the message text.
   const nameError = (v) => f.name.errors[checkName(v)]
-  const emailError = (v) => f.email.errors[checkWorkEmail(v)]?.replace('{domain}', emailDomain(v))
+  const emailError = (v) => f.email.errors[checkEmail(v)]
+  const noteFor = (v) => f.email.notes[emailNote(v)]?.replace('{domain}', emailDomain(v))
 
   // A field is checked as soon as the person leaves it (only if something was typed).
   const checkOnLeave = (key, toError) => (e) => {
     if (e.target.value.trim()) setErrors((old) => ({ ...old, [key]: toError(e.target.value) }))
+    if (key === 'email') setNote(noteFor(e.target.value))
   }
 
   function handleSubmit(e) {
@@ -52,6 +56,7 @@ function LetsTalk({ text, open, onOpenChange, initialStep = 'form' }) {
     if (!next) {
       setStep('form')
       setErrors({})
+      setNote(undefined)
     }
   }
 
@@ -73,14 +78,17 @@ function LetsTalk({ text, open, onOpenChange, initialStep = 'form' }) {
                   onBlur={checkOnLeave('name', nameError)}
                 />
               </Field>
-              <Field id="lt-email" label={f.email.label} required error={errors.email}>
+              <Field id="lt-email" label={f.email.label} required error={errors.email} note={note}>
                 <Input
                   id="lt-email"
                   name="email"
                   type="email"
                   autoComplete="email"
                   placeholder={f.email.placeholder}
-                  onChange={clearError('email')}
+                  onChange={(e) => {
+                    clearError('email')()
+                    setNote(undefined)
+                  }}
                   onBlur={checkOnLeave('email', emailError)}
                 />
               </Field>

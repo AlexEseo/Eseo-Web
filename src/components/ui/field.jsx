@@ -4,6 +4,7 @@
 //   required: adds a plain "*" after the label (the field must be filled)
 //   hint:     small grey text on the right of the label (optional)
 //   error:    coral text under the input; also turns the input border coral
+//   note:     grey text under the input — a soft remark that does not block the form (hidden while there is an error)
 //   disabled: greys out the label (pass disabled to the input itself too)
 //   id:       id of the input inside, so a click on the label focuses it
 //   children: the input — <Input id=... /> or <SelectField id=... />
@@ -11,10 +12,11 @@ import { Children, cloneElement, isValidElement } from 'react'
 import { Label } from '@/components/ui/label'
 import { cn } from '@/lib/utils'
 
-function Field({ label, required = false, hint, error, disabled = false, id, className, children }) {
+function Field({ label, required = false, hint, error, note, disabled = false, id, className, children }) {
   const hintId = hint && id ? `${id}-hint` : undefined
   const errorId = error && id ? `${id}-error` : undefined
-  const describedBy = [hintId, errorId].filter(Boolean).join(' ') || undefined
+  const noteId = note && !error && id ? `${id}-note` : undefined
+  const describedBy = [hintId, errorId, noteId].filter(Boolean).join(' ') || undefined
 
   // Tell the input about the error and the hint, for screen readers and the coral border.
   const control = Children.map(children, (child) =>
@@ -44,6 +46,11 @@ function Field({ label, required = false, hint, error, disabled = false, id, cla
       {error && (
         <p id={errorId} className="text-body-12 text-coral-500">
           {error}
+        </p>
+      )}
+      {note && !error && (
+        <p id={noteId} className="text-body-12 text-gray-600">
+          {note}
         </p>
       )}
     </div>
