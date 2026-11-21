@@ -161,6 +161,7 @@
 
   /* Layout */
   --container-page: 70rem;       /* content width 1120 from Figma Header and Footer */
+  --container-modal: 31.25rem;   /* Let's talk modal width on desktop, from Figma: 500 */
   --container-roadmap-heading: 12.5rem; /* Roadmap heading width on desktop, from Figma: 200 */
 
   /* Radii: Figma "radius/..." → rounded-4, rounded-8, ... */
@@ -175,6 +176,7 @@
   --shadow-card: 0 1px 2px 0 rgb(10 13 18 / 0.04), 0 12px 32px -8px rgb(10 13 18 / 0.08);
   --shadow-glass-card: 0 2px 4px 0 rgb(10 13 18 / 0.04), 0 24px 56px 0 rgb(36 91 232 / 0.22);
   --shadow-device: -8px 12px 32px 0 rgb(10 13 18 / 0.16);
+  --shadow-modal: 0 4px 8px 0 rgb(10 13 18 / 0.08), 0 24px 64px -8px rgb(10 13 18 / 0.18); /* Let's talk modal, from the Figma layer */
 
   /* Channel chip (Figma "Channel chip"): glass circle. Values copied from the Figma layer. */
   --shadow-chip: 0 8px 16px -4px rgb(36 91 232 / 0.14), inset 0 1.5px 0 0 rgb(255 255 255), inset 0 -4px 6px 0 rgb(36 91 232 / 0.12);
