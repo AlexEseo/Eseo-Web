@@ -21,7 +21,7 @@ function Header({ text, currencies, currency, onCurrencyChange, onCta, defaultOp
   const [open, setOpen] = useState(defaultOpen)
   const currencyPicker = (
     <CurrencySelect
-      variant="pill"
+      size="m"
       currencies={currencies}
       value={currency}
       onValueChange={onCurrencyChange}

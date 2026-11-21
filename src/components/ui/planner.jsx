@@ -4,6 +4,7 @@
 //   scenario contribution after media = revenue × (1 + revenue change) × margin − media spend
 //   big number = scenario − current;  MER = revenue ÷ media spend (current → scenario)
 // The currency only changes the sign; amounts are not converted.
+// The big number uses the plain sign without letters ("C$" → "$"), as the owner asked; rows keep the full sign.
 // Props:
 //   text:       all labels (from site.json): currency, revenue, media, mediaHint, margin, change, current, scenario, mer
 //   currencies: list for the currency picker, e.g. [{ value: "EUR", code: "EUR €", name: "Euro", symbol: "€" }]
@@ -50,12 +51,13 @@ function Planner({ text, currencies = [], initial, currency, onCurrencyChange, c
   const chosen = shared ? currency : values.currency
 
   const symbol = currencies.find((c) => c.value === chosen)?.symbol ?? ''
+  const bigSymbol = symbol.replace(/[A-Za-z]/g, '')
   const r = calculate(values)
   const mer = r.merNow === null ? '—' : `${ratio.format(r.merNow)}× → ${ratio.format(r.merScenario)}×`
 
   return (
-    <div data-slot="planner" className={cn('flex flex-col overflow-hidden rounded-16 border border-gray-200 md:flex-row', className)}>
-      <div className="flex flex-col gap-6 px-5 py-6 md:flex-1 md:p-9">
+    <div data-slot="planner" className={cn('flex flex-col overflow-hidden rounded-20 border border-gray-200 md:flex-row', className)}>
+      <div className="flex flex-col gap-6 px-5 py-6 md:flex-1 md:p-10">
         <div className="flex items-center gap-2">
           <span id={`${uid}-currency`} className="text-body-12 text-gray-600">
             {text.currency}
@@ -96,7 +98,7 @@ function Planner({ text, currencies = [], initial, currency, onCurrencyChange, c
       </div>
       <div className="flex flex-col justify-center gap-6 bg-gray-50 px-5 py-6 md:flex-1 md:p-10">
         <p aria-live="polite" className="text-display-40 font-semibold text-gray-900 tabular-nums md:text-display-64">
-          {money(r.uplift, symbol, true)}
+          {money(r.uplift, bigSymbol, true)}
         </p>
         <div className="flex flex-col">
           <ResultRow label={text.current} value={money(r.current, symbol)} />

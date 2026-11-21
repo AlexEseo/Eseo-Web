@@ -4,7 +4,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 
 function Faq({ text }) {
   return (
-    <section data-slot="faq" className="px-5 pt-16 pb-16 md:px-10 md:pt-32 md:pb-32 lg:px-20">
+    <section data-slot="faq" className="relative z-10 px-5 pt-16 pb-16 md:px-10 md:pt-32 md:pb-32 lg:px-20">
       <div className="mx-auto flex max-w-(--container-page) flex-col items-center gap-8 md:gap-16">
         <div className="flex flex-col items-center gap-4 text-center">
           <h2 className="text-display-40 font-semibold text-gray-900 md:whitespace-pre-line">{text.title}</h2>

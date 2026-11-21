@@ -16,7 +16,7 @@ function Footer({ text, currencies, currency, onCurrencyChange, className }) {
         <div className="flex items-center justify-between gap-4">
           <Logo alt={text.logoAlt} />
           <CurrencySelect
-            variant="pill"
+            size="m"
             currencies={currencies}
             value={currency}
             onValueChange={onCurrencyChange}

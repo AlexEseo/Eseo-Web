@@ -1,8 +1,8 @@
-// CurrencySelect: currency picker. Figma "Currency select" (Planner) and "Header select / Type=Currency" (header, footer),
-// both open the same "Currency menu".
+// CurrencySelect: currency picker — one round "pill" component in two sizes. Figma "Currency select" (Size=S / Size=M).
+//   S — in the calculator (26px tall), M — in the header and footer (32px tall). Both open the same "Currency menu".
 // Built on the shadcn Select (Radix): opens on click, arrows and Enter work, Esc closes.
 // Props:
-//   variant: "compact" (default, small square box with "EUR €") | "pill" (round, sign in a grey circle + "EUR")
+//   size: "s" (default, calculator) | "m" (header, footer). Both: sign in a grey circle + code ("€ EUR").
 //   currencies: list like [{ value: "EUR", code: "EUR €", name: "Euro", symbol: "€" }] (texts come from site.json)
 //   value / onValueChange(value), or defaultValue
 //   disabled, id, aria-label or aria-labelledby
@@ -16,16 +16,15 @@ import { cn } from '@/lib/utils'
 
 const openLook = 'border-brand-600 inset-ring-1 inset-ring-brand-600 hover:border-brand-600 [&>svg]:rotate-180'
 
-// Look of the button for each variant. The menu is the same.
-const looks = {
-  compact:
-    'gap-1 rounded-4 px-2 py-1 text-body-12 text-gray-900 [&_span]:font-normal [&_span]:text-inherit disabled:bg-gray-100 disabled:text-gray-400 disabled:opacity-60',
-  pill: 'h-header-select gap-1.5 rounded-full pr-2 pl-2.5 text-label-14-medium font-medium text-gray-700 [&>svg]:text-gray-600 disabled:opacity-40',
+// What differs between the sizes. Shape, colours, states and the menu are the same.
+const sizes = {
+  s: 'h-button-s gap-1 pr-2 pl-1.5 text-body-12',
+  m: 'h-header-select gap-1.5 pr-2 pl-2.5 text-label-14-medium',
 }
 
-function CurrencySelect({ currencies = [], variant = 'compact', id, preview, className, disabled, ...props }) {
+function CurrencySelect({ currencies = [], size = 's', id, preview, className, disabled, ...props }) {
   const { 'aria-label': ariaLabel, 'aria-labelledby': labelledBy, value, defaultValue, onValueChange, ...rootProps } = props
-  // The pill shows the sign and the code itself, so it needs to know the chosen currency.
+  // The button shows the sign and the code itself, so it needs to know the chosen currency.
   const [own, setOwn] = useState(defaultValue)
   const current = currencies.find((c) => c.value === (value ?? own))
 
@@ -47,7 +46,8 @@ function CurrencySelect({ currencies = [], variant = 'compact', id, preview, cla
         data-preview={preview === 'open' ? undefined : preview}
         className={cn(
           'group inline-flex cursor-pointer items-center border border-gray-200 bg-transparent whitespace-nowrap outline-none transition-colors duration-(--duration-fast) ease-(--ease-standard)',
-          looks[variant],
+          'rounded-full font-medium text-gray-700 [&>svg]:text-gray-600 disabled:opacity-40',
+          sizes[size],
           'hover:border-gray-400 focus-visible:border-brand-600 focus-visible:inset-ring-1 focus-visible:inset-ring-brand-600',
           'data-[state=open]:border-brand-600 data-[state=open]:inset-ring-1 data-[state=open]:inset-ring-brand-600',
           'disabled:cursor-not-allowed disabled:border-gray-200',
@@ -55,18 +55,14 @@ function CurrencySelect({ currencies = [], variant = 'compact', id, preview, cla
           className,
         )}
       >
-        {variant === 'pill' ? (
-          <SelectPrimitive.Value>
-            <span className="flex items-center gap-1.5">
-              <span aria-hidden="true" className="flex size-4 items-center justify-center rounded-full bg-gray-100 text-caption-10 font-bold tracking-normal text-gray-700">
-                {current?.symbol}
-              </span>
-              {current?.value}
+        <SelectPrimitive.Value>
+          <span className={cn('flex items-center', size === 'm' ? 'gap-1.5' : 'gap-1')}>
+            <span aria-hidden="true" className="flex size-4 items-center justify-center rounded-full bg-gray-100 text-caption-10 font-bold tracking-normal text-gray-700">
+              {current?.symbol}
             </span>
-          </SelectPrimitive.Value>
-        ) : (
-          <SelectPrimitive.Value />
-        )}
+            {current?.value}
+          </span>
+        </SelectPrimitive.Value>
         <SelectPrimitive.Icon asChild>
           <IconChevronDown className="shrink-0 transition-transform duration-(--duration-fast) group-data-[state=open]:rotate-180" />
         </SelectPrimitive.Icon>
