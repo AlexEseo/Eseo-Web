@@ -83,7 +83,7 @@
   --text-display-520: clamp(10rem, 1.6429rem + 34.286vw, 32.5rem);  /* 160 → 520 */
   --text-display-520--line-height: 1;
   --text-display-520--letter-spacing: -0.06em;
-  --text-display-220: clamp(6rem, 3.1214rem + 11.81vw, 13.75rem);    /* 96 → 220 */
+  --text-display-220: 13.75rem;   /* fixed 220: the 404 numeral on phones, as in Figma mobile (desktop uses display-520) */
   --text-display-220--line-height: 1;
   --text-display-220--letter-spacing: -0.06em;
   --text-display-72: clamp(2.5rem, 1.7571rem + 3.048vw, 4.5rem);     /* 40 → 72 */
@@ -158,6 +158,10 @@
   --spacing-currency-menu: 12.5rem;
   /* Header select (currency pill in header and footer) height from Figma: 32 → h-header-select */
   --spacing-header-select: 2rem;
+  /* 404 page: full screen height minus the header (73: 32 content + 2×20 padding + 1 line) → min-h-not-found */
+  --spacing-not-found: calc(100svh - 4.5625rem);
+  /* Info row label column on Legal pages from Figma: 224 → w-info-label */
+  --spacing-info-label: 14rem;
 
   /* Layout */
   --container-page: 70rem;       /* content width 1120 from Figma Header and Footer */
@@ -172,6 +176,8 @@
   --container-card-wide: 35rem;    /* Industry card and calculation notes, from Figma: 560 */
   --container-footnote: 31.25rem;  /* Engagements footnote, from Figma: 500 */
   --container-faq: 45rem;          /* FAQ list, from Figma: 720 */
+  --container-document: 45rem;     /* Privacy / Legal text column, from Figma: 720 */
+  --container-not-found: 35rem;    /* 404 message block, from Figma: 560 */
   --container-modal: 31.25rem;   /* Let's talk modal width on desktop, from Figma: 500 */
   --container-roadmap-heading: 12.5rem; /* Roadmap heading width on desktop, from Figma: 200 */
 

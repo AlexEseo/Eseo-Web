@@ -18,6 +18,7 @@ import IconSeo from '@/components/icons/IconSeo'
 import { Slider } from '@/components/ui/slider'
 import { SliderRow } from '@/components/ui/slider-row'
 import { CurrencySelect } from '@/components/ui/currency-select'
+import { InfoTable } from '@/components/ui/info-table'
 import { CardCaption } from '@/components/ui/card-caption'
 import { StatCard } from '@/components/ui/stat-card'
 import { IndustryCard } from '@/components/ui/industry-card'
@@ -54,7 +55,7 @@ const colorGroups = [
 // Tailwind needs full class names written out, so each style lists its classes.
 const textStyles = [
   ['typo/display/520 - semibold', 'text-display-520 font-semibold', '160 → 520', 'Ag'],
-  ['typo/display/220 - semibold', 'text-display-220 font-semibold', '96 → 220', 'Ag'],
+  ['typo/display/220 - semibold', 'text-display-220 font-semibold', '220 (phone 404)', 'Ag'],
   ['typo/display/72 - semibold', 'text-display-72 font-semibold', '40 → 72'],
   ['typo/display/64 - semibold', 'text-display-64 font-semibold', '36 → 64'],
   ['typo/display/48 - semibold', 'text-display-48 font-semibold', '32 → 48'],
@@ -467,6 +468,17 @@ export default function Styleguide() {
             </div>
           </div>
         </div>
+      </Section>
+
+      <Section title="Info table">
+        <p className="text-body-14 text-gray-600">Figma «Info row»: на телефоне подпись над значением (Stacked), с планшета — в строку (Horizontal). Используется на Legal Notice.</p>
+        <InfoTable
+          className="max-w-(--container-document)"
+          rows={[
+            { label: 'Legal Company Name', value: 'ESEO LIMITED' },
+            { label: 'Contact Email', value: 'info@eseoads.com' },
+          ]}
+        />
       </Section>
 
       <Section title="Cards">
