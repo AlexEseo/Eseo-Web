@@ -40,7 +40,7 @@
 ## Компоненты
 
 - **Button** (`src/components/ui/button.jsx`): `variant` = primary / secondary / tertiary / white, `size` = s / m / l (только primary и secondary). Состояния как в Figma: Default, Hover, Pressed, Focus, Disabled. Дополнительно есть `loading` (крутилка вместо текста) — в Figma его нет.
-- **Field** (`field.jsx`): подпись слева, подсказка (`hint`) справа, под ними поле. `error` — текст ошибки вместо подсказки, рамка становится coral. `disabled` — подпись серая.
+- **Field** (`field.jsx`): подпись слева, подсказка (`hint`) справа, под ними поле. `error` — коралловый текст ошибки под полем, рамка поля тоже становится coral. `disabled` — подпись серая.
 - **Input** (`input.jsx`): поле ввода. Состояния: Default, Hover, Focus, Error, Disabled. Цвет подсказки внутри пустого поля (placeholder) в Figma не задан — взят gray/400.
 - **SelectField** (`select-field.jsx`): выпадающий список на основе shadcn Select. Принимает `options` — список вариантов. Состояния поля: Default, Hover, Focus, Open, Error, Disabled; пункты меню: Default, Hover, Selected. Галочки у выбранного пункта нет, как в Figma.
 - **Link** (`link.jsx`): синяя ссылка со стрелкой, `arrow={false}` убирает стрелку. Hover и Focus в Figma нет — добавлены (синий темнеет, стрелка сдвигается).
