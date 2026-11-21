@@ -32,8 +32,8 @@ function HeroGlow({ className }) {
             height: pct(h),
             opacity,
             backgroundImage: `var(${token})`,
-            // The sweep is a colour wheel; fade it towards its edge so it reads as a soft wash.
-            ...(token === '--gradient-hero-sweep' && { maskImage: 'radial-gradient(closest-side, black 20%, transparent)' }),
+            // The sweep is a colour wheel; hide its sharp centre and fade its edge so it reads as a soft wash.
+            ...(token === '--gradient-hero-sweep' && { maskImage: 'radial-gradient(closest-side, transparent, black 45%, transparent)' }),
           }}
         />
       ))}

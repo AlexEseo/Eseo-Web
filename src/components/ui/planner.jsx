@@ -8,6 +8,7 @@
 //   text:       all labels (from site.json): currency, revenue, media, mediaHint, margin, change, current, scenario, mer
 //   currencies: list for the currency picker, e.g. [{ value: "EUR", code: "EUR €", name: "Euro", symbol: "€" }]
 //   initial:    starting values { currency, revenue, media, margin, change } (margin and change in %)
+//   currency / onCurrencyChange: optional — the page's shared currency (header, footer); without them the Planner keeps its own
 import { useId, useState } from 'react'
 import { CurrencySelect } from '@/components/ui/currency-select'
 import { Divider } from '@/components/ui/divider'
@@ -41,12 +42,14 @@ function calculate({ revenue, media, margin, change }) {
   }
 }
 
-function Planner({ text, currencies = [], initial, className }) {
+function Planner({ text, currencies = [], initial, currency, onCurrencyChange, className }) {
   const uid = useId()
   const [values, setValues] = useState(initial)
   const set = (key) => (v) => setValues((old) => ({ ...old, [key]: v }))
+  const shared = currency !== undefined
+  const chosen = shared ? currency : values.currency
 
-  const symbol = currencies.find((c) => c.value === values.currency)?.symbol ?? ''
+  const symbol = currencies.find((c) => c.value === chosen)?.symbol ?? ''
   const r = calculate(values)
   const mer = r.merNow === null ? '—' : `${ratio.format(r.merNow)}× → ${ratio.format(r.merScenario)}×`
 
@@ -59,8 +62,8 @@ function Planner({ text, currencies = [], initial, className }) {
           </span>
           <CurrencySelect
             currencies={currencies}
-            value={values.currency}
-            onValueChange={set('currency')}
+            value={chosen}
+            onValueChange={shared ? onCurrencyChange : set('currency')}
             aria-labelledby={`${uid}-currency`}
           />
         </div>
