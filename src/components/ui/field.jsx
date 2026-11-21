@@ -1,6 +1,7 @@
 // Field: label row (label on the left, hint on the right), the input or select, and an error line under it. Figma "Field".
 // Props:
 //   label:    text above the input
+//   required: adds a plain "*" after the label (the field must be filled)
 //   hint:     small grey text on the right of the label (optional)
 //   error:    coral text under the input; also turns the input border coral
 //   disabled: greys out the label (pass disabled to the input itself too)
@@ -10,7 +11,7 @@ import { Children, cloneElement, isValidElement } from 'react'
 import { Label } from '@/components/ui/label'
 import { cn } from '@/lib/utils'
 
-function Field({ label, hint, error, disabled = false, id, className, children }) {
+function Field({ label, required = false, hint, error, disabled = false, id, className, children }) {
   const hintId = hint && id ? `${id}-hint` : undefined
   const errorId = error && id ? `${id}-error` : undefined
   const describedBy = [hintId, errorId].filter(Boolean).join(' ') || undefined
@@ -21,6 +22,7 @@ function Field({ label, hint, error, disabled = false, id, className, children }
       ? cloneElement(child, {
           'aria-invalid': error ? true : child.props['aria-invalid'],
           'aria-describedby': describedBy,
+          ...(required && { 'aria-required': true }),
         })
       : child,
   )
@@ -30,6 +32,7 @@ function Field({ label, hint, error, disabled = false, id, className, children }
       <div className="flex items-center justify-between gap-4">
         <Label htmlFor={id} className={cn(disabled && 'text-gray-400')}>
           {label}
+          {required && <span aria-hidden="true">{' *'}</span>}
         </Label>
         {hint && (
           <span id={hintId} className="text-body-12 text-gray-600">

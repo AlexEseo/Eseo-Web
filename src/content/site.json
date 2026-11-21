@@ -36,13 +36,30 @@
       "name": {
         "label": "Your name",
         "placeholder": "Alex Morgan",
-        "required": "Please enter your name."
+        "errors": {
+          "required": "Please enter your name.",
+          "tooShort": "Your name needs at least 3 characters.",
+          "onlyDigits": "A name can’t be only numbers — please type your name.",
+          "noLetters": "Your name should include letters.",
+          "notAName": "Please enter just your name, not an email or a link.",
+          "tooLong": "That’s a little long — please keep it under 80 characters."
+        }
       },
       "email": {
         "label": "Work email",
         "placeholder": "alex@example.com",
-        "required": "Please enter your work email.",
-        "invalid": "This email doesn’t look right."
+        "errors": {
+          "required": "Please enter your work email.",
+          "spaces": "Remove the spaces — an email address can’t contain them.",
+          "missingAt": "Add “@” and your company domain, e.g. alex@company.com.",
+          "manyAt": "Use only one “@” in the address.",
+          "missingName": "Add your name before “@”, e.g. alex@company.com.",
+          "missingDomain": "Add your company domain after “@”, e.g. @company.com.",
+          "badEnding": "The domain looks incomplete — check the ending, e.g. company.com.",
+          "badCharacters": "Check the address for extra dots or unusual characters.",
+          "personal": "{domain} is a personal email service. Please use your company email, e.g. alex@company.com.",
+          "disposable": "Temporary email addresses aren’t accepted. Please use your company email."
+        }
       },
       "website": {
         "label": "Company website",
