@@ -9,7 +9,42 @@
   "form": {
     "provider": "web3forms",
     "endpoint": "https://api.web3forms.com/submit",
-    "accessKey": ""
+    "accessKey": "",
+    "title": "Start with your\ngrowth question.",
+    "fields": {
+      "name": {
+        "label": "Your name",
+        "placeholder": "Alex Morgan",
+        "required": "Please enter your name."
+      },
+      "email": {
+        "label": "Work email",
+        "placeholder": "alex@example.com",
+        "required": "Please enter your work email.",
+        "invalid": "This email doesn’t look right."
+      },
+      "website": {
+        "label": "Company website",
+        "placeholder": "https://example.com"
+      },
+      "goal": {
+        "label": "What would you like to improve?",
+        "options": [
+          "Profitable customer acquisition",
+          "Scaling into new markets",
+          "Measurement & attribution",
+          "Something else"
+        ]
+      }
+    },
+    "submit": "Preview my request ↗",
+    "note": "No spam, no automated sequences.",
+    "close": "Close",
+    "success": {
+      "title": "Thanks, your request\nis on its way.",
+      "body": "We’ll review your growth question and reply within one business day with next steps and a few times for a first call.",
+      "back": "Back to the site"
+    }
   },
   "brand": {
     "name": "eseo marketing.",

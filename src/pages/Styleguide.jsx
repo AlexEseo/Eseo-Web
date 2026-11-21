@@ -30,6 +30,7 @@ import { useState } from 'react'
 import site from '@/content/site.json'
 import { Header } from '@/components/sections/Header'
 import { Footer } from '@/components/sections/Footer'
+import { LetsTalk } from '@/components/sections/LetsTalk'
 import IconSeo12 from '@/components/icons/IconSeo12'
 import IconTarget from '@/components/icons/IconTarget'
 import IconPercent from '@/components/icons/IconPercent'
@@ -241,9 +242,11 @@ const demoFaq = [
 function HeaderFooterDemo() {
   const [currency, setCurrency] = useState(site.defaultCurrency)
   const text = { ...site.header, ...site.footer, logoAlt: site.brand.logoAlt }
-  const shared = { text, currencies: site.currencies, currency, onCurrencyChange: setCurrency }
+  const [talkOpen, setTalkOpen] = useState(false)
+  const shared = { text, currencies: site.currencies, currency, onCurrencyChange: setCurrency, onCta: () => setTalkOpen(true) }
   return (
     <div className="flex flex-col gap-6">
+      <LetsTalk text={site.form} open={talkOpen} onOpenChange={setTalkOpen} />
       <div className="overflow-hidden rounded-16 border border-gray-200">
         <Header {...shared} className="static" />
       </div>
@@ -253,6 +256,22 @@ function HeaderFooterDemo() {
       <div className="overflow-hidden rounded-16 border border-gray-200">
         <Footer {...shared} />
       </div>
+    </div>
+  )
+}
+
+// Opens the "Let's talk" window on the form or straight on the "Thanks" screen.
+function LetsTalkDemo() {
+  const [open, setOpen] = useState(null)
+  return (
+    <div className="flex flex-wrap gap-4">
+      <Button variant="primary" onClick={() => setOpen('form')}>
+        Открыть форму
+      </Button>
+      <Button variant="secondary" onClick={() => setOpen('success')}>
+        Открыть «спасибо»
+      </Button>
+      {open && <LetsTalk key={open} text={site.form} open initialStep={open} onOpenChange={(v) => !v && setOpen(null)} />}
     </div>
   )
 }
@@ -529,6 +548,13 @@ export default function Styleguide() {
           Валюта в шапке и подвале общая: смените в одном месте — поменяется в другом.
         </p>
         <HeaderFooterDemo />
+      </Section>
+
+      <Section title="Let’s talk modal">
+        <p className="text-body-14 text-gray-600">
+          Форма пока не отправляется: кнопка проверяет имя и почту и показывает экран «спасибо». Кнопка «Let’s talk» в шапке выше тоже открывает форму.
+        </p>
+        <LetsTalkDemo />
       </Section>
 
       <Section title="Colors">
