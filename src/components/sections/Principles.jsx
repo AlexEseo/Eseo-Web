@@ -13,11 +13,12 @@ import { SectionHeading } from '@/components/ui/section-heading'
 import { cn } from '@/lib/utils'
 
 // Picture (exported from Figma, with its place inside the 310-wide "Visual" box) and grid place for each card.
+// E-commerce and Multi-location panels run past the box and are cut only by the card edge, as in Figma.
 const cardSetup = {
-  ecommerce: { art: { svg: artShop, frame: [310, 402], at: [0, -14], size: [334, 464] }, grid: 'md:row-span-2', order: 'order-1' },
+  ecommerce: { art: { svg: artShop, frame: [310, 402], at: [0, -1], size: [376, 334], bleed: true }, grid: 'md:row-span-2', order: 'order-1' },
   subscriptions: { art: { svg: artSubscribe, frame: [310, 122] }, grid: '', order: 'order-2' },
   education: { art: { svg: artEducation, frame: [310, 402], at: [-24, 0], size: [360, 402] }, grid: 'md:row-span-2', order: 'order-4 md:order-3' },
-  multilocation: { art: { svg: artMarket, frame: [310, 122], at: [-24, 0], size: [335, 122] }, grid: 'md:col-start-2', order: 'order-3 md:order-4' },
+  multilocation: { art: { svg: artMarket, frame: [310, 122], at: [-48, 13], size: [358, 96], bleed: true }, grid: 'md:col-start-2', order: 'order-3 md:order-4' },
 }
 
 function Principles({ text }) {
@@ -32,7 +33,7 @@ function Principles({ text }) {
               <article
                 key={card.key}
                 className={cn(
-                  'flex flex-col gap-8 rounded-20 border border-gray-200 bg-gray-0 px-6 pt-8 pb-6 shadow-glass-card',
+                  'flex flex-col gap-8 overflow-hidden rounded-20 border border-gray-200 bg-gray-0 px-6 pt-8 pb-6 shadow-glass-card',
                   setup.grid,
                   setup.order,
                 )}

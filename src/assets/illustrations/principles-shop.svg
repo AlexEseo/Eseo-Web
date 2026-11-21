@@ -1,50 +1,45 @@
-<svg width="334" height="464" viewBox="0 0 334 464" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_460_5471)">
-<rect y="13" width="376" height="334" rx="24" fill="#0A0D12"/>
-<path d="M4 37C4 25.9543 12.9543 17 24 17H368C370.209 17 372 18.7909 372 21V93C372 95.2091 370.209 97 368 97H8C5.79086 97 4 95.2091 4 93V37Z" fill="#181D27"/>
-<rect x="16" y="29" width="32" height="32" rx="16" fill="#22C55E"/>
-<text fill="#FDFDFD" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="24" y="50.8182">&#x2191;</tspan></text>
-<g clip-path="url(#clip1_460_5471)">
-<text fill="#FDFDFD" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="60" y="45.8182">Revenue</tspan></text>
-<text fill="#A4A7AE" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="12" letter-spacing="0em"><tspan x="60" y="65.3636">&#x20ac;1m managed across&#10;</tspan><tspan x="60" y="81.3636">30+ brands.</tspan></text>
+<svg width="376" height="334" viewBox="0 0 376 334" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="376" height="334" rx="24" fill="#0A0D12"/>
+<path d="M4 24C4 12.9543 12.9543 4 24 4H368C370.209 4 372 5.79086 372 8V80C372 82.2091 370.209 84 368 84H8C5.79086 84 4 82.2091 4 80V24Z" fill="#181D27"/>
+<rect x="16" y="16" width="32" height="32" rx="16" fill="#22C55E"/>
+<text fill="#FDFDFD" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="24" y="37.8182">&#x2191;</tspan></text>
+<g clip-path="url(#clip0_499_762)">
+<text fill="#FDFDFD" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="60" y="32.8182">Revenue</tspan></text>
+<text fill="#A4A7AE" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="12" letter-spacing="0em"><tspan x="60" y="52.3636">&#x20ac;1m managed across&#10;</tspan><tspan x="60" y="68.3636">30+ brands.</tspan></text>
 </g>
-<rect x="4" y="99" width="368" height="80" rx="4" fill="#181D27"/>
-<rect x="16" y="111" width="32" height="32" rx="16" fill="#F97316"/>
-<text fill="#FDFDFD" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="26.5" y="132.818">&#x20ac;</tspan></text>
-<g clip-path="url(#clip2_460_5471)">
-<text fill="#FDFDFD" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="60" y="127.818">Orders</tspan></text>
-<text fill="#A4A7AE" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="12" letter-spacing="0em"><tspan x="60" y="147.364">New order +&#x20ac;128&#10;</tspan><tspan x="60" y="163.364">from paid social.</tspan></text>
+<rect x="4" y="86" width="368" height="80" rx="4" fill="#181D27"/>
+<rect x="16" y="98" width="32" height="32" rx="16" fill="#F97316"/>
+<text fill="#FDFDFD" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="26.5" y="119.818">&#x20ac;</tspan></text>
+<g clip-path="url(#clip1_499_762)">
+<text fill="#FDFDFD" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="60" y="114.818">Orders</tspan></text>
+<text fill="#A4A7AE" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="12" letter-spacing="0em"><tspan x="60" y="134.364">New order +&#x20ac;128&#10;</tspan><tspan x="60" y="150.364">from paid social.</tspan></text>
 </g>
-<rect x="4" y="181" width="368" height="80" rx="4" fill="#181D27"/>
-<rect x="16" y="193" width="32" height="32" rx="16" fill="#EC4899"/>
-<text fill="#FDFDFD" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="25" y="214.818">%</tspan></text>
-<g clip-path="url(#clip3_460_5471)">
-<text fill="#FDFDFD" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="60" y="209.818">Margin</tspan></text>
-<text fill="#A4A7AE" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="12" letter-spacing="0em"><tspan x="60" y="229.364">Contribution after media,&#10;</tspan><tspan x="60" y="245.364">per product.</tspan></text>
+<rect x="4" y="168" width="368" height="80" rx="4" fill="#181D27"/>
+<rect x="16" y="180" width="32" height="32" rx="16" fill="#EC4899"/>
+<text fill="#FDFDFD" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="25" y="201.818">%</tspan></text>
+<g clip-path="url(#clip2_499_762)">
+<text fill="#FDFDFD" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="60" y="196.818">Margin</tspan></text>
+<text fill="#A4A7AE" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="12" letter-spacing="0em"><tspan x="60" y="216.364">Contribution after media,&#10;</tspan><tspan x="60" y="232.364">per product.</tspan></text>
 </g>
-<rect x="4" y="263" width="368" height="80" rx="4" fill="#181D27"/>
-<rect x="16" y="275" width="32" height="32" rx="16" fill="#717680"/>
-<text fill="#FDFDFD" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="24" y="296.818">&#x21bb;</tspan></text>
-<g clip-path="url(#clip4_460_5471)">
-<text fill="#FDFDFD" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="60" y="291.818">Returns</tspan></text>
-<text fill="#A4A7AE" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="12" letter-spacing="0em"><tspan x="60" y="311.364">Net of refunds&#10;</tspan><tspan x="60" y="327.364">and returns.</tspan></text>
-</g>
+<rect x="4" y="250" width="368" height="80" rx="4" fill="#181D27"/>
+<rect x="16" y="262" width="32" height="32" rx="16" fill="#717680"/>
+<text fill="#FDFDFD" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="24" y="283.818">&#x21bb;</tspan></text>
+<g clip-path="url(#clip3_499_762)">
+<text fill="#FDFDFD" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="60" y="278.818">Returns</tspan></text>
+<text fill="#A4A7AE" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="12" letter-spacing="0em"><tspan x="60" y="298.364">Net of refunds&#10;</tspan><tspan x="60" y="314.364">and returns.</tspan></text>
 </g>
 <defs>
-<clipPath id="clip0_460_5471">
-<rect width="334" height="464" fill="white"/>
+<clipPath id="clip0_499_762">
+<rect width="121" height="56" fill="white" transform="translate(60 16)"/>
 </clipPath>
-<clipPath id="clip1_460_5471">
-<rect width="121" height="56" fill="white" transform="translate(60 29)"/>
+<clipPath id="clip1_499_762">
+<rect width="99" height="56" fill="white" transform="translate(60 98)"/>
 </clipPath>
-<clipPath id="clip2_460_5471">
-<rect width="99" height="56" fill="white" transform="translate(60 111)"/>
+<clipPath id="clip2_499_762">
+<rect width="142" height="56" fill="white" transform="translate(60 180)"/>
 </clipPath>
-<clipPath id="clip3_460_5471">
-<rect width="142" height="56" fill="white" transform="translate(60 193)"/>
-</clipPath>
-<clipPath id="clip4_460_5471">
-<rect width="82" height="56" fill="white" transform="translate(60 275)"/>
+<clipPath id="clip3_499_762">
+<rect width="82" height="56" fill="white" transform="translate(60 262)"/>
 </clipPath>
 </defs>
 </svg>
