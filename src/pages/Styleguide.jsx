@@ -448,12 +448,14 @@ export default function Styleguide() {
 
       <Section title="Currency select">
         <div className="flex flex-wrap gap-10 rounded-16 border border-gray-200 p-6">
-          {[['Default', {}], ['Hover', { preview: 'hover' }], ['Open', { preview: 'open' }], ['Disabled', { disabled: true }]].map(([name, props]) => (
-            <div key={name} className="flex flex-col items-start gap-3">
-              <Token>{name}</Token>
-              <CurrencySelect currencies={demoCurrencies} defaultValue="EUR" aria-label={`Currency ${name}`} {...props} />
-            </div>
-          ))}
+          {['s', 'm'].map((size) =>
+            [['Default', {}], ['Hover', { preview: 'hover' }], ['Open', { preview: 'open' }], ['Disabled', { disabled: true }]].map(([name, props]) => (
+              <div key={size + name} className="flex flex-col items-start gap-3">
+                <Token>{`Size=${size.toUpperCase()} · ${name}`}</Token>
+                <CurrencySelect size={size} currencies={demoCurrencies} defaultValue="EUR" aria-label={`Currency ${size} ${name}`} {...props} />
+              </div>
+            )),
+          )}
           <div className="flex flex-col items-start gap-3">
             <Token>Попробовать</Token>
             <div className="flex items-center gap-2">
