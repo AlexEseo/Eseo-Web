@@ -1,0 +1,19 @@
+<svg width="335" height="122" viewBox="0 0 335 122" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="-22.5" y="13.5" width="357" height="95" rx="23.5" fill="#FAFAFA"/>
+<rect x="-22.5" y="13.5" width="357" height="95" rx="23.5" stroke="#E9EAEB"/>
+<text fill="#D5D7DA" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="bold" letter-spacing="0em"><tspan x="18" y="68.2727">Market</tspan></text>
+<g clip-path="url(#clip0_460_5525)">
+<text fill="#181D27" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="24" font-weight="600" letter-spacing="0em"><tspan x="190" y="57.7273">Europe</tspan></text>
+<text fill="#717680" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="174" y="81.8182">~ 9 locations</tspan></text>
+</g>
+<path d="M303 30.5C311.008 30.5 317.5 36.9919 317.5 45V77C317.5 85.0081 311.008 91.5 303 91.5C294.992 91.5 288.5 85.0081 288.5 77V45C288.5 36.9919 294.992 30.5 303 30.5Z" fill="white"/>
+<path d="M303 30.5C311.008 30.5 317.5 36.9919 317.5 45V77C317.5 85.0081 311.008 91.5 303 91.5C294.992 91.5 288.5 85.0081 288.5 77V45C288.5 36.9919 294.992 30.5 303 30.5Z" stroke="#E9EAEB"/>
+<circle cx="303" cy="47" r="8" fill="#22C55E"/>
+<circle cx="303" cy="65" r="4" fill="#F97316"/>
+<circle cx="303" cy="79" r="4" fill="#EC4899"/>
+<defs>
+<clipPath id="clip0_460_5525">
+<rect width="98" height="52" fill="white" transform="translate(174 35)"/>
+</clipPath>
+</defs>
+</svg>
