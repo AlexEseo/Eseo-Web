@@ -146,19 +146,12 @@
       {
         "key": "ecommerce",
         "title": "E-commerce",
-        "description": "30+ brands · €1m managed",
-        "rows": [
-          "Revenue",
-          "Orders",
-          "Margin",
-          "Returns"
-        ]
+        "description": "30+ brands · €1m managed"
       },
       {
         "key": "subscriptions",
         "title": "Subscriptions & apps",
-        "description": "7 apps · 42% retention lift",
-        "button": "Subscribe"
+        "description": "7 apps · 42% retention lift"
       },
       {
         "key": "education",
@@ -168,8 +161,7 @@
       {
         "key": "multilocation",
         "title": "Multi-location",
-        "description": "17 locations · 10+ markets",
-        "market": "Market"
+        "description": "17 locations · 10+ markets"
       }
     ]
   }

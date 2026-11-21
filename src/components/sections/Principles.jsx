@@ -1,21 +1,23 @@
 // Principles: "Built around your business model." — heading and four industry cards. Figma Home → "Principles".
 // Desktop: bento grid of 3 columns — E-commerce and Education are tall, Subscriptions and Multi-location share the middle column.
 // Phone: one column (E-commerce, Subscriptions, Multi-location, Education — as in the Figma mobile frame).
-// Props: text (site.principles from site.json).
-import LearningGraph from '@/components/illustrations/LearningGraph'
-import MarketPanel from '@/components/illustrations/MarketPanel'
-import ShopPanel from '@/components/illustrations/ShopPanel'
-import SubscribePill from '@/components/illustrations/SubscribePill'
+// Props: text (site.principles from site.json). Card pictures are exported from Figma (src/assets/illustrations);
+// their small texts ("Revenue", "Start free trial"…) are part of the pictures, not of site.json.
+import artEducation from '@/assets/illustrations/principles-education.svg?raw'
+import artMarket from '@/assets/illustrations/principles-market.svg?raw'
+import artShop from '@/assets/illustrations/principles-shop.svg?raw'
+import artSubscribe from '@/assets/illustrations/principles-subscribe.svg?raw'
 import { CardCaption } from '@/components/ui/card-caption'
+import { FigmaArt } from '@/components/ui/figma-art'
 import { SectionHeading } from '@/components/ui/section-heading'
 import { cn } from '@/lib/utils'
 
-// Picture and grid place for each card.
+// Picture (exported from Figma, with its place inside the 310-wide "Visual" box) and grid place for each card.
 const cardSetup = {
-  ecommerce: { visual: (c) => <ShopPanel rows={c.rows} />, grid: 'md:row-span-2', tall: true, order: 'order-1' },
-  subscriptions: { visual: (c) => <SubscribePill label={c.button} />, grid: '', order: 'order-2' },
-  education: { visual: () => <LearningGraph />, grid: 'md:row-span-2', tall: true, order: 'order-4 md:order-3' },
-  multilocation: { visual: (c) => <MarketPanel label={c.market} />, grid: 'md:col-start-2', order: 'order-3 md:order-4' },
+  ecommerce: { art: { svg: artShop, frame: [310, 402], at: [0, -14], size: [334, 464] }, grid: 'md:row-span-2', order: 'order-1' },
+  subscriptions: { art: { svg: artSubscribe, frame: [310, 122] }, grid: '', order: 'order-2' },
+  education: { art: { svg: artEducation, frame: [310, 402], at: [-24, 0], size: [360, 402] }, grid: 'md:row-span-2', order: 'order-4 md:order-3' },
+  multilocation: { art: { svg: artMarket, frame: [310, 122], at: [-24, 0], size: [335, 122] }, grid: 'md:col-start-2', order: 'order-3 md:order-4' },
 }
 
 function Principles({ text }) {
@@ -35,9 +37,7 @@ function Principles({ text }) {
                   setup.order,
                 )}
               >
-                <div className={cn('overflow-hidden rounded-8', setup.tall ? 'aspect-310/402 md:aspect-auto md:flex-1' : 'aspect-310/122')}>
-                  {setup.visual(card)}
-                </div>
+                <FigmaArt {...setup.art} className="rounded-8" />
                 <CardCaption title={card.title} description={card.description} />
               </article>
             )
