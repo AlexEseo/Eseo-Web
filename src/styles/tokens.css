@@ -167,6 +167,7 @@
   --container-hero-frame: 80rem;  /* Figma Home frame width 1280: glass orbs in the Hero are placed inside it */
   --hero-glow-shift-phone: 12.82%;  /* gradient square starts 50 of 390 above the illustration */
   --hero-glow-shift-desktop: 7.66%; /* and 98 of 1280 on desktop */
+  --container-heading: 40rem;     /* Section heading title width (left aligned), from Figma: 640 */
   --container-modal: 31.25rem;   /* Let's talk modal width on desktop, from Figma: 500 */
   --container-roadmap-heading: 12.5rem; /* Roadmap heading width on desktop, from Figma: 200 */
 

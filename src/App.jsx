@@ -7,6 +7,7 @@ import { Header } from '@/components/sections/Header'
 import { Hero } from '@/components/sections/Hero'
 import { LetsTalk } from '@/components/sections/LetsTalk'
 import { Principles } from '@/components/sections/Principles'
+import { Approach } from '@/components/sections/Approach'
 import IconSeo from '@/components/icons/IconSeo'
 import logoGoogleAds from '@/assets/icons/google-ads.svg'
 import logoMeta from '@/assets/icons/meta.svg'
@@ -46,6 +47,7 @@ export default function App() {
           onCta={openTalk}
         />
         <Principles text={site.principles} />
+        <Approach text={site.approach} />
       </main>
       <Footer {...chrome} />
       <LetsTalk text={site.form} open={talkOpen} onOpenChange={setTalkOpen} />
