@@ -85,6 +85,7 @@ const radii = [
   ['radius/4', 'rounded-4'],
   ['radius/8', 'rounded-8'],
   ['radius/16', 'rounded-16'],
+  ['radius/20', 'rounded-20'],
   ['radius/24', 'rounded-24'],
   ['radius/40', 'rounded-40'],
   ['radius/full', 'rounded-full'],
@@ -593,7 +594,7 @@ export default function Styleguide() {
       </Section>
 
       <Section title="Radius">
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-6">
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-7">
           {radii.map(([figma, cls]) => (
             <div key={figma} className="flex flex-col gap-2">
               <div className={`aspect-square w-full bg-brand-50 ${cls}`} />
