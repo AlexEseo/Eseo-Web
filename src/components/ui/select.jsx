@@ -2,8 +2,10 @@
 // Parts: Select (root), SelectTrigger (the rounded box), SelectValue, SelectContent (the menu), SelectItem.
 // Usually you do not need the parts: use SelectField (select-field.jsx), it puts them together.
 // Trigger states from Figma: Default, Hover, Focus, Open, Error, Disabled.
-// Menu item states: Default, Hover, Selected.
+// Menu item states: Default, Hover, Selected (blue tint, blue text and a check on the right).
+// SelectItem is the one menu row for every dropdown on the site (form select and currency select).
 import { Select as SelectPrimitive } from 'radix-ui'
+import IconCheck from '@/components/icons/IconCheck'
 import IconChevronDown from '@/components/icons/IconChevronDown'
 import { fieldBoxClass } from '@/components/ui/input'
 import { cn } from '@/lib/utils'
@@ -69,12 +71,13 @@ function SelectContent({ className, children, position = 'popper', ...props }) {
   )
 }
 
-function SelectItem({ className, children, ...props }) {
+// Props: children — the row text (also shown in the closed box); note — optional grey text after it (e.g. "Euro").
+function SelectItem({ className, children, note, ...props }) {
   return (
     <SelectPrimitive.Item
       data-slot="select-item"
       className={cn(
-        'flex w-full cursor-pointer items-center rounded-4 px-3 py-2 text-body-14 text-gray-900 outline-none select-none',
+        'group/item flex w-full cursor-pointer items-center gap-2 rounded-4 px-3 py-2 text-body-14 text-gray-900 outline-none select-none',
         'data-highlighted:bg-gray-100 data-[state=checked]:bg-brand-50 data-[state=checked]:text-brand-600',
         'data-disabled:pointer-events-none data-disabled:opacity-40',
         className,
@@ -82,6 +85,10 @@ function SelectItem({ className, children, ...props }) {
       {...props}
     >
       <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
+      {note && <span className="text-gray-500">{note}</span>}
+      <SelectPrimitive.ItemIndicator className="ml-auto flex shrink-0">
+        <IconCheck className="text-brand-600" />
+      </SelectPrimitive.ItemIndicator>
     </SelectPrimitive.Item>
   )
 }

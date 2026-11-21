@@ -7,12 +7,11 @@
 //   value / onValueChange(value), or defaultValue
 //   disabled, id, aria-label or aria-labelledby
 //   preview: "hover" | "open" — only for /styleguide
-// Button states from Figma: Default, Hover, Open, Disabled. Menu item states: Default, Hover, Selected (with a check).
+// Button states from Figma: Default, Hover, Open, Disabled. The menu uses the same rows as every dropdown (SelectItem in select.jsx).
 import { useState } from 'react'
 import { Select as SelectPrimitive } from 'radix-ui'
-import IconCheck from '@/components/icons/IconCheck'
 import IconChevronDown from '@/components/icons/IconChevronDown'
-import { Select, SelectContent } from '@/components/ui/select'
+import { Select, SelectContent, SelectItem } from '@/components/ui/select'
 import { cn } from '@/lib/utils'
 
 const openLook = 'border-brand-600 inset-ring-1 inset-ring-brand-600 hover:border-brand-600 [&>svg]:rotate-180'
@@ -74,19 +73,9 @@ function CurrencySelect({ currencies = [], variant = 'compact', id, preview, cla
       </SelectPrimitive.Trigger>
       <SelectContent align="start" className="w-auto min-w-currency-menu">
         {currencies.map((c) => (
-          <SelectPrimitive.Item
-            key={c.value}
-            value={c.value}
-            className="group/item flex w-full cursor-pointer items-center gap-2 rounded-4 px-3 py-2 text-body-12 outline-none select-none data-highlighted:bg-gray-100 data-[state=checked]:bg-brand-50"
-          >
-            <SelectPrimitive.ItemText>
-              <span className="font-semibold text-gray-900 group-data-[state=checked]/item:text-brand-600">{c.code}</span>
-            </SelectPrimitive.ItemText>
-            <span className="flex-1 text-gray-500">{c.name}</span>
-            <SelectPrimitive.ItemIndicator>
-              <IconCheck className="text-brand-600" />
-            </SelectPrimitive.ItemIndicator>
-          </SelectPrimitive.Item>
+          <SelectItem key={c.value} value={c.value} note={c.name}>
+            {c.code}
+          </SelectItem>
         ))}
       </SelectContent>
     </Select>
