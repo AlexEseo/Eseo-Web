@@ -1,10 +1,13 @@
 {
   "meta": {
-    "title": "ESEO"
+    "title": "ESEO Marketing — growth you can account for"
   },
   "hero": {
-    "title": "ESEO",
-    "subtitle": "Сайт в разработке"
+    "label": "Enterprise acquisition · Europe & North America",
+    "title": "Growth you can account for",
+    "subtitle": "SEO, Google Ads, Meta and TikTok — aligned to one measurement plan and your business economics.",
+    "cta": "Discuss your growth goals",
+    "convergenceLabel": "One measurement plan"
   },
   "form": {
     "provider": "web3forms",

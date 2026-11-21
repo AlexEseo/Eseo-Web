@@ -161,6 +161,8 @@
 
   /* Layout */
   --container-page: 70rem;       /* content width 1120 from Figma Header and Footer */
+  --container-hero-copy: 47.5rem; /* Hero title width, from Figma: 760 */
+  --container-hero-sub: 30rem;    /* Hero subtitle width, from Figma: 480 */
   --container-modal: 31.25rem;   /* Let's talk modal width on desktop, from Figma: 500 */
   --container-roadmap-heading: 12.5rem; /* Roadmap heading width on desktop, from Figma: 200 */
 
