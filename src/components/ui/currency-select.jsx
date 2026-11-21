@@ -1,5 +1,5 @@
 // CurrencySelect: currency picker — one round "pill" component in two sizes. Figma "Currency select" (Size=S / Size=M).
-//   S — in the calculator (26px tall), M — in the header and footer (32px tall). Both open the same "Currency menu".
+//   S — in the calculator (token h-button-s), M — in the header and footer (token h-header-select). Both open the same "Currency menu".
 // Built on the shadcn Select (Radix): opens on click, arrows and Enter work, Esc closes.
 // Props:
 //   size: "s" (default, calculator) | "m" (header, footer). Both: sign in a grey circle + code ("€ EUR").
