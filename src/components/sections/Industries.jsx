@@ -1,4 +1,6 @@
 // Industries: tabs for four industries; each tab shows its heading, the industry card and a link.
+// One IndustryCard component for every tab — only the texts change. All tab panels are kept on the page
+// and stacked in the same spot, so the block and the card keep the size of the tallest tab and do not jump.
 // Figma Home → "02 Industries" (+ the three variant frames). The link opens the "Let's talk" form.
 // A warm gradient circle sits behind the content — exact copy of Figma "Circle right · gradient".
 // Props: text (site.industries from site.json), onCta (opens the form).
@@ -22,21 +24,31 @@ function Industries({ text, onCta }) {
             </TabsTrigger>
           ))}
         </TabsList>
-        {text.items.map((item) => (
-          <TabsContent key={item.key} value={item.key} className="flex flex-col items-center gap-8 md:gap-13">
-            <SectionHeading title={item.title} description={item.description} />
-            <IndustryCard heading={item.card.heading} rows={item.card.rows} note={item.card.note} className="w-full max-w-(--container-card-wide)" />
-            <Link
-              href="#lets-talk"
-              onClick={(e) => {
-                e.preventDefault()
-                onCta?.()
-              }}
-            >
-              {item.link}
-            </Link>
-          </TabsContent>
-        ))}
+        {/* Every tab's heading, card and link share one grid: same rows for all tabs, so every card
+            gets the height of the tallest one. Inactive tabs stay in place but are hidden. */}
+        <div className="grid w-full grid-cols-1 justify-items-center gap-y-8 md:gap-y-13">
+          {text.items.map((item) => (
+            <TabsContent key={item.key} value={item.key} forceMount className="contents data-[state=inactive]:invisible">
+              <SectionHeading title={item.title} description={item.description} className="col-start-1 row-start-1" />
+              <IndustryCard
+                heading={item.card.heading}
+                rows={item.card.rows}
+                note={item.card.note}
+                className="col-start-1 row-start-2 w-full max-w-(--container-card-wide)"
+              />
+              <Link
+                href="#lets-talk"
+                className="col-start-1 row-start-3"
+                onClick={(e) => {
+                  e.preventDefault()
+                  onCta?.()
+                }}
+              >
+                {item.link}
+              </Link>
+            </TabsContent>
+          ))}
+        </div>
       </Tabs>
     </section>
   )
