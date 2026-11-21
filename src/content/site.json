@@ -492,5 +492,291 @@
         ]
       }
     ]
+  },
+  "privacy": {
+    "metaTitle": "Privacy Policy — ESEO Marketing",
+    "label": "Legal",
+    "title": "Privacy Policy",
+    "intro": "How ESEO LIMITED collects, uses and protects personal data when you visit this website or contact us.",
+    "updated": "Last updated: 29 October 2026",
+    "sections": [
+      {
+        "title": "1. Who we are",
+        "blocks": [
+          {
+            "text": "This website is operated by ESEO LIMITED, a company based in Hong Kong, with its registered business address at 8/F., China Hong Kong Tower, 8–12 Hennessy Road, Wan Chai, Hong Kong (\"ESEO Marketing\", \"we\", \"us\")."
+          },
+          {
+            "text": "We are responsible for the personal data described in this policy."
+          },
+          {
+            "text": "For any privacy-related questions, contact us at info@eseoads.com."
+          }
+        ]
+      },
+      {
+        "title": "2. Data we collect",
+        "blocks": [
+          {
+            "lead": "Information you provide:",
+            "text": "When you submit a consultation or contact form, we may collect your name, business email, company name, website, target markets, channels of interest and any additional information you choose to share."
+          },
+          {
+            "text": "Providing this information is voluntary. However, without the contact details and relevant business information needed to assess your inquiry, we may be unable to respond or provide a consultation."
+          },
+          {
+            "lead": "Technical information:",
+            "text": "Our website and hosting infrastructure may process technical information necessary to deliver and secure the website, such as IP addresses, browser information and request logs. The exact information depends on the hosting configuration."
+          }
+        ]
+      },
+      {
+        "title": "3. How we use your data",
+        "blocks": [
+          {
+            "text": "We use personal data to respond to consultation requests, assess potential engagements, prepare and administer contracts, communicate about our services, and maintain the operation and security of our website."
+          },
+          {
+            "text": "We do not sell personal data."
+          },
+          {
+            "text": "We do not use personal data for automated decision-making that produces legal or similarly significant effects."
+          }
+        ]
+      },
+      {
+        "title": "4. Legal bases",
+        "blocks": [
+          {
+            "text": "We process personal data in accordance with applicable data protection laws, including Hong Kong’s Personal Data (Privacy) Ordinance (PDPO)."
+          },
+          {
+            "text": "Where the EU GDPR or UK GDPR applies, our legal bases may include steps taken at your request before entering into a contract, performance of a contract, legitimate interests in responding to business inquiries and operating our website, compliance with legal obligations, and consent where required."
+          }
+        ]
+      },
+      {
+        "title": "5. Cookies",
+        "blocks": [
+          {
+            "text": "Our website is not currently configured to use dedicated advertising or marketing tracking tools."
+          },
+          {
+            "text": "Essential cookies or similar technologies may be used where necessary for website functionality or security."
+          },
+          {
+            "text": "If analytics, advertising or other non-essential tracking technologies are introduced, we will update this policy and implement any consent mechanisms required by applicable law."
+          }
+        ]
+      },
+      {
+        "title": "6. Sharing",
+        "blocks": [
+          {
+            "text": "We may share personal data with service providers where necessary to operate our website, host its content, deliver communications or process consultation inquiries."
+          },
+          {
+            "text": "Such providers are permitted to process personal data only for the relevant services, subject to applicable contractual and legal safeguards."
+          },
+          {
+            "text": "We may also disclose information where required by law or to protect our legal rights."
+          }
+        ]
+      },
+      {
+        "title": "7. International transfers",
+        "blocks": [
+          {
+            "text": "As ESEO LIMITED operates from Hong Kong and serves international clients, personal data may be processed or accessed across different jurisdictions, depending on our service providers and business operations."
+          },
+          {
+            "text": "Where applicable data protection laws require safeguards for international transfers, we will implement appropriate measures before transferring personal data."
+          }
+        ]
+      },
+      {
+        "title": "8. Retention",
+        "blocks": [
+          {
+            "text": "We retain personal data for as long as necessary to maintain business relationships, manage inquiries, fulfill contractual obligations, and comply with applicable legal requirements."
+          },
+          {
+            "text": "Personal data may be retained for extended periods where there is a legitimate and ongoing business purpose."
+          },
+          {
+            "text": "We periodically review the necessity of retaining such data and delete or anonymise information when it is no longer required, subject to applicable legal obligations."
+          }
+        ]
+      },
+      {
+        "title": "9. Security",
+        "blocks": [
+          {
+            "text": "We take reasonable technical and organisational measures to protect personal data against unauthorised access, loss, misuse, alteration or disclosure."
+          },
+          {
+            "text": "These measures are reviewed as appropriate to the nature of the information and the systems used to process it."
+          }
+        ]
+      },
+      {
+        "title": "10. Your rights",
+        "blocks": [
+          {
+            "text": "Subject to applicable law, you may request access to or correction of your personal data."
+          },
+          {
+            "text": "Where the GDPR or UK GDPR applies, you may also have rights to erasure, restriction of processing, objection, data portability and withdrawal of consent."
+          },
+          {
+            "text": "To exercise your rights, contact info@eseoads.com."
+          },
+          {
+            "text": "You may also have the right to lodge a complaint with the relevant data protection authority."
+          }
+        ]
+      },
+      {
+        "title": "11. Changes to this policy",
+        "blocks": [
+          {
+            "text": "We may update this Privacy Policy to reflect changes in our services, data processing practices or applicable legal requirements."
+          },
+          {
+            "text": "The latest version will always be available on this page, with the date of the most recent update shown above."
+          }
+        ]
+      }
+    ]
+  },
+  "legal": {
+    "metaTitle": "Legal Notice — ESEO Marketing",
+    "label": "Legal",
+    "title": "Legal Notice",
+    "updated": "Last updated: 29 October 2026",
+    "sections": [
+      {
+        "title": "1. Company Information",
+        "blocks": [
+          {
+            "text": "This website is operated by:"
+          },
+          {
+            "table": [
+              {
+                "label": "Legal Company Name",
+                "value": "ESEO LIMITED"
+              },
+              {
+                "label": "Country of Registration",
+                "value": "Hong Kong"
+              },
+              {
+                "label": "Registered Business Address",
+                "value": "8/F., China Hong Kong Tower, 8–12 Hennessy Road, Wan Chai, Hong Kong"
+              },
+              {
+                "label": "Contact Email",
+                "value": "info@eseoads.com"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "2. Website Purpose",
+        "blocks": [
+          {
+            "text": "This website provides information about ESEO LIMITED, its services, expertise, and business offerings."
+          },
+          {
+            "text": "The content is intended for general informational purposes. Submitting an inquiry through this website does not establish a contractual relationship between the visitor and the company."
+          }
+        ]
+      },
+      {
+        "title": "3. Intellectual Property",
+        "blocks": [
+          {
+            "text": "Unless otherwise stated, all content on this website, including text, graphics, logos, visual elements, and design, is owned by ESEO LIMITED or used with appropriate permission."
+          },
+          {
+            "text": "Unauthorized reproduction, distribution, or commercial use of website content is prohibited except as permitted by applicable law or with prior written authorization."
+          }
+        ]
+      },
+      {
+        "title": "4. Accuracy of Information",
+        "blocks": [
+          {
+            "text": "ESEO LIMITED makes reasonable efforts to ensure that the information published on this website is accurate and up to date."
+          },
+          {
+            "text": "However, website content may be modified or updated without prior notice. Nothing on this website constitutes a binding offer unless expressly stated otherwise."
+          }
+        ]
+      },
+      {
+        "title": "5. External Links",
+        "blocks": [
+          {
+            "text": "This website may contain links to third-party websites. ESEO LIMITED is not responsible for the content, availability, or privacy practices of external websites."
+          }
+        ]
+      },
+      {
+        "title": "6. Limitation of Liability",
+        "blocks": [
+          {
+            "text": "To the extent permitted by applicable law, ESEO LIMITED is not liable for losses arising from the use of this website or reliance on its content."
+          },
+          {
+            "text": "Nothing in this notice excludes or limits liability that cannot legally be excluded or limited."
+          }
+        ]
+      },
+      {
+        "title": "7. Governing Law",
+        "blocks": [
+          {
+            "text": "This Legal Notice is governed by the laws of Hong Kong, subject to any mandatory legal protections that may apply."
+          }
+        ]
+      },
+      {
+        "title": "8. Contact",
+        "blocks": [
+          {
+            "text": "For legal inquiries or questions regarding this website, please contact:"
+          },
+          {
+            "table": [
+              {
+                "label": "Company",
+                "value": "ESEO LIMITED"
+              },
+              {
+                "label": "Email",
+                "value": "info@eseoads.com"
+              },
+              {
+                "label": "Address",
+                "value": "8/F., China Hong Kong Tower, 8–12 Hennessy Road, Wan Chai, Hong Kong"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "notFound": {
+    "metaTitle": "Page not found — ESEO Marketing",
+    "code": "404",
+    "label": "Page not found",
+    "title": "This page took\na different route.",
+    "body": "The page you’re looking for doesn’t exist or has moved. Head back to the homepage, or tell us what you were looking for.",
+    "home": "Back to homepage",
+    "contact": "Contact us",
+    "writePrefix": "Or write to"
   }
 }
