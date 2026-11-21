@@ -8,6 +8,12 @@ import { Hero } from '@/components/sections/Hero'
 import { LetsTalk } from '@/components/sections/LetsTalk'
 import { Principles } from '@/components/sections/Principles'
 import { Approach } from '@/components/sections/Approach'
+import { Industries } from '@/components/sections/Industries'
+import { BusinessCase } from '@/components/sections/BusinessCase'
+import { RoadmapSection } from '@/components/sections/RoadmapSection'
+import { Engagements } from '@/components/sections/Engagements'
+import { Faq } from '@/components/sections/Faq'
+import { Closing } from '@/components/sections/Closing'
 import IconSeo from '@/components/icons/IconSeo'
 import logoGoogleAds from '@/assets/icons/google-ads.svg'
 import logoMeta from '@/assets/icons/meta.svg'
@@ -48,6 +54,12 @@ export default function App() {
         />
         <Principles text={site.principles} />
         <Approach text={site.approach} />
+        <Industries text={site.industries} onCta={openTalk} />
+        <BusinessCase text={site.businessCase} currencies={site.currencies} currency={currency} onCurrencyChange={setCurrency} />
+        <RoadmapSection text={site.roadmap} />
+        <Engagements text={site.engagements} onCta={openTalk} />
+        <Faq text={site.faq} />
+        <Closing text={site.closing} onCta={openTalk} />
       </main>
       <Footer {...chrome} />
       <LetsTalk text={site.form} open={talkOpen} onOpenChange={setTalkOpen} />

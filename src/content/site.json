@@ -166,5 +166,312 @@
         "label": "Budget & performance governance"
       }
     ]
+  },
+  "industries": {
+    "items": [
+      {
+        "key": "ecommerce",
+        "tab": "E-commerce",
+        "title": "More revenue is only useful\nif the margin follows.",
+        "description": "Connect acquisition to product margins, returns and new-customer value. Understand where profitable growth can come from.",
+        "card": {
+          "heading": "Your strategy starting point",
+          "rows": [
+            {
+              "label": "Business question",
+              "value": "Which products and customers deserve the next euro?"
+            },
+            {
+              "label": "Success measures",
+              "value": "Contribution after media · New-customer CAC · MER"
+            },
+            {
+              "label": "Initial workstream",
+              "value": "Margin-led feeds, search demand and paid social creative tests."
+            }
+          ],
+          "note": "Illustrative approach. Final scope follows discovery."
+        },
+        "link": "Discuss your e-commerce strategy"
+      },
+      {
+        "key": "subscriptions",
+        "tab": "Subscriptions & apps",
+        "title": "Acquisition only counts\nif subscribers stay.",
+        "description": "Connect paid acquisition to trial conversion, retention and lifetime value. See which channels bring subscribers who stay.",
+        "card": {
+          "heading": "Your strategy starting point",
+          "rows": [
+            {
+              "label": "Business question",
+              "value": "Which products and customers deserve the next euro?"
+            },
+            {
+              "label": "Success measures",
+              "value": "Contribution after media · New-customer CAC · MER"
+            },
+            {
+              "label": "Initial workstream",
+              "value": "Margin-led feeds, search demand and paid social creative tests."
+            }
+          ],
+          "note": "Illustrative approach. Final scope follows discovery."
+        },
+        "link": "Discuss your subscription strategy"
+      },
+      {
+        "key": "education",
+        "tab": "Education",
+        "title": "Enrolments matter,\nnot enquiries.",
+        "description": "Connect campaigns to applications, enrolments and cost per enrolled student across each intake.",
+        "card": {
+          "heading": "Your strategy starting point",
+          "rows": [
+            {
+              "label": "Business question",
+              "value": "Which products and customers deserve the next euro?"
+            },
+            {
+              "label": "Success measures",
+              "value": "Contribution after media · New-customer CAC · MER"
+            },
+            {
+              "label": "Initial workstream",
+              "value": "Margin-led feeds, search demand and paid social creative tests."
+            }
+          ],
+          "note": "Illustrative approach. Final scope follows discovery."
+        },
+        "link": "Discuss your enrolment strategy"
+      },
+      {
+        "key": "multilocation",
+        "tab": "Multi-location",
+        "title": "Grow every location,\nnot just the average.",
+        "description": "Connect national media to local demand, market by market. See where the next location or the next budget should go.",
+        "card": {
+          "heading": "Your strategy starting point",
+          "rows": [
+            {
+              "label": "Business question",
+              "value": "Which products and customers deserve the next euro?"
+            },
+            {
+              "label": "Success measures",
+              "value": "Contribution after media · New-customer CAC · MER"
+            },
+            {
+              "label": "Initial workstream",
+              "value": "Margin-led feeds, search demand and paid social creative tests."
+            }
+          ],
+          "note": "Illustrative approach. Final scope follows discovery."
+        },
+        "link": "Discuss your multi-location strategy"
+      }
+    ]
+  },
+  "businessCase": {
+    "title": "Make the economics part \nof the monthly conversation.",
+    "description": "Explore a scenario before you speak to us. This is a transparent calculation, not a forecast or a promised result.",
+    "planner": {
+      "currency": "Currency",
+      "revenue": "Net revenue",
+      "media": "Media spend",
+      "mediaHint": "All channels",
+      "margin": "Contribution margin before media",
+      "change": "Hypothetical revenue change",
+      "current": "Current contribution after media",
+      "scenario": "Scenario contribution after media",
+      "mer": "Current → scenario MER"
+    },
+    "start": {
+      "revenue": 1200000,
+      "media": 300000,
+      "margin": 40,
+      "change": 10
+    },
+    "notesTitle": "See the calculation & limitations",
+    "notes": [
+      "Contribution = net revenue × contribution margin − media spend. Scenario revenue = current revenue × (1 + change). MER = net revenue ÷ media spend. Agency fees, fixed overhead, tax and changes in cost structure are excluded. This is not profit, ROI, causal lift or a benchmark.",
+      "Calculations stay in this page. No account required.",
+      "Media spend and margin rate stay fixed in this scenario. Changing currency relabels amounts; no exchange conversion."
+    ]
+  },
+  "roadmap": {
+    "heading": "Your first six weeks, made visible.",
+    "steps": [
+      {
+        "when": "in 2 weeks",
+        "title": "Diagnose",
+        "description": "Agree business questions and audit the evidence."
+      },
+      {
+        "when": "in 4 weeks",
+        "title": "Design",
+        "description": "Define measurement and prioritise experiments."
+      },
+      {
+        "when": "in 6 weeks",
+        "title": "Decide",
+        "description": "Review the roadmap and agree the next investment."
+      }
+    ]
+  },
+  "engagements": {
+    "title": "Clarity first.\nThen the right commitment.",
+    "plans": [
+      {
+        "key": "diagnostic",
+        "label": "Independent assessment",
+        "title": "Growth Diagnostic",
+        "description": "Understand the constraint before committing to a new acquisition plan.",
+        "price": "€25,000",
+        "from": "from",
+        "period": "fixed fee",
+        "features": [
+          "Account and measurement review",
+          "Channel and creative audit",
+          "Prioritised experiment roadmap",
+          "Executive readout with next steps",
+          "Six-week engagement"
+        ],
+        "cta": "Explore the diagnostic ↗"
+      },
+      {
+        "key": "mandate",
+        "selected": true,
+        "label": "Integrated delivery",
+        "title": "Full-funnel Mandate",
+        "description": "A shared plan across acquisition channels, measurement and governance.",
+        "price": "€35,000",
+        "from": "from",
+        "period": "per month",
+        "features": [
+          "SEO, Google Ads, Meta and TikTok",
+          "Dedicated senior strategist and channel leads",
+          "Unified measurement plan and attribution",
+          "Creative production and testing for paid social",
+          "Weekly performance check-ins",
+          "Finance-aligned monthly reporting",
+          "Quarterly budget reallocation review",
+          "6-month minimum term"
+        ],
+        "cta": "Discuss a mandate ↗"
+      },
+      {
+        "key": "advisory",
+        "label": "Senior oversight",
+        "title": "Advisory",
+        "description": "Independent strategic support for teams that already have execution covered.",
+        "price": "€12,000",
+        "from": "from",
+        "period": "per month",
+        "features": [
+          "Budget and strategy governance",
+          "Quarterly leadership review",
+          "Rolling quarterly term"
+        ],
+        "cta": "Explore advisory ↗"
+      }
+    ],
+    "footnote": "Current draft fit: full mandates for brands investing from €150,000/month in media. Media spend is separate from agency fees. Scope and applicable taxes need confirmation."
+  },
+  "faq": {
+    "title": "Good questions.\nClear answers.",
+    "description": "Short answers to what enterprise teams usually \nask before a first call.",
+    "items": [
+      {
+        "q": "Is this for B2B or consumer brands?",
+        "a": "ESEO sells its services to businesses. The four industry playbooks cover e-commerce, subscriptions and apps, education, and multi-location operators. For companies selling to other businesses, discovery should also address sales cycles, qualified pipeline and CRM revenue."
+      },
+      {
+        "q": "Do we need all four channels?",
+        "a": "No. We start with the channels where your evidence is strongest and add the others only when a test shows they earn their place. Many mandates begin with two."
+      },
+      {
+        "q": "Can we see the evidence before making a commitment?",
+        "a": "Yes. The Growth Diagnostic is a fixed-fee, six-week assessment. You get the account audit, the measurement review and a prioritised roadmap before deciding on a longer mandate."
+      },
+      {
+        "q": "Who owns the accounts and reporting?",
+        "a": "You do. Ad accounts, tracking and dashboards sit in your organisation from day one, and we work inside them. If we part ways, everything stays with you."
+      }
+    ]
+  },
+  "closing": {
+    "label": "Let’s find your next move",
+    "title": "Bring the growth question.\nLet’s build the plan.",
+    "cta": "Start a conversation ↗",
+    "note": "Europe & North America · An enterprise-focused partnership",
+    "plan": [
+      {
+        "title": "Growth plan",
+        "subtitle": "4 channels",
+        "checked": true,
+        "badges": [
+          [
+            "white",
+            "seo-12"
+          ],
+          [
+            "white",
+            "google-ads"
+          ],
+          [
+            "white",
+            "meta"
+          ],
+          [
+            "white",
+            "tiktok"
+          ]
+        ]
+      },
+      {
+        "title": "Measurement",
+        "subtitle": "1 shared scorecard",
+        "badges": [
+          [
+            "green",
+            "bars"
+          ],
+          [
+            "orange",
+            "target"
+          ],
+          [
+            "pink",
+            "percent"
+          ],
+          [
+            "gray-900",
+            "check"
+          ]
+        ]
+      },
+      {
+        "title": "Budget",
+        "subtitle": "Reviewed quarterly",
+        "badges": [
+          [
+            "coral",
+            "euro"
+          ],
+          [
+            "brand",
+            "swap"
+          ],
+          [
+            "green",
+            "arrow-up"
+          ],
+          [
+            "gray-500",
+            "calendar"
+          ]
+        ]
+      }
+    ]
   }
 }
