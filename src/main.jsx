@@ -4,7 +4,7 @@
 //   /legal       → Legal Notice
 //   /styleguide  → component showcase
 //   anything else → 404
-// Each address also has its own HTML file (privacy/index.html, legal/index.html, 404.html) with the right title,
+// Each page also has its own HTML file (privacy/index.html, legal/index.html, 404.html) with the right title,
 // so the pages work on any static hosting without extra settings.
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
@@ -15,17 +15,21 @@ import DocumentPage from './pages/DocumentPage.jsx'
 import NotFound from './pages/NotFound.jsx'
 import Styleguide from './pages/Styleguide.jsx'
 
+// The address decides; for an unknown address the HTML file names its page (<div id="root" data-page="notFound">).
+const root = document.getElementById('root')
 const path = window.location.pathname.replace(/\/(index\.html)?$/, '') || '/'
+const byPath = { '/': 'home', '/privacy': 'privacy', '/legal': 'legal', '/styleguide': 'styleguide' }
+const page = byPath[path] ?? root.dataset.page ?? 'notFound'
 
 function Page() {
-  if (path === '/') return <App />
-  if (path === '/privacy') return <DocumentPage text={site.privacy} />
-  if (path === '/legal') return <DocumentPage text={site.legal} />
-  if (path === '/styleguide') return <Styleguide />
+  if (page === 'home') return <App />
+  if (page === 'privacy') return <DocumentPage text={site.privacy} />
+  if (page === 'legal') return <DocumentPage text={site.legal} />
+  if (page === 'styleguide') return <Styleguide />
   return <NotFound />
 }
 
-createRoot(document.getElementById('root')).render(
+createRoot(root).render(
   <StrictMode>
     <Page />
   </StrictMode>,
