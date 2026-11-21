@@ -1,15 +1,16 @@
 // Engagements: left-aligned heading, three pricing cards (the middle one highlighted) and a footnote.
-// Figma Home → "04 Engagements". Card buttons open the "Let's talk" form. Soft blue glow behind (decor).
+// Figma Home → "04 Engagements". Card buttons open the "Let's talk" form. Blue gradient behind — exact copy of Figma "Engagements gradient" (starts 158 above the section).
 // Props: text (site.engagements), onCta.
 import { Divider } from '@/components/ui/divider'
-import { HeroGlow } from '@/components/ui/hero-glow'
+import { GradientScene } from '@/components/ui/gradient-scene'
 import { PricingCard } from '@/components/ui/pricing-card'
 import { SectionHeading } from '@/components/ui/section-heading'
+import { engagementsScene } from '@/lib/gradients'
 
 function Engagements({ text, onCta }) {
   return (
     <section data-slot="engagements" className="relative isolate px-5 py-16 md:px-10 md:py-32 lg:px-20">
-      <HeroGlow className="inset-x-0 top-1/2 -z-10 -translate-y-1/2" />
+      <GradientScene scene={engagementsScene} className="inset-x-0 top-0 -z-10 -mt-(--eng-glow-shift)" />
       <div className="mx-auto flex max-w-(--container-page) flex-col gap-8 md:gap-16">
         <SectionHeading align="left" title={text.title} />
         <div className="flex flex-col gap-5 lg:flex-row lg:items-start">
