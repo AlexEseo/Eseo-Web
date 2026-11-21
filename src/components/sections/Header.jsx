@@ -1,13 +1,14 @@
 // Header: top bar of the site. Figma "Header" (desktop) and "Header / mobile" (Menu=Closed / Menu=Open).
 // Desktop: logo left; currency pill, thin line and "Let's talk" button right.
-// Phone: logo and a round menu button; the menu opens below with currency, a wide button and links.
+// Phone: logo and a round menu button; the menu opens as a panel over the page (the page does not move)
+// with currency, a wide button and links. A tap outside the panel or Esc closes it.
 // Stays on top of the page while scrolling.
 // Props:
 //   text:       site.header + site.footer + site.brand (from site.json): cta, currencyLabel, menuOpen, menuClose, email, links, logoAlt
 //   currencies: site.currencies; currency / onCurrencyChange: the chosen currency (shared with the footer and the Planner)
 //   onCta:      what "Let's talk" does (opens the form)
-//   defaultOpen: true shows the phone menu open (for /styleguide)
-import { useState } from 'react'
+//   defaultOpen: true shows the phone menu open and in place, not over the page (for /styleguide)
+import { useEffect, useState } from 'react'
 import { Collapsible } from 'radix-ui'
 import IconClose from '@/components/icons/IconClose'
 import IconMenu from '@/components/icons/IconMenu'
@@ -19,6 +20,14 @@ import { cn } from '@/lib/utils'
 
 function Header({ text, currencies, currency, onCurrencyChange, onCta, defaultOpen = false, className }) {
   const [open, setOpen] = useState(defaultOpen)
+
+  // Esc closes the phone menu.
+  useEffect(() => {
+    if (!open || defaultOpen) return
+    const onKey = (e) => e.key === 'Escape' && setOpen(false)
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [open, defaultOpen])
   const currencyPicker = (
     <CurrencySelect
       size="m"
@@ -46,7 +55,9 @@ function Header({ text, currencies, currency, onCurrencyChange, onCta, defaultOp
       </div>
 
       {/* Phone */}
-      <Collapsible.Root open={open} onOpenChange={setOpen} className="md:hidden">
+      <Collapsible.Root open={open} onOpenChange={setOpen} className="relative md:hidden">
+        {/* Invisible layer under the open menu: a tap outside the panel closes it */}
+        {open && !defaultOpen && <div aria-hidden="true" className="fixed inset-0 -z-10" onClick={() => setOpen(false)} />}
         <div className="flex items-center justify-between gap-4 px-5 py-4">
           <Logo alt={text.logoAlt} />
           <Collapsible.Trigger
@@ -56,7 +67,12 @@ function Header({ text, currencies, currency, onCurrencyChange, onCta, defaultOp
             {open ? <IconClose /> : <IconMenu />}
           </Collapsible.Trigger>
         </div>
-        <Collapsible.Content className="flex flex-col gap-6 px-5 pt-2 pb-8">
+        <Collapsible.Content
+          className={cn(
+            'flex flex-col gap-6 bg-gray-0 px-5 pt-2 pb-8',
+            !defaultOpen && 'absolute inset-x-0 top-full border-b border-gray-200 shadow-card',
+          )}
+        >
           <div className="flex">{currencyPicker}</div>
           <Button
             variant="primary"
