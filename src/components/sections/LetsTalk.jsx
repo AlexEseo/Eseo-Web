@@ -1,7 +1,8 @@
 // LetsTalk: the "Let's talk" form in a window. Figma "Let's talk modal" (State=Form / State=Success, Desktop / Mobile).
 // Fields from Figma: name, work email, company website, "What would you like to improve?".
-// Checks: name and email are required; email must look like an address (checked on leaving the field and on submit);
-// an error disappears as soon as the person starts fixing the field.
+// Checks (src/lib/form-checks.js): name — 3+ characters with letters; email — a correct work address
+// (not Gmail/Yahoo etc., not a temporary inbox). Each problem has its own message (site.json → form.fields.*.errors).
+// Fields are checked on leaving them (if something was typed) and on submit; an error disappears as soon as the person edits the field.
 // NOT CONNECTED YET: "Preview my request" only checks the fields and shows the "Thanks" screen.
 // Sending to Web3Forms (site.form.endpoint + accessKey) is added later, when the owner sends the key.
 // Props:
@@ -16,7 +17,7 @@ import { Field } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
 import { SelectField } from '@/components/ui/select-field'
 
-const emailLooksRight = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)
+import { checkName, checkWorkEmail, emailDomain } from '@/lib/form-checks'
 
 function LetsTalk({ text, open, onOpenChange, initialStep = 'form' }) {
   const [step, setStep] = useState(initialStep)
@@ -26,21 +27,19 @@ function LetsTalk({ text, open, onOpenChange, initialStep = 'form' }) {
   // An error disappears as soon as the person starts fixing the field.
   const clearError = (key) => () => setErrors((old) => (old[key] ? { ...old, [key]: undefined } : old))
 
-  // Email is checked as soon as the person leaves the field (only if something was typed).
-  function checkEmail(e) {
-    const email = e.target.value.trim()
-    if (email && !emailLooksRight(email)) setErrors((old) => ({ ...old, email: f.email.invalid }))
+  // Turns a check result into the message text.
+  const nameError = (v) => f.name.errors[checkName(v)]
+  const emailError = (v) => f.email.errors[checkWorkEmail(v)]?.replace('{domain}', emailDomain(v))
+
+  // A field is checked as soon as the person leaves it (only if something was typed).
+  const checkOnLeave = (key, toError) => (e) => {
+    if (e.target.value.trim()) setErrors((old) => ({ ...old, [key]: toError(e.target.value) }))
   }
 
   function handleSubmit(e) {
     e.preventDefault()
     const data = new FormData(e.currentTarget)
-    const name = String(data.get('name') || '').trim()
-    const email = String(data.get('email') || '').trim()
-    const found = {}
-    if (!name) found.name = f.name.required
-    if (!email) found.email = f.email.required
-    else if (!emailLooksRight(email)) found.email = f.email.invalid
+    const found = { name: nameError(data.get('name')), email: emailError(data.get('email')) }
     setErrors(found)
     if (Object.values(found).some(Boolean)) return
     // Web3Forms sending goes here later.
@@ -63,10 +62,18 @@ function LetsTalk({ text, open, onOpenChange, initialStep = 'form' }) {
           <form noValidate onSubmit={handleSubmit} className="flex flex-col">
             <DialogTitle className="pr-8 whitespace-pre-line">{text.title}</DialogTitle>
             <div className="mt-5 flex flex-col gap-3 md:mt-8 md:gap-5">
-              <Field id="lt-name" label={f.name.label} error={errors.name}>
-                <Input id="lt-name" name="name" autoComplete="name" placeholder={f.name.placeholder} onChange={clearError('name')} />
+              <Field id="lt-name" label={f.name.label} required error={errors.name}>
+                <Input
+                  id="lt-name"
+                  name="name"
+                  autoComplete="name"
+                  maxLength={120}
+                  placeholder={f.name.placeholder}
+                  onChange={clearError('name')}
+                  onBlur={checkOnLeave('name', nameError)}
+                />
               </Field>
-              <Field id="lt-email" label={f.email.label} error={errors.email}>
+              <Field id="lt-email" label={f.email.label} required error={errors.email}>
                 <Input
                   id="lt-email"
                   name="email"
@@ -74,7 +81,7 @@ function LetsTalk({ text, open, onOpenChange, initialStep = 'form' }) {
                   autoComplete="email"
                   placeholder={f.email.placeholder}
                   onChange={clearError('email')}
-                  onBlur={checkEmail}
+                  onBlur={checkOnLeave('email', emailError)}
                 />
               </Field>
               <Field id="lt-website" label={f.website.label}>
