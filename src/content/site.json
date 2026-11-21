@@ -56,9 +56,11 @@
           "missingName": "Add your name before “@”, e.g. alex@company.com.",
           "missingDomain": "Add your company domain after “@”, e.g. @company.com.",
           "badEnding": "The domain looks incomplete — check the ending, e.g. company.com.",
-          "badCharacters": "Check the address for extra dots or unusual characters.",
-          "personal": "{domain} is a personal email service. Please use your company email, e.g. alex@company.com.",
-          "disposable": "Temporary email addresses aren’t accepted. Please use your company email."
+          "badCharacters": "Check the address for extra dots or unusual characters."
+        },
+        "notes": {
+          "personal": "{domain} is a personal address — that’s fine. A work email just helps us prepare for the call.",
+          "disposable": "This looks like a temporary inbox — we may not be able to reach you later."
         }
       },
       "website": {

@@ -22,9 +22,10 @@ const disposableDomains = new Set([
   'emailondeck.com', 'mintemail.com', 'spamgourmet.com', 'mailnesia.com', 'mytemp.email', 'tempinbox.com', 'burnermail.io',
 ])
 
-/** Work email: returns null or one of
- * "required" | "spaces" | "missingAt" | "manyAt" | "missingName" | "missingDomain" | "badEnding" | "badCharacters" | "personal" | "disposable" */
-export function checkWorkEmail(raw) {
+/** Email format: returns null or one of
+ * "required" | "spaces" | "missingAt" | "manyAt" | "missingName" | "missingDomain" | "badEnding" | "badCharacters".
+ * These stop the form: such an address can't receive a reply. */
+export function checkEmail(raw) {
   const value = String(raw ?? '').trim()
   if (!value) return 'required'
   if (/\s/.test(value)) return 'spaces'
@@ -41,6 +42,13 @@ export function checkWorkEmail(raw) {
   const localOk = /^[a-z0-9._%+-]+$/i.test(local) && !/^\.|\.$|\.\./.test(local)
   const domainOk = /^[a-z0-9-]+(\.[a-z0-9-]+)+$/i.test(domain) && !/(^|\.)-|-(\.|$)/.test(domain)
   if (!localOk || !domainOk) return 'badCharacters'
+  return null
+}
+
+/** Soft note for a correct address that isn't a company one: null | "personal" | "disposable".
+ * It does NOT stop the form (owner's choice: any working email can be sent). */
+export function emailNote(raw) {
+  const domain = emailDomain(raw)
   if (personalDomains.has(domain)) return 'personal'
   if (disposableDomains.has(domain)) return 'disposable'
   return null
