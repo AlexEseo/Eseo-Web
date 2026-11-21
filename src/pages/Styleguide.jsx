@@ -26,6 +26,10 @@ import { PlanRow } from '@/components/ui/plan-row'
 import { PricingCard } from '@/components/ui/pricing-card'
 import { Roadmap } from '@/components/ui/roadmap'
 import { Planner } from '@/components/ui/planner'
+import { useState } from 'react'
+import site from '@/content/site.json'
+import { Header } from '@/components/sections/Header'
+import { Footer } from '@/components/sections/Footer'
 import IconSeo12 from '@/components/icons/IconSeo12'
 import IconTarget from '@/components/icons/IconTarget'
 import IconPercent from '@/components/icons/IconPercent'
@@ -232,6 +236,26 @@ const demoFaq = [
   ['Do you work with small budgets?', 'Answer text goes here in one or two short sentences.'],
   ['Which channels do you cover?', 'Answer text goes here in one or two short sentences.'],
 ]
+
+// Header and Footer share one chosen currency, as they will on the landing page.
+function HeaderFooterDemo() {
+  const [currency, setCurrency] = useState(site.defaultCurrency)
+  const text = { ...site.header, ...site.footer, logoAlt: site.brand.logoAlt }
+  const shared = { text, currencies: site.currencies, currency, onCurrencyChange: setCurrency }
+  return (
+    <div className="flex flex-col gap-6">
+      <div className="overflow-hidden rounded-16 border border-gray-200">
+        <Header {...shared} className="static" />
+      </div>
+      <div className="overflow-hidden rounded-16 border border-gray-200">
+        <Header {...shared} className="static" defaultOpen />
+      </div>
+      <div className="overflow-hidden rounded-16 border border-gray-200">
+        <Footer {...shared} />
+      </div>
+    </div>
+  )
+}
 
 function Section({ title, children }) {
   return (
@@ -497,6 +521,14 @@ export default function Styleguide() {
         <p className="text-body-14 text-gray-600">
           Меняйте суммы, ползунки и валюту — результат пересчитывается сразу. Валюта меняет только знак, суммы не конвертируются.
         </p>
+      </Section>
+
+      <Section title="Header · Footer">
+        <p className="text-body-14 text-gray-600">
+          Широкий экран показывает версию для компьютера, узкий (телефон) — мобильную; вторая шапка — с открытым меню.
+          Валюта в шапке и подвале общая: смените в одном месте — поменяется в другом.
+        </p>
+        <HeaderFooterDemo />
       </Section>
 
       <Section title="Colors">

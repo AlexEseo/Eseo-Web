@@ -10,5 +10,56 @@
     "provider": "web3forms",
     "endpoint": "https://api.web3forms.com/submit",
     "accessKey": ""
+  },
+  "brand": {
+    "name": "eseo marketing.",
+    "logoAlt": "eseo marketing — home"
+  },
+  "currencies": [
+    {
+      "value": "USD",
+      "code": "USD $",
+      "name": "US dollar",
+      "symbol": "$"
+    },
+    {
+      "value": "EUR",
+      "code": "EUR €",
+      "name": "Euro",
+      "symbol": "€"
+    },
+    {
+      "value": "GBP",
+      "code": "GBP £",
+      "name": "British pound",
+      "symbol": "£"
+    },
+    {
+      "value": "CAD",
+      "code": "CAD C$",
+      "name": "Canadian dollar",
+      "symbol": "C$"
+    }
+  ],
+  "defaultCurrency": "EUR",
+  "header": {
+    "cta": "Let’s talk ↗",
+    "currencyLabel": "Currency",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu"
+  },
+  "footer": {
+    "copyright": "© 2026 ESEO LIMITED",
+    "email": "info@eseoads.com",
+    "links": [
+      {
+        "label": "Privacy Policy",
+        "href": "/privacy"
+      },
+      {
+        "label": "Legal Notice",
+        "href": "/legal"
+      }
+    ]
   }
 }

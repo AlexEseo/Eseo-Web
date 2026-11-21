@@ -156,9 +156,11 @@
   --spacing-slider-track: 0.25rem;
   /* Currency menu width from Figma: 200 → min-w-currency-menu */
   --spacing-currency-menu: 12.5rem;
+  /* Header select (currency pill in header and footer) height from Figma: 32 → h-header-select */
+  --spacing-header-select: 2rem;
 
   /* Layout */
-  --container-page: 72rem;       /* placeholder: will be taken from the Home page in stage 5 */
+  --container-page: 70rem;       /* content width 1120 from Figma Header and Footer */
   --container-roadmap-heading: 12.5rem; /* Roadmap heading width on desktop, from Figma: 200 */
 
   /* Radii: Figma "radius/..." → rounded-4, rounded-8, ... */
