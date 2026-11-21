@@ -12,8 +12,10 @@ function SectionHeading({ label, title, description, align = 'center', className
       className={cn('flex flex-col gap-4 md:gap-5', align === 'center' ? 'items-center text-center' : 'items-start text-left', className)}
     >
       {label && <SectionLabel>{label}</SectionLabel>}
-      <h2 className="text-display-48 font-semibold text-gray-950 md:whitespace-pre-line">{title}</h2>
-      {description && <p className="text-body-14 text-gray-600 md:text-body-16">{description}</p>}
+      <h2 className={cn('text-display-48 font-semibold text-gray-950 md:whitespace-pre-line', align === 'left' && 'max-w-(--container-heading)')}>
+        {title}
+      </h2>
+      {description && <p className="max-w-(--container-hero-sub) text-body-14 text-gray-600 md:text-body-16">{description}</p>}
     </div>
   )
 }

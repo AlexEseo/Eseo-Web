@@ -142,5 +142,29 @@
         "description": "17 locations · 10+ markets"
       }
     ]
+  },
+  "approach": {
+    "title": "4 channels\nOne commercial direction.",
+    "description": "Start with the decision your business needs to make. Then connect the media, creative and measurement to support it.",
+    "steps": [
+      {
+        "key": "constraint",
+        "title": "Find the real constraint.",
+        "description": "Separate demand, conversion and measurement problems before changing the media plan.",
+        "label": "Account & signal diagnostic"
+      },
+      {
+        "key": "plan",
+        "title": "Build a testable plan.",
+        "description": "Give each channel a role, an agreed success measure and a clear threshold for investment.",
+        "label": "Prioritised experiment roadmap"
+      },
+      {
+        "key": "scale",
+        "title": "Scale what earns it.",
+        "description": "Review results with marketing and finance. Reallocate only when the evidence supports it.",
+        "label": "Budget & performance governance"
+      }
+    ]
   }
 }
