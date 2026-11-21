@@ -53,7 +53,7 @@ export default function App() {
           onCta={openTalk}
         />
         <Principles text={site.principles} />
-        <Approach text={site.approach} />
+        <Approach text={site.approach} onCta={openTalk} />
         <Industries text={site.industries} onCta={openTalk} />
         <BusinessCase text={site.businessCase} currencies={site.currencies} currency={currency} onCurrencyChange={setCurrency} />
         <RoadmapSection text={site.roadmap} />
