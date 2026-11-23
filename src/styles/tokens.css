@@ -280,6 +280,9 @@
   --duration-fast: 150ms;
   --duration-base: 300ms;
   --duration-slow: 600ms;
+  /* Industries tab change: old text fades out, then the new one fades in slowly */
+  --duration-tab-out: 400ms;
+  --duration-tab-in: 900ms;
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.45, 0, 0.25, 1); /* soft start and soft end: hover lifts, tab changes */
@@ -299,11 +302,11 @@
   --duration-float-offset: -3.5s;
   /* Hero channel illustration: a light pulse runs down each line into the "E" hub, and the hub glows when it arrives */
   --duration-flow: 4s;
-  /* Industries gradient floats between Figma State=A and State=B (Smart animate 3.5s, ease in-out) */
-  --duration-gradient-drift: 3.5s;
-  --duration-gradient-drift-slow: 7s; /* Engagements background: calmer drift */
+  /* Industries gradient floats between Figma State=A and State=B (Smart animate, ease in-out) */
+  --duration-gradient-drift: 7s; /* Figma has 3.5s; slowed down at the owner's request */
+  --duration-gradient-drift-slow: 9s; /* Engagements background: calmer drift */
   --animate-gradient-drift: gradient-drift var(--duration-gradient-drift) ease-in-out infinite alternate;
-  --shadow-flow-glow: 0 0 0.375rem var(--color-brand-200); /* soft light halo around the white pulse */
+  --shadow-flow-glow: 0 0 0.375rem var(--color-brand-100); /* soft light halo around the light-blue pulse */
   --animate-flow: flow var(--duration-flow) ease-in-out infinite;
   --animate-hub-pulse: hub-pulse var(--duration-flow) ease-out infinite; /* the second orb starts half a cycle later, so they don't move in step */
 
