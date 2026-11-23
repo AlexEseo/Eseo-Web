@@ -288,7 +288,12 @@
   --duration-float: 6s;
   --motion-float-distance: 0.5rem;
   --animate-float: float var(--duration-float) ease-in-out infinite;
-  --duration-float-offset: -3s; /* the second orb starts half a cycle later, so they don't move in step */
+  --duration-float-offset: -3s;
+  /* Hero channel illustration: a light pulse runs down each line into the "E" hub, and the hub glows when it arrives */
+  --duration-flow: 2.4s;
+  --shadow-flow-glow: 0 0 0.25rem var(--color-brand-600);
+  --animate-flow: flow var(--duration-flow) var(--ease-standard) infinite;
+  --animate-hub-pulse: hub-pulse var(--duration-flow) var(--ease-out) infinite; /* the second orb starts half a cycle later, so they don't move in step */
 
   /* Accordion open/close: class animate-accordion-down / animate-accordion-up */
   --animate-accordion-down: accordion-down var(--duration-base) var(--ease-out);
@@ -300,6 +305,15 @@
   @keyframes accordion-up {
     from { height: var(--radix-accordion-content-height); }
     to { height: 0; }
+  }
+  @keyframes flow {
+    from { stroke-dashoffset: 1.15; }
+    to { stroke-dashoffset: 0; }
+  }
+  @keyframes hub-pulse {
+    0%, 55% { scale: 1; opacity: 0; }
+    65% { opacity: 0.45; }
+    100% { scale: 1.45; opacity: 0; }
   }
   @keyframes float {
     0%, 100% { translate: 0 0; }
