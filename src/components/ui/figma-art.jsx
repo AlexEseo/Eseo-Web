@@ -3,7 +3,8 @@
 // It is placed inside a box with the proportions of the Figma "Visual" frame and clipped to it,
 // so the picture scales with the card exactly like in Figma.
 // Props:
-//   svg:    the SVG file contents (import x from '@/assets/illustrations/x.svg?raw')
+//   svg:    the SVG file contents (import x from '@/assets/illustrations/x.svg?raw'), or
+//   children: a React picture (e.g. an animated one) placed in the same way
 //   frame:  [width, height] of the Figma box around the picture
 //   at:     [x, y] where the SVG starts inside that box (can be negative when the picture bleeds out)
 //   size:   [width, height] of the SVG itself
@@ -13,7 +14,7 @@ import { cn } from '@/lib/utils'
 
 const pct = (v, total) => `${(v / total) * 100}%`
 
-function FigmaArt({ svg, frame, at = [0, 0], size, bleed = false, className }) {
+function FigmaArt({ svg, children, frame, at = [0, 0], size, bleed = false, className }) {
   const [fw, fh] = frame
   const [sw, sh] = size ?? frame
   return (
@@ -21,7 +22,7 @@ function FigmaArt({ svg, frame, at = [0, 0], size, bleed = false, className }) {
       <div
         className="absolute [&>svg]:block [&>svg]:size-full"
         style={{ left: pct(at[0], fw), top: pct(at[1], fh), width: pct(sw, fw), height: pct(sh, fh) }}
-        dangerouslySetInnerHTML={{ __html: svg }}
+        {...(svg ? { dangerouslySetInnerHTML: { __html: svg } } : { children })}
       />
     </div>
   )
