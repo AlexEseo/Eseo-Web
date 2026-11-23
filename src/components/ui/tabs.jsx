@@ -22,7 +22,6 @@ function TabsTrigger({ className, ...props }) {
         'cursor-pointer border-b-2 border-gray-200 pb-3 text-left text-label-14 font-semibold whitespace-nowrap text-gray-600 outline-none transition-colors duration-(--duration-fast) ease-(--ease-standard)',
         'hover:border-gray-300 hover:text-gray-900',
         'data-[state=active]:border-brand-600 data-[state=active]:text-gray-900',
-        'focus-visible:rounded-4 focus-visible:inset-ring-2 focus-visible:inset-ring-gray-400',
         'disabled:pointer-events-none disabled:opacity-40',
         className,
       )}
