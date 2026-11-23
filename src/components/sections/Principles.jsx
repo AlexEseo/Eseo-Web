@@ -16,10 +16,10 @@ import { cn } from '@/lib/utils'
 // Picture (exported from Figma, with its place inside the 310-wide "Visual" box) and grid place for each card.
 // E-commerce and Multi-location panels run past the box and are cut only by the card edge, as in Figma.
 const cardSetup = {
-  ecommerce: { art: { svg: artShop, frame: [310, 402], at: [0, -1], size: [376, 334], bleed: true }, grid: 'md:row-span-2', order: 'order-1' },
+  ecommerce: { art: { svg: artShop, frame: [310, 402], at: [0, -1], size: [376, 334], bleed: true }, grid: 'lg:row-span-2', order: 'order-1' },
   subscriptions: { art: { svg: artSubscribe, frame: [310, 122] }, grid: '', order: 'order-2' },
-  education: { art: { svg: artEducation, frame: [310, 402], at: [-24, 0], size: [360, 402] }, grid: 'md:row-span-2', order: 'order-4 md:order-3' },
-  multilocation: { art: { svg: artMarket, frame: [310, 122], at: [-48, 13], size: [358, 96], bleed: true }, grid: 'md:col-start-2', order: 'order-3 md:order-4' },
+  education: { art: { svg: artEducation, frame: [310, 402], at: [-24, 0], size: [360, 402] }, grid: 'lg:row-span-2', order: 'order-4 lg:order-3' },
+  multilocation: { art: { svg: artMarket, frame: [310, 122], at: [-48, 13], size: [358, 96], bleed: true }, grid: 'lg:col-start-2', order: 'order-3 lg:order-4' },
 }
 
 function Principles({ text }) {
@@ -29,7 +29,7 @@ function Principles({ text }) {
         <Reveal>
           <SectionHeading title={text.title} />
         </Reveal>
-        <RevealGroup className="grid grid-cols-1 gap-4 md:grid-cols-3 md:grid-rows-2 md:gap-5">
+        <RevealGroup className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5 lg:grid-cols-3 lg:grid-rows-2">
           {text.cards.map((card) => {
             const setup = cardSetup[card.key]
             return (
@@ -37,7 +37,7 @@ function Principles({ text }) {
                 as="article"
                 key={card.key}
                 className={cn(
-                  'flex flex-col gap-8 overflow-hidden rounded-20 border border-gray-200 bg-gray-0 px-6 pt-8 pb-6 shadow-glass-card',
+                  'flex flex-col justify-between gap-8 overflow-hidden rounded-20 border border-gray-200 bg-gray-0 px-6 pt-8 pb-6 shadow-glass-card',
                   setup.grid,
                   setup.order,
                 )}

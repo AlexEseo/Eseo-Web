@@ -5,7 +5,12 @@
 // Props:
 //   label:    text under the hub, e.g. "One measurement plan" (site.json → hero.convergenceLabel)
 //   channels: list of { name, icon } — icon is a React element (36 box); name is read by screen readers
+// Motion ("connect"): when the picture scrolls into view the lines draw from each channel down to the hub, one after another,
+// and the hub pops in. Then light pulses keep running down the lines into the "E", and the hub glows softly as they arrive.
+// With "less motion" in the system the picture is simply shown, without pulses.
+import { m, useReducedMotion } from 'motion/react'
 import IconLogoE from '@/components/icons/IconLogoE'
+import { motionTokens } from '@/lib/motion-tokens'
 import { ChannelChip } from '@/components/ui/channel-chip'
 import { cn } from '@/lib/utils'
 
@@ -21,6 +26,27 @@ function Scene({ kind, label, channels, className }) {
   const g = layouts[kind]
   const cx = g.w / 2
   const id = `flow-${kind}`
+  const reduce = useReducedMotion()
+  const t = motionTokens()
+  const inView = { once: true, amount: 0.4 }
+  // Line i starts drawing a little after line i-1; the hub appears when the lines reach it.
+  const draw = (i) =>
+    reduce
+      ? {}
+      : {
+          initial: { pathLength: 0, opacity: 0 },
+          whileInView: { pathLength: 1, opacity: 1 },
+          viewport: inView,
+          transition: { duration: t.slow * 1.5, ease: t.easeStandard, delay: i * t.stagger },
+        }
+  const hubIn = reduce
+    ? {}
+    : {
+        initial: { scale: 0.85, opacity: 0 },
+        whileInView: { scale: 1, opacity: 1 },
+        viewport: inView,
+        transition: { duration: t.slow, ease: t.easeOut, delay: t.slow },
+      }
 
   return (
     <div className={cn('relative w-full', className)} style={{ aspectRatio: `${g.w} / ${g.h}` }}>
@@ -32,12 +58,24 @@ function Scene({ kind, label, channels, className }) {
             <stop offset="1" stopColor="var(--color-brand-600)" />
           </linearGradient>
         </defs>
-        {g.xs.map((x) => {
+        {g.xs.map((x, i) => {
           const d = `M${x} ${g.chipY * 2}C${x} ${g.bend} ${cx} ${g.bend} ${cx} ${g.hubY}`
           return (
             <g key={x}>
-              {g.halo > 0 && <path d={d} strokeWidth={g.halo} strokeLinecap="round" stroke="var(--color-gray-0)" fill="none" />}
-              <path d={d} strokeWidth={g.line} strokeLinecap="round" stroke={`url(#${id})`} fill="none" />
+              {g.halo > 0 && <m.path d={d} strokeWidth={g.halo} strokeLinecap="round" stroke="var(--color-gray-0)" fill="none" {...draw(i)} />}
+              <m.path d={d} strokeWidth={g.line} strokeLinecap="round" stroke={`url(#${id})`} fill="none" {...draw(i)} />
+              {/* Light pulse running down the line; each line starts a quarter cycle later */}
+              <path
+                d={d}
+                pathLength="1"
+                strokeDasharray="0.2 1.2"
+                strokeWidth={g.line * 2}
+                strokeLinecap="round"
+                stroke="var(--color-brand-600)"
+                fill="none"
+                className="animate-flow drop-shadow-(--shadow-flow-glow) motion-reduce:hidden"
+                style={{ animationDelay: `calc(var(--duration-flow) * ${-i / 4})` }}
+              />
             </g>
           )
         })}
@@ -55,13 +93,12 @@ function Scene({ kind, label, channels, className }) {
         </ChannelChip>
       ))}
 
-      {/* Hub */}
-      <span
-        aria-hidden="true"
-        className="absolute flex -translate-x-1/2 items-center justify-center rounded-full bg-(image:--gradient-hub) text-gray-0"
-        style={{ left: '50%', top: pct(g.hubY, g.h), width: pct(g.hub, g.w), aspectRatio: '1' }}
-      >
-        <IconLogoE className="h-auto w-1/4" />
+      {/* Hub, with a soft glow ring that swells each time a pulse arrives */}
+      <span aria-hidden="true" className="absolute -translate-x-1/2" style={{ left: '50%', top: pct(g.hubY, g.h), width: pct(g.hub, g.w), aspectRatio: '1' }}>
+        <span className="absolute inset-0 animate-hub-pulse rounded-full bg-brand-200 motion-reduce:hidden" style={{ animationDuration: 'calc(var(--duration-flow) / 4)' }} />
+        <m.span className="relative flex size-full items-center justify-center rounded-full bg-(image:--gradient-hub) text-gray-0" {...hubIn}>
+          <IconLogoE className="h-auto w-1/4" />
+        </m.span>
       </span>
 
       {/* Label under the hub */}

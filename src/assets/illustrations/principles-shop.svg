@@ -21,7 +21,7 @@
 <text fill="#FDFDFD" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="60" y="196.818">Margin</tspan></text>
 <text fill="#A4A7AE" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="12" letter-spacing="0em"><tspan x="60" y="216.364">Contribution after media,&#10;</tspan><tspan x="60" y="232.364">per product.</tspan></text>
 </g>
-<rect x="4" y="250" width="368" height="80" rx="4" fill="#181D27"/>
+<path d="M4 254C4 251.791 5.79086 250 8 250H368C370.209 250 372 251.791 372 254V326C372 328.209 370.209 330 368 330H24C12.9543 330 4 321.046 4 310V254Z" fill="#181D27"/>
 <rect x="16" y="262" width="32" height="32" rx="16" fill="#717680"/>
 <text fill="#FDFDFD" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="24" y="283.818">&#x21bb;</tspan></text>
 <g clip-path="url(#clip3_499_762)">
