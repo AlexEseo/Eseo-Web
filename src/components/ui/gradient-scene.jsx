@@ -2,6 +2,9 @@
 // Every layer keeps its Figma place, size, colour stops, opacity, order and blur. The whole scene keeps the
 // Figma frame proportions and scales with its width; blur scales too, so it looks the same on any screen.
 // Decorative block with fixed proportions — approved by the owner.
+// Drift: if the scene has "drift" and its layers have "to", every layer floats from its Figma State=A place to State=B
+// and back, forever (Figma Smart animate). Done with transform only (move, turn, resize), so it stays smooth.
+// With "less motion" in the system the scene stays still in State=A.
 // Props: scene (from gradients.js), className / style (to place the scene).
 import { cn } from '@/lib/utils'
 
@@ -28,25 +31,33 @@ function GradientScene({ scene, className, style }) {
           filter: blur(scene.blur),
         }}
       >
-        {scene.layers.map((l, i) => (
-          <span
-            key={i}
-            className="absolute"
-            style={{
-              left: pct(l.x, fw),
-              top: pct(l.y, fh),
-              width: pct(l.w, fw),
-              height: pct(l.h, fh),
-              borderRadius: l.shape === 'rect' ? undefined : '50%',
-              backgroundImage: `var(${l.token})`,
-              opacity: l.opacity,
-              filter: blur(l.blur),
-              transform: l.rotate ? `rotate(${l.rotate}deg)` : undefined,
-              transformOrigin: l.rotate ? 'top left' : undefined,
-              mixBlendMode: l.blend,
-            }}
-          />
-        ))}
+        {scene.layers.map((l, i) => {
+          const base = l.rotate ? `rotate(${l.rotate}deg)` : 'none'
+          // From A to B: move by the difference (in % of the layer's own size), turn, then resize.
+          const drift = l.to
+            ? `translate(${((l.to.x - l.x) / l.w) * 100}%, ${((l.to.y - l.y) / l.h) * 100}%) rotate(${l.to.rotate ?? 0}deg) scale(${l.to.w / l.w}, ${l.to.h / l.h})`
+            : null
+          return (
+            <span
+              key={i}
+              className={cn('absolute', drift && 'animate-gradient-drift motion-reduce:animate-none')}
+              style={{
+                left: pct(l.x, fw),
+                top: pct(l.y, fh),
+                width: pct(l.w, fw),
+                height: pct(l.h, fh),
+                borderRadius: l.shape === 'rect' ? undefined : '50%',
+                backgroundImage: `var(${l.token})`,
+                opacity: l.opacity,
+                filter: blur(l.blur),
+                transform: l.rotate ? base : undefined,
+                transformOrigin: l.rotate || drift ? 'top left' : undefined,
+                mixBlendMode: l.blend,
+                ...(drift && { '--drift-from': base, '--drift-to': drift }),
+              }}
+            />
+          )
+        })}
       </div>
     </div>
   )
