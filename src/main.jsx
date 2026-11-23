@@ -6,14 +6,15 @@
 //   anything else → 404
 // Each page also has its own HTML file (privacy/index.html, legal/index.html, 404.html) with the right title,
 // so the pages work on any static hosting without extra settings.
-import { StrictMode } from 'react'
+import { StrictMode, Suspense, lazy } from 'react'
 import { createRoot } from 'react-dom/client'
 import './styles/globals.css'
 import site from './content/site.json'
 import App from './App.jsx'
-import DocumentPage from './pages/DocumentPage.jsx'
-import NotFound from './pages/NotFound.jsx'
-import Styleguide from './pages/Styleguide.jsx'
+// Pages other than home load in their own small files only when opened, so the home page downloads less.
+const DocumentPage = lazy(() => import('./pages/DocumentPage.jsx'))
+const NotFound = lazy(() => import('./pages/NotFound.jsx'))
+const Styleguide = lazy(() => import('./pages/Styleguide.jsx'))
 
 // The address decides; for an unknown address the HTML file names its page (<div id="root" data-page="notFound">).
 const root = document.getElementById('root')
@@ -31,6 +32,8 @@ function Page() {
 
 createRoot(root).render(
   <StrictMode>
-    <Page />
+    <Suspense fallback={null}>
+      <Page />
+    </Suspense>
   </StrictMode>,
 )
