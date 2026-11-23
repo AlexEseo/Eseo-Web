@@ -301,6 +301,7 @@
   --duration-flow: 4s;
   /* Industries gradient floats between Figma State=A and State=B (Smart animate 3.5s, ease in-out) */
   --duration-gradient-drift: 3.5s;
+  --duration-gradient-drift-slow: 7s; /* Engagements background: calmer drift */
   --animate-gradient-drift: gradient-drift var(--duration-gradient-drift) ease-in-out infinite alternate;
   --shadow-flow-glow: 0 0 0.375rem var(--color-brand-200); /* soft light halo around the white pulse */
   --animate-flow: flow var(--duration-flow) ease-in-out infinite;

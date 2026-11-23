@@ -53,7 +53,7 @@ function GradientScene({ scene, className, style }) {
                 transform: l.rotate ? base : undefined,
                 transformOrigin: l.rotate || drift ? 'top left' : undefined,
                 mixBlendMode: l.blend,
-                ...(drift && { '--drift-from': base, '--drift-to': drift }),
+                ...(drift && { '--drift-from': base, '--drift-to': drift, animationDuration: `var(${scene.drift})` }),
               }}
             />
           )

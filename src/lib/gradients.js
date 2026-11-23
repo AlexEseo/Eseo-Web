@@ -39,16 +39,19 @@ export const industriesScene = {
 
 export const engagementsScene = {
   frame: [1280, 1494], // Figma "Engagements gradient"; the blobs group sits 240 below its top
+  // Gentle drift like the Industries circle (owner's request): blobs slowly shift a little and breathe, 7s each way.
+  // Figma has no second state for this gradient, so the "to" places are small offsets chosen by eye.
+  drift: '--duration-gradient-drift-slow',
   layers: [
     { token: '--gradient-eng-base', x: 0, y: 0, w: 1280, h: 1494, blur: 0, shape: 'rect' },
-    { token: '--gradient-eng-blob-1', x: 484, y: 160, w: 620, h: 526, blur: 120 },
-    { token: '--gradient-eng-blob-2', x: -196, y: 513, w: 700, h: 569, blur: 140 },
-    { token: '--gradient-eng-blob-3', x: 256, y: 720, w: 640, h: 460, blur: 100 },
-    { token: '--gradient-eng-blob-4', x: 916, y: 771, w: 420, h: 460, blur: 72 },
-    { token: '--gradient-eng-blob-5', x: 90, y: 175, w: 460, h: 372, blur: 90 },
-    { token: '--gradient-eng-blob-6', x: 20, y: 760, w: 440, h: 396, blur: 64 },
-    { token: '--gradient-hero-sweep', x: 190, y: 204, w: 900, h: 986, blur: 160, opacity: 0.6 },
-    { token: '--gradient-eng-highlight', x: -60, y: 320, w: 560, h: 560, blur: 64, blend: 'plus-lighter' },
-    { token: '--gradient-eng-highlight', x: 960, y: 280, w: 240, h: 298, blur: 64, rotate: 44, blend: 'plus-lighter' },
+    { token: '--gradient-eng-blob-1', x: 484, y: 160, w: 620, h: 526, blur: 120, to: { x: 424, y: 210, w: 680, h: 560 } },
+    { token: '--gradient-eng-blob-2', x: -196, y: 513, w: 700, h: 569, blur: 140, to: { x: -136, y: 463, w: 660, h: 540 } },
+    { token: '--gradient-eng-blob-3', x: 256, y: 720, w: 640, h: 460, blur: 100, to: { x: 316, y: 680, w: 700, h: 500 } },
+    { token: '--gradient-eng-blob-4', x: 916, y: 771, w: 420, h: 460, blur: 72, to: { x: 856, y: 711, w: 460, h: 480 } },
+    { token: '--gradient-eng-blob-5', x: 90, y: 175, w: 460, h: 372, blur: 90, to: { x: 150, y: 215, w: 420, h: 352 } },
+    { token: '--gradient-eng-blob-6', x: 20, y: 760, w: 440, h: 396, blur: 64, to: { x: 70, y: 800, w: 480, h: 420 } },
+    { token: '--gradient-hero-sweep', x: 190, y: 204, w: 900, h: 986, blur: 160, opacity: 0.6, to: { x: 190, y: 204, w: 900, h: 986, rotate: 20 } },
+    { token: '--gradient-eng-highlight', x: -60, y: 320, w: 560, h: 560, blur: 64, blend: 'plus-lighter', to: { x: 0, y: 360, w: 600, h: 600 } },
+    { token: '--gradient-eng-highlight', x: 960, y: 280, w: 240, h: 298, blur: 64, rotate: 44, blend: 'plus-lighter', to: { x: 900, y: 320, w: 260, h: 320, rotate: 44 } },
   ],
 }
