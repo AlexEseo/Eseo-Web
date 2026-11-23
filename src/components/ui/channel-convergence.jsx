@@ -6,7 +6,7 @@
 //   label:    text under the hub, e.g. "One measurement plan" (site.json → hero.convergenceLabel)
 //   channels: list of { name, icon } — icon is a React element (36 box); name is read by screen readers
 // Motion ("connect"): when the picture scrolls into view the lines draw from each channel down to the hub, one after another,
-// and the hub pops in. Then light pulses keep running down the lines into the "E", and the hub glows softly as they arrive.
+// and the hub pops in. Then light pulses run slowly down all four lines at once into the "E", and the hub glows softly as they arrive.
 // With "less motion" in the system the picture is simply shown, without pulses.
 import { m, useReducedMotion } from 'motion/react'
 import IconLogoE from '@/components/icons/IconLogoE'
@@ -64,7 +64,7 @@ function Scene({ kind, label, channels, className }) {
             <g key={x}>
               {g.halo > 0 && <m.path d={d} strokeWidth={g.halo} strokeLinecap="round" stroke="var(--color-gray-0)" fill="none" {...draw(i)} />}
               <m.path d={d} strokeWidth={g.line} strokeLinecap="round" stroke={`url(#${id})`} fill="none" {...draw(i)} />
-              {/* Light pulse running down the line; each line starts a quarter cycle later */}
+              {/* Light pulse running down the line; all four start together and meet in the hub */}
               <path
                 d={d}
                 pathLength="1"
@@ -74,7 +74,6 @@ function Scene({ kind, label, channels, className }) {
                 stroke="var(--color-brand-600)"
                 fill="none"
                 className="animate-flow drop-shadow-(--shadow-flow-glow) motion-reduce:hidden"
-                style={{ animationDelay: `calc(var(--duration-flow) * ${-i / 4})` }}
               />
             </g>
           )
@@ -95,7 +94,7 @@ function Scene({ kind, label, channels, className }) {
 
       {/* Hub, with a soft glow ring that swells each time a pulse arrives */}
       <span aria-hidden="true" className="absolute -translate-x-1/2" style={{ left: '50%', top: pct(g.hubY, g.h), width: pct(g.hub, g.w), aspectRatio: '1' }}>
-        <span className="absolute inset-0 animate-hub-pulse rounded-full bg-brand-200 motion-reduce:hidden" style={{ animationDuration: 'calc(var(--duration-flow) / 4)' }} />
+        <span className="absolute inset-0 animate-hub-pulse rounded-full bg-brand-200 motion-reduce:hidden" />
         <m.span className="relative flex size-full items-center justify-center rounded-full bg-(image:--gradient-hub) text-gray-0" {...hubIn}>
           <IconLogoE className="h-auto w-1/4" />
         </m.span>

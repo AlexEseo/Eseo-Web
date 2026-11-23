@@ -1,5 +1,5 @@
 // Closing: last call to action on a light grey band — label, big title, button and a short note.
-// Desktop: blue circles, a slightly tilted Plan card and a red pin on it, on the right (decor). Phone: the Plan card under the text.
+// Desktop: slowly floating blue circles, a slightly tilted Plan card and a red pin on it, on the right (decor). Phone: the Plan card under the text.
 // Figma Home → "Closing". The button opens the "Let's talk" form.
 // Props: text (site.closing), onCta.
 import { Reveal } from '@/components/motion/reveal'
@@ -43,11 +43,19 @@ function Closing({ text, onCta }) {
     <section data-slot="closing" className="relative isolate overflow-hidden bg-gray-100 px-5 py-16 md:px-10 lg:px-20 lg:py-21">
       {/* Decor on the right half (desktop) */}
       <div aria-hidden="true" className="absolute inset-y-0 right-0 -z-10 hidden w-1/2 lg:block">
-        {circles.map(([token, x, y, size]) => (
+        {circles.map(([token, x, y, size], i) => (
           <span
             key={token}
-            className="absolute rounded-full"
-            style={{ left: pct(x, 640), top: pct(y, 380), width: pct(size, 640), aspectRatio: '1', backgroundImage: `var(${token})` }}
+            className="absolute animate-float rounded-full [--motion-float-distance:var(--motion-float-distance-large)] [animation-duration:var(--duration-float-slow)]"
+            style={{
+              left: pct(x, 640),
+              top: pct(y, 380),
+              width: pct(size, 640),
+              aspectRatio: '1',
+              backgroundImage: `var(${token})`,
+              // each circle starts at a different point of the cycle, so they drift independently
+              animationDelay: `calc(var(--duration-float-slow) * ${-i / 3})`,
+            }}
           />
         ))}
         {/* Figma rotation −3° = 3° clockwise, turned around the card's top-left corner (Figma keeps x/y there) */}
