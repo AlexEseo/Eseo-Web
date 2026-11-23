@@ -4,13 +4,14 @@
 //   scenario contribution after media = revenue × (1 + revenue change) × margin − media spend
 //   big number = scenario − current;  MER = revenue ÷ media spend (current → scenario)
 // The currency only changes the sign; amounts are not converted.
-// The big number uses the plain sign without letters ("C$" → "$"), as the owner asked; rows keep the full sign.
+// The big number rolls to the new value when inputs change (CountUp). It uses the plain sign without letters ("C$" → "$"), as the owner asked; rows keep the full sign.
 // Props:
 //   text:       all labels (from site.json): currency, revenue, media, mediaHint, margin, change, current, scenario, mer
 //   currencies: list for the currency picker, e.g. [{ value: "EUR", code: "EUR €", name: "Euro", symbol: "€" }]
 //   initial:    starting values { currency, revenue, media, margin, change } (margin and change in %)
 //   currency / onCurrencyChange: optional — the page's shared currency (header, footer); without them the Planner keeps its own
 import { useId, useState } from 'react'
+import { CountUp } from '@/components/motion/count-up'
 import { CurrencySelect } from '@/components/ui/currency-select'
 import { Divider } from '@/components/ui/divider'
 import { Field } from '@/components/ui/field'
@@ -98,7 +99,7 @@ function Planner({ text, currencies = [], initial, currency, onCurrencyChange, c
       </div>
       <div className="flex flex-col justify-center gap-6 bg-gray-50 px-5 py-6 md:flex-1 md:p-10">
         <p aria-live="polite" className="text-display-40 font-semibold text-gray-900 tabular-nums md:text-display-64">
-          {money(r.uplift, bigSymbol, true)}
+          <CountUp value={r.uplift} format={(n) => money(n, bigSymbol, true)} />
         </p>
         <div className="flex flex-col">
           <ResultRow label={text.current} value={money(r.current, symbol)} />

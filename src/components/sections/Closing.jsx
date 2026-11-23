@@ -2,6 +2,7 @@
 // Desktop: blue circles, a slightly tilted Plan card and a red pin on it, on the right (decor). Phone: the Plan card under the text.
 // Figma Home → "Closing". The button opens the "Let's talk" form.
 // Props: text (site.closing), onCta.
+import { Reveal } from '@/components/motion/reveal'
 import { Button } from '@/components/ui/button'
 import { IconBadge } from '@/components/ui/icon-badge'
 import { PlanCard } from '@/components/ui/plan-card'
@@ -51,7 +52,9 @@ function Closing({ text, onCta }) {
         ))}
         {/* Figma rotation −3° = 3° clockwise, turned around the card's top-left corner (Figma keeps x/y there) */}
         <div className="absolute origin-top-left rotate-3" style={{ left: pct(86, 640), top: pct(60, 380), width: pct(400, 640) }}>
-          <Plan rows={text.plan} />
+          <Reveal delay={0.15}>
+            <Plan rows={text.plan} />
+          </Reveal>
         </div>
         {/* Red "Magnet" pin on the card */}
         <span
@@ -61,17 +64,17 @@ function Closing({ text, onCta }) {
       </div>
 
       <div className="mx-auto flex max-w-(--container-page) flex-col gap-10">
-        <div className="flex flex-col items-start gap-5">
+        <Reveal className="flex flex-col items-start gap-5">
           <SectionLabel>{text.label}</SectionLabel>
           <h2 className="text-display-40 font-semibold text-gray-900 md:whitespace-pre-line">{text.title}</h2>
           <Button variant="primary" size="m" onClick={onCta}>
             {text.cta}
           </Button>
           <p className="text-body-12 text-gray-600">{text.note}</p>
-        </div>
-        <div className="lg:hidden">
+        </Reveal>
+        <Reveal className="lg:hidden">
           <Plan rows={text.plan} />
-        </div>
+        </Reveal>
       </div>
     </section>
   )
