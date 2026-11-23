@@ -17,7 +17,7 @@ function Engagements({ text, onCta }) {
         </Reveal>
         <RevealGroup className="flex flex-col gap-5 lg:flex-row lg:items-start">
           {text.plans.map((plan) => (
-            <RevealItem key={plan.key} className="group/lift flex lg:flex-1">
+            <RevealItem key={plan.key} className="flex lg:flex-1">
               <PricingCard
                 label={plan.label}
                 title={plan.title}
