@@ -47,6 +47,24 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Approach "Find the real constraint": rings softly pulse out of the blue "Conversion" circle (inside the SVG). */
+.illustration-pulse {
+  transform-box: view-box;
+  transform-origin: 249px 166px; /* design-ok: centre of the circle in the SVG's own 498×320 coordinates */
+  animation: var(--animate-ring-pulse);
+}
+.illustration-pulse-late {
+  animation-delay: calc(var(--duration-ring-pulse) / 2);
+}
+@media (prefers-reduced-motion: reduce) {
+  .illustration-pulse { display: none; }
+}
+
+/* Approach "Scale what earns it": the dashed lines run towards the circle (inside the SVG). */
+.illustration-dash {
+  animation: var(--animate-dash-run);
+}
+
 /* Turn animations off for people who ask their system for less motion. */
 @media (prefers-reduced-motion: reduce) {
   *,
