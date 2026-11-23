@@ -65,6 +65,21 @@ html {
   animation: var(--animate-dash-run);
 }
 
+/* Browser autofill (saved email, name…) paints fields light blue. Keep the field's own look instead:
+   the browser's colour change is delayed for ~a week, so it never shows, and the text keeps our colour. */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-text-fill-color: var(--color-gray-900);
+  caret-color: var(--color-gray-900);
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+input:autofill {
+  background-color: transparent;
+}
+
 /* Speed: looping animations stop while their section is off the screen (set by usePauseOffscreen). */
 [data-offscreen] *,
 [data-offscreen] *::before,
