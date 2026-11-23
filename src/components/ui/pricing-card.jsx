@@ -5,7 +5,9 @@
 //   cta:      button text; onCta: what the button does (for example, open the "Let's talk" form)
 //   selected: true highlights the card (blue outline, blue glow, primary button) — the recommended plan
 //   preview:  "hover" | "focus" — only for /styleguide
-// Hover: the card lifts a little (token --motion-card-lift) while its shadow grows.
+// Hover: the card lifts a little (token --motion-card-lift) while its shadow grows, slowly with ease in-out.
+// The lift listens to hovering the wrapper around the card (group/lift), which does not move — so the card
+// never slips out from under the cursor and doesn't twitch. Wrap the card in an element with class "group/lift".
 // States from Figma: Default, Hover, Focus — each for a normal and a selected card.
 // Focus shows when the button inside is reached with the Tab key.
 import { Button } from '@/components/ui/button'
@@ -33,7 +35,7 @@ function PricingCard({
       data-slot="pricing-card"
       data-selected={selected || undefined}
       className={cn(
-        'group/pricing border-gradient flex flex-col items-start gap-8 rounded-40 px-6 py-8 backdrop-blur-(--blur-pricing) transition-[box-shadow,translate] duration-(--duration-base) ease-(--ease-standard) hover:-translate-y-(--motion-card-lift)',
+        'group/pricing border-gradient flex flex-col items-start gap-8 rounded-40 px-6 py-8 backdrop-blur-(--blur-pricing) transition-[box-shadow,translate] duration-(--duration-slow) ease-(--ease-in-out) group-hover/lift:-translate-y-(--motion-card-lift)',
         selected
           ? '[--border-gradient:var(--gradient-pricing-stroke-selected)] [--border-gradient-width:var(--border-width-pricing-selected)] bg-(image:--gradient-pricing-fill-selected) shadow-pricing-selected hover:bg-(image:--gradient-pricing-fill-selected-hover) hover:shadow-pricing-selected-hover'
           : '[--border-gradient:var(--gradient-pricing-stroke)] [--border-gradient-width:var(--border-width-pricing)] bg-(image:--gradient-pricing-fill) shadow-pricing hover:bg-(image:--gradient-pricing-fill-hover) hover:shadow-pricing-hover',

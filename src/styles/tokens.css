@@ -281,6 +281,7 @@
   --duration-slow: 600ms;
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.45, 0, 0.25, 1); /* soft start and soft end: hover lifts, tab changes */
   /* Scroll reveal: how far a block rises while it fades in, and the pause between items in a group */
   --motion-reveal-distance: 1.5rem;
   --motion-stagger: 80ms;
