@@ -1,25 +1,22 @@
 // Principles: "Built around your business model." — heading and four industry cards. Figma Home → "Principles".
 // Desktop: bento grid of 3 columns — E-commerce and Education are tall, Subscriptions and Multi-location share the middle column.
 // Phone: one column (E-commerce, Subscriptions, Multi-location, Education — as in the Figma mobile frame).
-// Props: text (site.principles from site.json). Card pictures are exported from Figma (src/assets/illustrations);
+// Props: text (site.principles from site.json). Card pictures are the animated Figma illustrations (PrincipleArt);
 // their small texts ("Revenue", "Start free trial"…) are part of the pictures, not of site.json.
 import { Reveal, RevealGroup, RevealItem } from '@/components/motion/reveal'
-import artEducation from '@/assets/illustrations/principles-education.svg?raw'
-import artMarket from '@/assets/illustrations/principles-market.svg?raw'
-import artShop from '@/assets/illustrations/principles-shop.svg?raw'
-import artSubscribe from '@/assets/illustrations/principles-subscribe.svg?raw'
 import { CardCaption } from '@/components/ui/card-caption'
 import { FigmaArt } from '@/components/ui/figma-art'
+import { PrincipleArt } from '@/components/ui/principle-art'
 import { SectionHeading } from '@/components/ui/section-heading'
 import { cn } from '@/lib/utils'
 
-// Picture (exported from Figma, with its place inside the 310-wide "Visual" box) and grid place for each card.
-// E-commerce and Multi-location panels run past the box and are cut only by the card edge, as in Figma.
+// Picture place inside the 310-wide "Visual" box (as in Figma) and grid place for each card.
+// Education and Multi-location pictures run past the box and are cut only by the card edge, as in Figma.
 const cardSetup = {
-  ecommerce: { art: { svg: artShop, frame: [310, 402], at: [0, -1], size: [376, 334], bleed: true }, grid: 'lg:row-span-2', order: 'order-1' },
-  subscriptions: { art: { svg: artSubscribe, frame: [310, 122] }, grid: '', order: 'order-2' },
-  education: { art: { svg: artEducation, frame: [310, 402], at: [-24, 0], size: [360, 402] }, grid: 'lg:row-span-2', order: 'order-4 lg:order-3' },
-  multilocation: { art: { svg: artMarket, frame: [310, 122], at: [-48, 13], size: [358, 96], bleed: true }, grid: 'lg:col-start-2', order: 'order-3 lg:order-4' },
+  ecommerce: { art: { frame: [310, 402], at: [0, 0], size: [310, 402] }, grid: 'lg:row-span-2', order: 'order-1' },
+  subscriptions: { art: { frame: [310, 122], at: [0, 0], size: [310, 123], bleed: true }, grid: '', order: 'order-2' },
+  education: { art: { frame: [310, 402], at: [-88, 0], size: [486, 402], bleed: true }, grid: 'lg:row-span-2', order: 'order-4 lg:order-3' },
+  multilocation: { art: { frame: [310, 122], at: [-48, 0], size: [358, 122], bleed: true }, grid: 'lg:col-start-2', order: 'order-3 lg:order-4' },
 }
 
 function Principles({ text }) {
@@ -42,7 +39,9 @@ function Principles({ text }) {
                   setup.order,
                 )}
               >
-                <FigmaArt {...setup.art} className="rounded-8" />
+                <FigmaArt {...setup.art} className="rounded-8">
+                  <PrincipleArt kind={card.key} className="size-full" />
+                </FigmaArt>
                 <CardCaption title={card.title} description={card.description} />
               </RevealItem>
             )
