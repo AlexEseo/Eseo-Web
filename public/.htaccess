@@ -3,3 +3,20 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.html [L]
+
+# Speed: the server squeezes text files (scripts, styles, pages, SVG) before sending them — about 3× smaller.
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain application/javascript text/javascript application/json image/svg+xml
+</IfModule>
+
+# Speed: files in /assets have a fingerprint in their name (main-AbC123.js), so a new version always gets a new name.
+# The browser may keep them for a year and not download them again on the next visit. Fonts too.
+# Pages themselves (.html) are always checked again, so visitors get updates right away.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|woff2|svg|png|jpg|jpeg|webp|avif)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
