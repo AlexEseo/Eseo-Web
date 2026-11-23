@@ -1,0 +1,782 @@
+{
+  "meta": {
+    "title": "ESEO Marketing — growth you can account for"
+  },
+  "hero": {
+    "label": "Enterprise acquisition · Europe & North America",
+    "title": "Growth you can account for",
+    "subtitle": "SEO, Google Ads, Meta and TikTok — aligned to one measurement plan and your business economics.",
+    "cta": "Discuss your growth goals",
+    "convergenceLabel": "One measurement plan",
+    "channels": [
+      {
+        "name": "SEO",
+        "icon": "seo"
+      },
+      {
+        "name": "Google Ads",
+        "icon": "google-ads"
+      },
+      {
+        "name": "Meta",
+        "icon": "meta"
+      },
+      {
+        "name": "TikTok",
+        "icon": "tiktok"
+      }
+    ]
+  },
+  "form": {
+    "provider": "web3forms",
+    "endpoint": "https://api.web3forms.com/submit",
+    "accessKey": "",
+    "title": "Start with your\ngrowth question.",
+    "fields": {
+      "name": {
+        "label": "Your name",
+        "placeholder": "Alex Morgan",
+        "errors": {
+          "required": "Please enter your name.",
+          "tooShort": "Your name needs at least 3 characters.",
+          "onlyDigits": "A name can’t be only numbers — please type your name.",
+          "noLetters": "Your name should include letters.",
+          "notAName": "Please enter just your name, not an email or a link.",
+          "tooLong": "That’s a little long — please keep it under 80 characters."
+        }
+      },
+      "email": {
+        "label": "Work email",
+        "placeholder": "alex@example.com",
+        "errors": {
+          "required": "Please enter your work email.",
+          "spaces": "Remove the spaces — an email address can’t contain them.",
+          "missingAt": "Add “@” and your company domain, e.g. alex@company.com.",
+          "manyAt": "Use only one “@” in the address.",
+          "missingName": "Add your name before “@”, e.g. alex@company.com.",
+          "missingDomain": "Add your company domain after “@”, e.g. @company.com.",
+          "badEnding": "The domain looks incomplete — check the ending, e.g. company.com.",
+          "badCharacters": "Check the address for extra dots or unusual characters."
+        },
+        "notes": {
+          "personal": "{domain} is a personal address — that’s fine. A work email just helps us prepare for the call.",
+          "disposable": "This looks like a temporary inbox — we may not be able to reach you later."
+        }
+      },
+      "website": {
+        "label": "Company website",
+        "placeholder": "https://example.com"
+      },
+      "goal": {
+        "label": "What would you like to improve?",
+        "options": [
+          "Profitable customer acquisition",
+          "Scaling into new markets",
+          "Measurement & attribution",
+          "Something else"
+        ]
+      }
+    },
+    "submit": "Preview my request ↗",
+    "note": "No spam, no automated sequences.",
+    "close": "Close",
+    "success": {
+      "title": "Thanks, your request\nis on its way.",
+      "body": "We’ll review your growth question and reply within one business day with next steps and a few times for a first call.",
+      "back": "Back to the site"
+    }
+  },
+  "brand": {
+    "name": "eseo marketing.",
+    "logoAlt": "eseo marketing — home"
+  },
+  "currencies": [
+    {
+      "value": "USD",
+      "code": "USD $",
+      "name": "US dollar",
+      "symbol": "$"
+    },
+    {
+      "value": "EUR",
+      "code": "EUR €",
+      "name": "Euro",
+      "symbol": "€"
+    },
+    {
+      "value": "GBP",
+      "code": "GBP £",
+      "name": "British pound",
+      "symbol": "£"
+    },
+    {
+      "value": "CAD",
+      "code": "CAD C$",
+      "name": "Canadian dollar",
+      "symbol": "C$"
+    }
+  ],
+  "defaultCurrency": "EUR",
+  "header": {
+    "cta": "Let’s talk ↗",
+    "currencyLabel": "Currency",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu"
+  },
+  "footer": {
+    "copyright": "© 2026 ESEO LIMITED",
+    "email": "info@eseoads.com",
+    "links": [
+      {
+        "label": "Privacy Policy",
+        "href": "/privacy"
+      },
+      {
+        "label": "Legal Notice",
+        "href": "/legal"
+      }
+    ]
+  },
+  "principles": {
+    "title": "Built around \nyour business model.",
+    "cards": [
+      {
+        "key": "ecommerce",
+        "title": "E-commerce",
+        "description": "30+ brands · €1m managed"
+      },
+      {
+        "key": "subscriptions",
+        "title": "Subscriptions & apps",
+        "description": "7 apps · 42% retention lift"
+      },
+      {
+        "key": "education",
+        "title": "Education",
+        "description": "4 programmes · 50+ enrolments"
+      },
+      {
+        "key": "multilocation",
+        "title": "Multi-location",
+        "description": "17 locations · 10+ markets"
+      }
+    ]
+  },
+  "approach": {
+    "title": "4 channels\nOne commercial direction.",
+    "description": "Start with the decision your business needs to make. Then connect the media, creative and measurement to support it.",
+    "steps": [
+      {
+        "key": "constraint",
+        "title": "Find the real constraint.",
+        "description": "Separate demand, conversion and measurement problems before changing the media plan.",
+        "label": "Account & signal diagnostic"
+      },
+      {
+        "key": "plan",
+        "title": "Build a testable plan.",
+        "description": "Give each channel a role, an agreed success measure and a clear threshold for investment.",
+        "label": "Prioritised experiment roadmap"
+      },
+      {
+        "key": "scale",
+        "title": "Scale what earns it.",
+        "description": "Review results with marketing and finance. Reallocate only when the evidence supports it.",
+        "label": "Budget & performance governance"
+      }
+    ]
+  },
+  "industries": {
+    "items": [
+      {
+        "key": "ecommerce",
+        "tab": "E-commerce",
+        "title": "More revenue is only useful\nif the margin follows.",
+        "description": "Connect acquisition to product margins, returns and new-customer value. Understand where profitable growth can come from.",
+        "card": {
+          "heading": "Your strategy starting point",
+          "rows": [
+            {
+              "label": "Business question",
+              "value": "Which products and customers deserve the next euro?"
+            },
+            {
+              "label": "Success measures",
+              "value": "Contribution after media · New-customer CAC · MER"
+            },
+            {
+              "label": "Initial workstream",
+              "value": "Margin-led feeds, search demand and paid social creative tests."
+            }
+          ],
+          "note": "Illustrative approach. Final scope follows discovery."
+        },
+        "link": "Discuss your e-commerce strategy"
+      },
+      {
+        "key": "subscriptions",
+        "tab": "Subscriptions & apps",
+        "title": "Acquisition only counts\nif subscribers stay.",
+        "description": "Connect paid acquisition to trial conversion, retention and lifetime value. See which channels bring subscribers who stay.",
+        "card": {
+          "heading": "Your strategy starting point",
+          "rows": [
+            {
+              "label": "Business question",
+              "value": "Which channels bring subscribers who stay past the first renewal?"
+            },
+            {
+              "label": "Success measures",
+              "value": "Trial-to-paid rate · Payback period · 90-day retention"
+            },
+            {
+              "label": "Initial workstream",
+              "value": "Paid social and app campaigns optimised to retained subscribers, not installs."
+            }
+          ],
+          "note": "Illustrative approach. Final scope follows discovery."
+        },
+        "link": "Discuss your subscription strategy"
+      },
+      {
+        "key": "education",
+        "tab": "Education",
+        "title": "Enrolments matter,\nnot enquiries.",
+        "description": "Connect campaigns to applications, enrolments and cost per enrolled student across each intake.",
+        "card": {
+          "heading": "Your strategy starting point",
+          "rows": [
+            {
+              "label": "Business question",
+              "value": "Which campaigns bring students who apply and enrol, not just enquire?"
+            },
+            {
+              "label": "Success measures",
+              "value": "Cost per enrolment · Application-to-enrolment rate · Intake fill rate"
+            },
+            {
+              "label": "Initial workstream",
+              "value": "Programme-level search demand, intake-timed paid social and lead scoring."
+            }
+          ],
+          "note": "Illustrative approach. Final scope follows discovery."
+        },
+        "link": "Discuss your enrolment strategy"
+      },
+      {
+        "key": "multilocation",
+        "tab": "Multi-location",
+        "title": "Grow every location,\nnot just the average.",
+        "description": "Connect national media to local demand, market by market. See where the next location or the next budget should go.",
+        "card": {
+          "heading": "Your strategy starting point",
+          "rows": [
+            {
+              "label": "Business question",
+              "value": "Which locations and markets can absorb the next budget profitably?"
+            },
+            {
+              "label": "Success measures",
+              "value": "Revenue per location · Local cost per acquisition · Market-level MER"
+            },
+            {
+              "label": "Initial workstream",
+              "value": "Location-level search and maps, local paid social and market-by-market reporting."
+            }
+          ],
+          "note": "Illustrative approach. Final scope follows discovery."
+        },
+        "link": "Discuss your multi-location strategy"
+      }
+    ]
+  },
+  "businessCase": {
+    "title": "Make the economics part \nof the monthly conversation.",
+    "description": "Explore a scenario before you speak to us. This is a transparent calculation, not a forecast or a promised result.",
+    "planner": {
+      "currency": "Currency",
+      "revenue": "Net revenue",
+      "media": "Media spend",
+      "mediaHint": "All channels",
+      "margin": "Contribution margin before media",
+      "change": "Hypothetical revenue change",
+      "current": "Current contribution after media",
+      "scenario": "Scenario contribution after media",
+      "mer": "Current → scenario MER"
+    },
+    "start": {
+      "revenue": 1200000,
+      "media": 300000,
+      "margin": 40,
+      "change": 10
+    },
+    "notesTitle": "See the calculation & limitations",
+    "notes": [
+      "Contribution = net revenue × contribution margin − media spend. Scenario revenue = current revenue × (1 + change). MER = net revenue ÷ media spend. Agency fees, fixed overhead, tax and changes in cost structure are excluded. This is not profit, ROI, causal lift or a benchmark.",
+      "Calculations stay in this page. No account required.",
+      "Media spend and margin rate stay fixed in this scenario. Changing currency relabels amounts; no exchange conversion."
+    ]
+  },
+  "roadmap": {
+    "heading": "Your first six weeks, made visible.",
+    "steps": [
+      {
+        "when": "in 2 weeks",
+        "title": "Diagnose",
+        "description": "Agree business questions and audit the evidence."
+      },
+      {
+        "when": "in 4 weeks",
+        "title": "Design",
+        "description": "Define measurement and prioritise experiments."
+      },
+      {
+        "when": "in 6 weeks",
+        "title": "Decide",
+        "description": "Review the roadmap and agree the next investment."
+      }
+    ]
+  },
+  "engagements": {
+    "title": "Clarity first.\nThen the right commitment.",
+    "plans": [
+      {
+        "key": "diagnostic",
+        "label": "Independent assessment",
+        "title": "Growth Diagnostic",
+        "description": "Understand the constraint before committing to a new acquisition plan.",
+        "price": "€25,000",
+        "from": "from",
+        "period": "fixed fee",
+        "features": [
+          "Account and measurement review",
+          "Channel and creative audit",
+          "Prioritised experiment roadmap",
+          "Executive readout with next steps",
+          "Six-week engagement"
+        ],
+        "cta": "Explore the diagnostic ↗"
+      },
+      {
+        "key": "mandate",
+        "selected": true,
+        "label": "Integrated delivery",
+        "title": "Full-funnel Mandate",
+        "description": "A shared plan across acquisition channels, measurement and governance.",
+        "price": "€35,000",
+        "from": "from",
+        "period": "per month",
+        "features": [
+          "SEO, Google Ads, Meta and TikTok",
+          "Dedicated senior strategist and channel leads",
+          "Unified measurement plan and attribution",
+          "Creative production and testing for paid social",
+          "Weekly performance check-ins",
+          "Finance-aligned monthly reporting",
+          "Quarterly budget reallocation review",
+          "6-month minimum term"
+        ],
+        "cta": "Discuss a mandate ↗"
+      },
+      {
+        "key": "advisory",
+        "label": "Senior oversight",
+        "title": "Advisory",
+        "description": "Independent strategic support for teams that already have execution covered.",
+        "price": "€12,000",
+        "from": "from",
+        "period": "per month",
+        "features": [
+          "Budget and strategy governance",
+          "Quarterly leadership review",
+          "Rolling quarterly term"
+        ],
+        "cta": "Explore advisory ↗"
+      }
+    ],
+    "footnote": "Current draft fit: full mandates for brands investing from €150,000/month in media. Media spend is separate from agency fees. Scope and applicable taxes need confirmation."
+  },
+  "faq": {
+    "title": "Good questions.\nClear answers.",
+    "description": "Short answers to what enterprise teams usually \nask before a first call.",
+    "items": [
+      {
+        "q": "Is this for B2B or consumer brands?",
+        "a": "ESEO sells its services to businesses. The four industry playbooks cover e-commerce, subscriptions and apps, education, and multi-location operators. For companies selling to other businesses, discovery should also address sales cycles, qualified pipeline and CRM revenue."
+      },
+      {
+        "q": "Do we need all four channels?",
+        "a": "No. We start with the channels where your evidence is strongest and add the others only when a test shows they earn their place. Many mandates begin with two."
+      },
+      {
+        "q": "Can we see the evidence before making a commitment?",
+        "a": "Yes. The Growth Diagnostic is a fixed-fee, six-week assessment. You get the account audit, the measurement review and a prioritised roadmap before deciding on a longer mandate."
+      },
+      {
+        "q": "Who owns the accounts and reporting?",
+        "a": "You do. Ad accounts, tracking and dashboards sit in your organisation from day one, and we work inside them. If we part ways, everything stays with you."
+      }
+    ]
+  },
+  "closing": {
+    "label": "Let’s find your next move",
+    "title": "Bring the growth question.\nLet’s build the plan.",
+    "cta": "Start a conversation ↗",
+    "note": "Europe & North America · An enterprise-focused partnership",
+    "plan": [
+      {
+        "title": "Growth plan",
+        "subtitle": "4 channels",
+        "checked": true,
+        "badges": [
+          [
+            "white",
+            "seo-12"
+          ],
+          [
+            "white",
+            "google-ads"
+          ],
+          [
+            "white",
+            "meta"
+          ],
+          [
+            "white",
+            "tiktok"
+          ]
+        ]
+      },
+      {
+        "title": "Measurement",
+        "subtitle": "1 shared scorecard",
+        "badges": [
+          [
+            "green",
+            "bars"
+          ],
+          [
+            "orange",
+            "target"
+          ],
+          [
+            "pink",
+            "percent"
+          ],
+          [
+            "gray-900",
+            "check"
+          ]
+        ]
+      },
+      {
+        "title": "Budget",
+        "subtitle": "Reviewed quarterly",
+        "badges": [
+          [
+            "coral",
+            "euro"
+          ],
+          [
+            "brand",
+            "swap"
+          ],
+          [
+            "green",
+            "arrow-up"
+          ],
+          [
+            "gray-500",
+            "calendar"
+          ]
+        ]
+      }
+    ]
+  },
+  "privacy": {
+    "metaTitle": "Privacy Policy — ESEO Marketing",
+    "label": "Legal",
+    "title": "Privacy Policy",
+    "intro": "How ESEO LIMITED collects, uses and protects personal data when you visit this website or contact us.",
+    "updated": "Last updated: 29 October 2026",
+    "sections": [
+      {
+        "title": "1. Who we are",
+        "blocks": [
+          {
+            "text": "This website is operated by ESEO LIMITED, a company based in Hong Kong, with its registered business address at 8/F., China Hong Kong Tower, 8–12 Hennessy Road, Wan Chai, Hong Kong (\"ESEO Marketing\", \"we\", \"us\")."
+          },
+          {
+            "text": "We are responsible for the personal data described in this policy."
+          },
+          {
+            "text": "For any privacy-related questions, contact us at info@eseoads.com."
+          }
+        ]
+      },
+      {
+        "title": "2. Data we collect",
+        "blocks": [
+          {
+            "lead": "Information you provide:",
+            "text": "When you submit a consultation or contact form, we may collect your name, business email, company name, website, target markets, channels of interest and any additional information you choose to share."
+          },
+          {
+            "text": "Providing this information is voluntary. However, without the contact details and relevant business information needed to assess your inquiry, we may be unable to respond or provide a consultation."
+          },
+          {
+            "lead": "Technical information:",
+            "text": "Our website and hosting infrastructure may process technical information necessary to deliver and secure the website, such as IP addresses, browser information and request logs. The exact information depends on the hosting configuration."
+          }
+        ]
+      },
+      {
+        "title": "3. How we use your data",
+        "blocks": [
+          {
+            "text": "We use personal data to respond to consultation requests, assess potential engagements, prepare and administer contracts, communicate about our services, and maintain the operation and security of our website."
+          },
+          {
+            "text": "We do not sell personal data."
+          },
+          {
+            "text": "We do not use personal data for automated decision-making that produces legal or similarly significant effects."
+          }
+        ]
+      },
+      {
+        "title": "4. Legal bases",
+        "blocks": [
+          {
+            "text": "We process personal data in accordance with applicable data protection laws, including Hong Kong’s Personal Data (Privacy) Ordinance (PDPO)."
+          },
+          {
+            "text": "Where the EU GDPR or UK GDPR applies, our legal bases may include steps taken at your request before entering into a contract, performance of a contract, legitimate interests in responding to business inquiries and operating our website, compliance with legal obligations, and consent where required."
+          }
+        ]
+      },
+      {
+        "title": "5. Cookies",
+        "blocks": [
+          {
+            "text": "Our website is not currently configured to use dedicated advertising or marketing tracking tools."
+          },
+          {
+            "text": "Essential cookies or similar technologies may be used where necessary for website functionality or security."
+          },
+          {
+            "text": "If analytics, advertising or other non-essential tracking technologies are introduced, we will update this policy and implement any consent mechanisms required by applicable law."
+          }
+        ]
+      },
+      {
+        "title": "6. Sharing",
+        "blocks": [
+          {
+            "text": "We may share personal data with service providers where necessary to operate our website, host its content, deliver communications or process consultation inquiries."
+          },
+          {
+            "text": "Such providers are permitted to process personal data only for the relevant services, subject to applicable contractual and legal safeguards."
+          },
+          {
+            "text": "We may also disclose information where required by law or to protect our legal rights."
+          }
+        ]
+      },
+      {
+        "title": "7. International transfers",
+        "blocks": [
+          {
+            "text": "As ESEO LIMITED operates from Hong Kong and serves international clients, personal data may be processed or accessed across different jurisdictions, depending on our service providers and business operations."
+          },
+          {
+            "text": "Where applicable data protection laws require safeguards for international transfers, we will implement appropriate measures before transferring personal data."
+          }
+        ]
+      },
+      {
+        "title": "8. Retention",
+        "blocks": [
+          {
+            "text": "We retain personal data for as long as necessary to maintain business relationships, manage inquiries, fulfill contractual obligations, and comply with applicable legal requirements."
+          },
+          {
+            "text": "Personal data may be retained for extended periods where there is a legitimate and ongoing business purpose."
+          },
+          {
+            "text": "We periodically review the necessity of retaining such data and delete or anonymise information when it is no longer required, subject to applicable legal obligations."
+          }
+        ]
+      },
+      {
+        "title": "9. Security",
+        "blocks": [
+          {
+            "text": "We take reasonable technical and organisational measures to protect personal data against unauthorised access, loss, misuse, alteration or disclosure."
+          },
+          {
+            "text": "These measures are reviewed as appropriate to the nature of the information and the systems used to process it."
+          }
+        ]
+      },
+      {
+        "title": "10. Your rights",
+        "blocks": [
+          {
+            "text": "Subject to applicable law, you may request access to or correction of your personal data."
+          },
+          {
+            "text": "Where the GDPR or UK GDPR applies, you may also have rights to erasure, restriction of processing, objection, data portability and withdrawal of consent."
+          },
+          {
+            "text": "To exercise your rights, contact info@eseoads.com."
+          },
+          {
+            "text": "You may also have the right to lodge a complaint with the relevant data protection authority."
+          }
+        ]
+      },
+      {
+        "title": "11. Changes to this policy",
+        "blocks": [
+          {
+            "text": "We may update this Privacy Policy to reflect changes in our services, data processing practices or applicable legal requirements."
+          },
+          {
+            "text": "The latest version will always be available on this page, with the date of the most recent update shown above."
+          }
+        ]
+      }
+    ]
+  },
+  "legal": {
+    "metaTitle": "Legal Notice — ESEO Marketing",
+    "label": "Legal",
+    "title": "Legal Notice",
+    "updated": "Last updated: 29 October 2026",
+    "sections": [
+      {
+        "title": "1. Company Information",
+        "blocks": [
+          {
+            "text": "This website is operated by:"
+          },
+          {
+            "table": [
+              {
+                "label": "Legal Company Name",
+                "value": "ESEO LIMITED"
+              },
+              {
+                "label": "Country of Registration",
+                "value": "Hong Kong"
+              },
+              {
+                "label": "Registered Business Address",
+                "value": "8/F., China Hong Kong Tower, 8–12 Hennessy Road, Wan Chai, Hong Kong"
+              },
+              {
+                "label": "Contact Email",
+                "value": "info@eseoads.com"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "2. Website Purpose",
+        "blocks": [
+          {
+            "text": "This website provides information about ESEO LIMITED, its services, expertise, and business offerings."
+          },
+          {
+            "text": "The content is intended for general informational purposes. Submitting an inquiry through this website does not establish a contractual relationship between the visitor and the company."
+          }
+        ]
+      },
+      {
+        "title": "3. Intellectual Property",
+        "blocks": [
+          {
+            "text": "Unless otherwise stated, all content on this website, including text, graphics, logos, visual elements, and design, is owned by ESEO LIMITED or used with appropriate permission."
+          },
+          {
+            "text": "Unauthorized reproduction, distribution, or commercial use of website content is prohibited except as permitted by applicable law or with prior written authorization."
+          }
+        ]
+      },
+      {
+        "title": "4. Accuracy of Information",
+        "blocks": [
+          {
+            "text": "ESEO LIMITED makes reasonable efforts to ensure that the information published on this website is accurate and up to date."
+          },
+          {
+            "text": "However, website content may be modified or updated without prior notice. Nothing on this website constitutes a binding offer unless expressly stated otherwise."
+          }
+        ]
+      },
+      {
+        "title": "5. External Links",
+        "blocks": [
+          {
+            "text": "This website may contain links to third-party websites. ESEO LIMITED is not responsible for the content, availability, or privacy practices of external websites."
+          }
+        ]
+      },
+      {
+        "title": "6. Limitation of Liability",
+        "blocks": [
+          {
+            "text": "To the extent permitted by applicable law, ESEO LIMITED is not liable for losses arising from the use of this website or reliance on its content."
+          },
+          {
+            "text": "Nothing in this notice excludes or limits liability that cannot legally be excluded or limited."
+          }
+        ]
+      },
+      {
+        "title": "7. Governing Law",
+        "blocks": [
+          {
+            "text": "This Legal Notice is governed by the laws of Hong Kong, subject to any mandatory legal protections that may apply."
+          }
+        ]
+      },
+      {
+        "title": "8. Contact",
+        "blocks": [
+          {
+            "text": "For legal inquiries or questions regarding this website, please contact:"
+          },
+          {
+            "table": [
+              {
+                "label": "Company",
+                "value": "ESEO LIMITED"
+              },
+              {
+                "label": "Email",
+                "value": "info@eseoads.com"
+              },
+              {
+                "label": "Address",
+                "value": "8/F., China Hong Kong Tower, 8–12 Hennessy Road, Wan Chai, Hong Kong"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "notFound": {
+    "metaTitle": "Page not found — ESEO Marketing",
+    "code": "404",
+    "label": "Page not found",
+    "title": "This page took\na different route.",
+    "body": "The page you’re looking for doesn’t exist or has moved. Head back to the homepage, or tell us what you were looking for.",
+    "home": "Back to homepage",
+    "contact": "Contact us",
+    "writePrefix": "Or write to"
+  }
+}

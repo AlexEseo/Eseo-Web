@@ -1,0 +1,74 @@
+<svg width="498" height="320" viewBox="0 0 498 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_460_5666)">
+<path d="M136 112C220 112 230 172 320 172" stroke-width="8" stroke-linecap="round" stroke="#D4E0FF"/>
+<path class="illustration-dash" d="M136 112C220 112 230 172 320 172" stroke-width="1.5" stroke="#245BE8" stroke-dasharray="4 4" stroke-linecap="round"/>
+<path d="M136 232C220 232 230 172 320 172" stroke-width="8" stroke-linecap="round" stroke="#D4E0FF"/>
+<path class="illustration-dash" d="M136 232C220 232 230 172 320 172" stroke-width="1.5" stroke="#245BE8" stroke-dasharray="4 4" stroke-linecap="round"/>
+<g filter="url(#filter0_dd_460_5666)">
+<path d="M32 108C32 99.1634 39.1634 92 48 92H120C128.837 92 136 99.1634 136 108V116C136 124.837 128.837 132 120 132H48C39.1634 132 32 124.837 32 116V108Z" fill="#FDFDFD"/>
+<path d="M48 92.5H120C128.56 92.5 135.5 99.4396 135.5 108V116C135.5 124.56 128.56 131.5 120 131.5H48C39.4396 131.5 32.5 124.56 32.5 116V108C32.5 99.4396 39.4396 92.5 48 92.5Z" stroke="#E9EAEB"/>
+<text fill="#181D27" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="69" y="116.364">Meta</tspan></text>
+</g>
+<g filter="url(#filter1_dd_460_5666)">
+<path d="M32 228C32 219.163 39.1634 212 48 212H120C128.837 212 136 219.163 136 228V236C136 244.837 128.837 252 120 252H48C39.1634 252 32 244.837 32 236V228Z" fill="#FDFDFD"/>
+<path d="M48 212.5H120C128.56 212.5 135.5 219.44 135.5 228V236C135.5 244.56 128.56 251.5 120 251.5H48C39.4396 251.5 32.5 244.56 32.5 236V228C32.5 219.44 39.4396 212.5 48 212.5Z" stroke="#E9EAEB"/>
+<text fill="#181D27" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="64.5" y="236.364">TikTok</tspan></text>
+</g>
+<g filter="url(#filter2_dd_460_5666)">
+<path d="M318 172C318 131.131 351.131 98 392 98C432.869 98 466 131.131 466 172C466 212.869 432.869 246 392 246C351.131 246 318 212.869 318 172Z" fill="#FDFDFD"/>
+<path d="M392 99C432.317 99 465 131.683 465 172C465 212.317 432.317 245 392 245C351.683 245 319 212.317 319 172C319 131.683 351.683 99 392 99Z" stroke="#245BE8" stroke-width="2"/>
+<text fill="#535862" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="12" font-weight="500" letter-spacing="0em"><tspan x="372" y="156.864">Search</tspan></text>
+<text fill="#181D27" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="32" font-weight="600" letter-spacing="-0.02em"><tspan x="334.5" y="192.636">+&#x20ac;120k</tspan></text>
+</g>
+</g>
+<defs>
+<filter id="filter0_dd_460_5666" x="8" y="80" width="152" height="88" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="1"/>
+<feGaussianBlur stdDeviation="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.04 0 0 0 0 0.05 0 0 0 0 0.07 0 0 0 0.04 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_460_5666"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feMorphology radius="8" operator="erode" in="SourceAlpha" result="effect2_dropShadow_460_5666"/>
+<feOffset dy="12"/>
+<feGaussianBlur stdDeviation="16"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.04 0 0 0 0 0.05 0 0 0 0 0.07 0 0 0 0.08 0"/>
+<feBlend mode="normal" in2="effect1_dropShadow_460_5666" result="effect2_dropShadow_460_5666"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_460_5666" result="shape"/>
+</filter>
+<filter id="filter1_dd_460_5666" x="8" y="200" width="152" height="88" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="1"/>
+<feGaussianBlur stdDeviation="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.04 0 0 0 0 0.05 0 0 0 0 0.07 0 0 0 0.04 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_460_5666"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feMorphology radius="8" operator="erode" in="SourceAlpha" result="effect2_dropShadow_460_5666"/>
+<feOffset dy="12"/>
+<feGaussianBlur stdDeviation="16"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.04 0 0 0 0 0.05 0 0 0 0 0.07 0 0 0 0.08 0"/>
+<feBlend mode="normal" in2="effect1_dropShadow_460_5666" result="effect2_dropShadow_460_5666"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_460_5666" result="shape"/>
+</filter>
+<filter id="filter2_dd_460_5666" x="294" y="86" width="196" height="196" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="1"/>
+<feGaussianBlur stdDeviation="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.04 0 0 0 0 0.05 0 0 0 0 0.07 0 0 0 0.04 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_460_5666"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feMorphology radius="8" operator="erode" in="SourceAlpha" result="effect2_dropShadow_460_5666"/>
+<feOffset dy="12"/>
+<feGaussianBlur stdDeviation="16"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.04 0 0 0 0 0.05 0 0 0 0 0.07 0 0 0 0.08 0"/>
+<feBlend mode="normal" in2="effect1_dropShadow_460_5666" result="effect2_dropShadow_460_5666"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_460_5666" result="shape"/>
+</filter>
+<clipPath id="clip0_460_5666">
+<path d="M0 16C0 7.16345 7.16344 0 16 0H482C490.837 0 498 7.16344 498 16V304C498 312.837 490.837 320 482 320H16C7.16344 320 0 312.837 0 304V16Z" fill="white"/>
+</clipPath>
+</defs>
+</svg>

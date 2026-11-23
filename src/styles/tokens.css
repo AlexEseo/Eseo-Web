@@ -1,0 +1,382 @@
+/*
+  Design tokens: the only place for colours, fonts, sizes, radii, shadows and animation timing.
+  Names match Figma "eseo" → page "Design System" one to one:
+  Figma "brand/600" → token --color-brand-600 → class bg-brand-600 / text-brand-600.
+  Figma "typo/display/64 - semibold" → class text-display-64 font-semibold.
+*/
+
+/* ---------- Font: Inter, stored in public/fonts ---------- */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/inter-latin-wght-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/inter-latin-ext-wght-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/inter-cyrillic-wght-normal.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* ---------- Tokens ---------- */
+@theme static {
+  /* Remove Tailwind's built-in colours so only Figma colours can be used. */
+  --color-*: initial;
+
+  /* Colours: Figma variables "base" */
+  --color-gray-0: #ffffff;
+  --color-gray-25: #fdfdfd;
+  --color-gray-50: #fafafa;
+  --color-gray-100: #f5f5f5;
+  --color-gray-200: #e9eaeb;
+  --color-gray-300: #d5d7da;
+  --color-gray-400: #a4a7ae;
+  --color-gray-500: #717680;
+  --color-gray-600: #535862;
+  --color-gray-700: #414651;
+  --color-gray-800: #252b37;
+  --color-gray-900: #181d27;
+  --color-gray-950: #0a0d12;
+
+  --color-brand-50: #f4f7ff;
+  --color-brand-100: #d4e0ff;
+  --color-brand-200: #c9d9ff;
+  --color-brand-600: #245be8;
+  --color-brand-700: #1e4fd0;
+  --color-brand-800: #1a43b0;
+
+  --color-beige-100: #f6f0ea;
+  --color-beige-200: #eee4da;
+  --color-beige-300: #ddccbb;
+
+  --color-coral-500: #ff6f5e;
+  --color-green-500: #22c55e;
+  --color-orange-500: #f97316;
+  --color-pink-500: #ec4899;
+
+  --color-accent-green: #14b8a0;
+  --color-accent-orange: #ff9447;
+  --color-accent-pink: #d65bd0;
+  --color-accent-coral: #ff6b81;
+
+  /* Fonts */
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /*
+    Text sizes: Figma text styles "typo/...". Weight is set separately (font-semibold etc.).
+    The number is the desktop size from Figma. Big sizes shrink smoothly on phones:
+    the comment shows phone (390px) → desktop (1440px).
+  */
+  --text-display-520: clamp(10rem, 1.6429rem + 34.286vw, 32.5rem);  /* 160 → 520 */
+  --text-display-520--line-height: 1;
+  --text-display-520--letter-spacing: -0.06em;
+  --text-display-220: 13.75rem;   /* fixed 220: the 404 numeral on phones, as in Figma mobile (desktop uses display-520) */
+  --text-display-220--line-height: 1;
+  --text-display-220--letter-spacing: -0.06em;
+  --text-display-72: clamp(2.5rem, 1.7571rem + 3.048vw, 4.5rem);     /* 40 → 72 */
+  --text-display-72--line-height: 1.05;
+  --text-display-72--letter-spacing: -0.03em;
+  --text-display-64: clamp(2.25rem, 1.6rem + 2.667vw, 4rem);          /* 36 → 64 */
+  --text-display-64--line-height: 1.05;
+  --text-display-64--letter-spacing: -0.03em;
+  --text-display-48: clamp(2rem, 1.6286rem + 1.524vw, 3rem);          /* 32 → 48 */
+  --text-display-48--line-height: 1.1;
+  --text-display-48--letter-spacing: -0.04em;
+  --text-display-40: clamp(1.75rem, 1.4714rem + 1.143vw, 2.5rem);     /* 28 → 40 */
+  --text-display-40--line-height: 1.1;
+  --text-display-40--letter-spacing: -0.03em;
+
+  --text-header-32: clamp(1.5rem, 1.3143rem + 0.762vw, 2rem);         /* 24 → 32 */
+  --text-header-32--line-height: 1.15;
+  --text-header-32--letter-spacing: -0.02em;
+  --text-header-24: clamp(1.25rem, 1.1571rem + 0.381vw, 1.5rem);      /* 20 → 24 */
+  --text-header-24--line-height: 1.15;
+  --text-header-20: clamp(1.125rem, 1.0786rem + 0.19vw, 1.25rem);     /* 18 → 20 */
+  --text-header-20--line-height: 1.4;
+
+  --text-body-16: 1rem;
+  --text-body-16--line-height: 1.4;
+  --text-body-14: 0.875rem;
+  --text-body-14--line-height: 1.6;
+  --text-body-12: 0.75rem;
+  --text-body-12--line-height: 1.3;
+
+  --text-label-16: 1rem;
+  --text-label-16--line-height: 1.3;
+  --text-label-16--letter-spacing: -0.01em;
+  --text-label-14: 0.875rem;     /* typo/label/14 - semibold */
+  --text-label-14--line-height: 1.2;
+  --text-label-14-medium: 0.875rem;  /* typo/label/14 - medium: same size, taller line */
+  --text-label-14-medium--line-height: 1.3;
+  --text-label-12: 0.75rem;
+  --text-label-12--line-height: 1.3;
+  --text-label-12--letter-spacing: 0.04em;
+
+  --text-caption-12: 0.75rem;    /* used lowercase in Figma */
+  --text-caption-12--line-height: 1.3;
+  --text-caption-12--letter-spacing: 0.08em;
+  --text-caption-10: 0.625rem;
+  --text-caption-10--line-height: 1.3;
+  --text-caption-10--letter-spacing: 0.08em;
+
+  --text-button-16: 1rem;
+  --text-button-16--line-height: 1;
+  --text-button-16--letter-spacing: -0.01em;
+  --text-button-15: 0.9375rem;
+  --text-button-15--line-height: 1;
+  --text-button-15--letter-spacing: -0.006em;
+  --text-button-13: 0.8125rem;
+  --text-button-13--line-height: 1;
+
+  /* Spacing: Figma has no spacing variables, so we use a 4px step (p-1 = 4px, p-4 = 16px). */
+  --spacing: 0.25rem;
+  --space-section: clamp(4rem, 2.5143rem + 6.095vw, 8rem);        /* gap between sections, 64 → 128 */
+
+  /* Control heights from Figma: Button sizes S 26 · M 32 · L 38, Button / white 44 → h-button-s ... */
+  --spacing-button-s: 1.625rem;
+  --spacing-button-m: 2rem;
+  --spacing-button-l: 2.375rem;
+  --spacing-button-white: 2.75rem;
+  /* Field and Select field input height from Figma: 40 → h-field */
+  --spacing-field: 2.5rem;
+  /* Slider track thickness from Figma: 4 → h-slider-track */
+  --spacing-slider-track: 0.25rem;
+  /* Currency menu width from Figma: 200 → min-w-currency-menu */
+  --spacing-currency-menu: 12.5rem;
+  /* Header select (currency pill in header and footer) height from Figma: 32 → h-header-select */
+  --spacing-header-select: 2rem;
+  /* 404 page: full screen height minus the header (73: 32 content + 2×20 padding + 1 line) → min-h-not-found */
+  --spacing-not-found: calc(100svh - 4.5625rem);
+  /* Info row label column on Legal pages from Figma: 224 → w-info-label */
+  --spacing-info-label: 14rem;
+
+  /* Layout */
+  --container-page: 70rem;       /* content width 1120 from Figma Header and Footer */
+  --container-hero-copy: 47.5rem; /* Hero title width, from Figma: 760 */
+  --container-hero-sub: 30rem;    /* Hero subtitle width, from Figma: 480 */
+  --container-convergence: 55rem; /* Channel convergence illustration width, from Figma: 880 */
+  --container-hero-frame: 80rem;  /* Figma Home frame width 1280: glass orbs in the Hero are placed inside it */
+  --hero-glow-shift-phone: 12.82%;  /* gradient square starts 50 of 390 above the illustration */
+  --hero-glow-shift-desktop: 7.66%; /* and 98 of 1280 on desktop */
+  --eng-glow-shift: 12.34%;         /* Engagements gradient starts 158 of 1280 above the section */
+  --container-heading: 40rem;     /* Section heading title width (left aligned), from Figma: 640 */
+  --container-card-wide: 35rem;    /* Industry card and calculation notes, from Figma: 560 */
+  --container-footnote: 31.25rem;  /* Engagements footnote, from Figma: 500 */
+  --container-faq: 45rem;          /* FAQ list, from Figma: 720 */
+  --container-document: 45rem;     /* Privacy / Legal text column, from Figma: 720 */
+  --container-not-found: 35rem;    /* 404 message block, from Figma: 560 */
+  --container-modal: 31.25rem;   /* Let's talk modal width on desktop, from Figma: 500 */
+  --container-roadmap-heading: 12.5rem; /* Roadmap heading width on desktop, from Figma: 200 */
+
+  /* Radii: Figma "radius/..." → rounded-4, rounded-8, ... */
+  --radius-4: 0.25rem;
+  --radius-8: 0.5rem;
+  --radius-16: 1rem;
+  --radius-20: 1.25rem;
+  --radius-24: 1.5rem;
+  --radius-40: 2.5rem;
+  --radius-full: 999px;
+
+  /* Shadows: Figma effect styles "shadow/..." */
+  --shadow-card: 0 1px 2px 0 rgb(10 13 18 / 0.04), 0 12px 32px -8px rgb(10 13 18 / 0.08);
+  --shadow-glass-card: 0 2px 4px 0 rgb(10 13 18 / 0.04), 0 24px 56px 0 rgb(36 91 232 / 0.22);
+  --shadow-device: -8px 12px 32px 0 rgb(10 13 18 / 0.16);
+  --shadow-modal: 0 4px 8px 0 rgb(10 13 18 / 0.08), 0 24px 64px -8px rgb(10 13 18 / 0.18); /* Let's talk modal, from the Figma layer */
+
+  /* Channel chip (Figma "Channel chip"): glass circle. Values copied from the Figma layer. */
+  --shadow-chip: 0 8px 16px -4px rgb(36 91 232 / 0.14), inset 0 1.5px 0 0 rgb(255 255 255), inset 0 -4px 6px 0 rgb(36 91 232 / 0.12);
+  --gradient-chip-fill: linear-gradient(135deg, rgb(255 255 255 / 0.95), rgb(255 255 255 / 0.6));
+  --gradient-chip-stroke: linear-gradient(135deg, rgb(255 255 255), rgb(201 217 255 / 0.9) 50%, rgb(127 162 255 / 0.9));
+  --border-width-chip: 1.5px;
+  --spacing-chip: 4.5rem;        /* 72 → size-chip */
+  --spacing-icon-badge: 1.25rem; /* 20 → size-icon-badge */
+
+  /* Pricing card (Figma "Pricing card"): glass card. Values copied from the Figma layer. */
+  --gradient-pricing-fill: linear-gradient(145deg, rgb(255 255 255 / 0.66), rgb(255 255 255 / 0.4));
+  --gradient-pricing-fill-hover: linear-gradient(145deg, rgb(255 255 255 / 0.8), rgb(255 255 255 / 0.54));
+  --gradient-pricing-fill-selected: linear-gradient(145deg, rgb(255 255 255 / 0.95), rgb(255 255 255 / 0.78));
+  --gradient-pricing-fill-selected-hover: linear-gradient(145deg, rgb(255 255 255), rgb(255 255 255 / 0.92));
+  --gradient-pricing-stroke: linear-gradient(145deg, rgb(255 255 255), rgb(255 255 255 / 0.35));
+  --gradient-pricing-stroke-selected: linear-gradient(145deg, rgb(255 255 255), rgb(169 193 255) 35%, rgb(36 91 232) 70%, rgb(127 162 255));
+  --shadow-pricing: 0 8px 24px 0 rgb(10 13 18 / 0.03), inset 0 1px 0 0 rgb(255 255 255 / 0.7);
+  --shadow-pricing-hover: 0 16px 40px 0 rgb(36 91 232 / 0.16), inset 0 1px 0 0 rgb(255 255 255 / 0.7); /* blue, softer than the selected card (owner) */
+  --shadow-pricing-selected: 0 2px 4px 0 rgb(10 13 18 / 0.04), 0 24px 56px 0 rgb(36 91 232 / 0.22), inset 0 1px 0 0 rgb(255 255 255 / 0.7);
+  --shadow-pricing-selected-hover: 0 2px 4px 0 rgb(10 13 18 / 0.04), 0 32px 72px 0 rgb(36 91 232 / 0.28), inset 0 1px 0 0 rgb(255 255 255 / 0.7);
+  --shadow-pricing-focus: 0 0 0 4px rgb(36 91 232 / 0.25), 0 8px 24px 0 rgb(10 13 18 / 0.03), inset 0 1px 0 0 rgb(255 255 255 / 0.7);
+  --shadow-pricing-selected-focus: 0 0 0 4px rgb(36 91 232 / 0.25), 0 2px 4px 0 rgb(10 13 18 / 0.04), 0 24px 56px 0 rgb(36 91 232 / 0.22), inset 0 1px 0 0 rgb(255 255 255 / 0.7);
+  --border-width-pricing: 1px;
+
+  /* Decor gradients — exact copies of the Figma layers (colours, stops, direction). Blur, size and position
+     live in src/lib/gradients.js. Hero: Figma Home → "Hero→Principles gradient". */
+  --gradient-hero-base: linear-gradient(180deg, rgb(244 247 255 / 0), rgb(244 247 255) 22%, rgb(244 247 255) 78%, rgb(244 247 255 / 0));
+  --gradient-hero-blob-1: radial-gradient(closest-side, rgb(36 91 232 / 0.85), rgb(91 134 255 / 0.51) 45%, rgb(220 231 255 / 0));
+  --gradient-hero-blob-2: radial-gradient(closest-side, rgb(127 162 255 / 0.7), rgb(169 193 255 / 0.42) 45%, rgb(232 239 255 / 0));
+  --gradient-hero-blob-3: radial-gradient(closest-side, rgb(169 193 255 / 0.7), rgb(201 217 255 / 0.42) 45%, rgb(244 247 255 / 0));
+  --gradient-hero-highlight-1: radial-gradient(closest-side, rgb(255 255 255 / 0.95), rgb(255 255 255 / 0.475) 50%, rgb(255 255 255 / 0));
+  --gradient-hero-highlight-2: radial-gradient(closest-side, rgb(255 255 255 / 0.85), rgb(255 255 255 / 0.425) 50%, rgb(255 255 255 / 0));
+  --gradient-hero-sweep: conic-gradient(from 90deg, rgb(227 235 255), rgb(191 208 255) 25%, rgb(244 247 255) 50%, rgb(143 174 255) 75%, rgb(227 235 255));
+
+  /* Channel convergence hub (Figma "Hub") */
+  --gradient-hub: radial-gradient(circle at 30% 25%, rgb(111 150 255), rgb(36 91 232) 50%, rgb(26 67 176));
+
+  /* Glass orb (Figma "Glass orb") */
+  --gradient-orb: radial-gradient(circle at 28% 22%, rgb(255 255 255 / 0.85), rgb(255 255 255 / 0) 30%), radial-gradient(circle at 35% 30%, rgb(255 255 255), rgb(255 255 255 / 0.9) 30%, rgb(255 255 255 / 0) 60%), linear-gradient(135deg, rgb(255 255 255 / 0.55), rgb(237 242 255 / 0.18) 55%, rgb(184 204 255 / 0.35));
+  --gradient-orb-stroke: linear-gradient(135deg, rgb(255 255 255), rgb(204 217 250 / 0.5) 40%, rgb(140 166 242 / 0.55) 75%, rgb(255 255 255 / 0.9));
+  --shadow-orb: 0 18px 36px -4px rgb(23 51 140 / 0.16), inset 3px 4px 6px 0 rgb(255 255 255 / 0.9), inset -6px -10px 18px 0 rgb(77 107 217 / 0.22);
+  --shadow-magnet: 0 6px 10px -2px rgb(10 13 18 / 0.28), inset 0 -3px 4px 0 rgb(128 0 0 / 0.35);
+  --border-width-orb: 1.5px;
+
+  /* Industries: warm circle behind the content (Figma "Floating gradient / right") */
+  --color-industries-circle: rgb(244 234 223);
+  --gradient-ind-blob-1: radial-gradient(closest-side, rgb(221 204 187 / 0.85), rgb(221 204 187 / 0));
+  --gradient-ind-blob-2: radial-gradient(closest-side, rgb(252 249 246 / 0.9), rgb(252 249 246 / 0));
+  --gradient-ind-blob-3: radial-gradient(closest-side, rgb(255 111 94), rgb(255 148 134 / 0.75) 35%, rgb(255 201 192 / 0.35) 70%, rgb(255 230 225 / 0));
+  --gradient-ind-blob-4: radial-gradient(closest-side, rgb(255 162 148 / 0.75), rgb(255 211 203 / 0.35) 60%, rgb(255 237 233 / 0));
+  --gradient-ind-sweep: conic-gradient(from 90deg, rgb(240 232 223), rgb(255 212 169) 30%, rgb(255 242 226) 55%, rgb(255 154 92) 80%, rgb(255 240 223));
+  --gradient-ind-blob-5: radial-gradient(closest-side, rgb(255 90 31 / 0.95), rgb(255 111 94 / 0.7) 40%, rgb(255 180 138 / 0.3) 75%, rgb(255 227 207 / 0));
+  --gradient-ind-highlight: radial-gradient(closest-side, rgb(255 90 31 / 0.95), rgb(255 122 61 / 0.7) 40%, rgb(255 180 138 / 0.3) 72%, rgb(255 227 207 / 0));
+
+  /* Engagements: blue wash behind the pricing cards (Figma "Engagements gradient") */
+  --gradient-eng-base: linear-gradient(180deg, rgb(244 247 255 / 0), rgb(244 247 255) 16%, rgb(244 247 255) 84%, rgb(244 247 255 / 0));
+  --gradient-eng-blob-1: radial-gradient(closest-side, rgb(201 217 255 / 0.9), rgb(201 217 255 / 0));
+  --gradient-eng-blob-2: radial-gradient(closest-side, rgb(127 162 255 / 0.5), rgb(127 162 255 / 0));
+  --gradient-eng-blob-3: radial-gradient(closest-side, rgb(255 255 255 / 0.95), rgb(255 255 255 / 0));
+  --gradient-eng-blob-4: radial-gradient(closest-side, rgb(36 91 232 / 0.9), rgb(36 91 232 / 0.495) 45%, rgb(36 91 232 / 0));
+  --gradient-eng-blob-5: radial-gradient(closest-side, rgb(255 255 255 / 0.9), rgb(255 255 255 / 0));
+  --gradient-eng-blob-6: radial-gradient(closest-side, rgb(36 91 232 / 0.9), rgb(77 120 240 / 0.6) 40%, rgb(169 193 255 / 0.28) 75%, rgb(220 231 255 / 0));
+  --gradient-eng-highlight: radial-gradient(closest-side, rgb(36 91 232 / 0.95), rgb(91 134 255 / 0.7) 40%, rgb(169 193 255 / 0.3) 72%, rgb(220 231 255 / 0));
+  /* Closing: blue circles (Figma "Blue circles") */
+  --gradient-closing-large: radial-gradient(closest-side, rgb(36 91 232 / 0.75), rgb(127 162 255 / 0.38) 55%, rgb(219 232 255 / 0));
+  --gradient-closing-medium: radial-gradient(closest-side, rgb(91 134 255 / 0.6), rgb(127 162 255 / 0.3) 55%, rgb(219 232 255 / 0));
+  --gradient-closing-small: radial-gradient(closest-side, rgb(36 91 232 / 0.8), rgb(127 162 255 / 0.4) 55%, rgb(219 232 255 / 0));
+  /* Closing "Magnet": the red pin on the Plan card. Figma fills, top to bottom: white shine spot, light-to-dark-red shade, coral base */
+  --gradient-magnet: radial-gradient(22.7% 22.7% at 38.6% 34.1%, rgb(255 255 255 / 0.7), rgb(255 255 255 / 0)), linear-gradient(to bottom, rgb(255 255 255 / 0.25), rgb(153 0 0 / 0.35)), linear-gradient(#ff6f5e, #ff6f5e);
+  --blur-orb: 16px;
+  --border-width-pricing-selected: 2px;
+  --blur-pricing: 28px;
+
+  /* Blurs: Figma "blur/..." → backdrop-blur-background-8, blur-layer-md, ... */
+  --blur-background-8: 8px;
+  --blur-layer-xs: 24px;
+  --blur-layer-sm: 40px;
+  --blur-layer-md: 56px;
+  --blur-layer-lg: 90px;
+  --blur-layer-xl: 140px;
+
+  /* Animation timing (not in Figma yet; starting values) */
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+  --duration-slow: 600ms;
+  /* Industries tab change: old text fades out, then the new one fades in slowly */
+  --duration-tab-out: 400ms;
+  --duration-tab-in: 900ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-figma-in-out: cubic-bezier(0.42, 0, 0.58, 1); /* Figma "Ease in and out" (Principles illustrations) */
+  --ease-figma-out: cubic-bezier(0, 0, 0.58, 1); /* Figma "Ease out" */
+  --ease-art-swap: cubic-bezier(0.45, 0, 0.15, 1); /* Figma custom bezier of the E-commerce icon swap */
+  --ease-in-out: cubic-bezier(0.45, 0, 0.25, 1); /* soft start and soft end: hover lifts, tab changes */
+  /* Scroll reveal: how far a block rises while it fades in, and the pause between items in a group */
+  --motion-reveal-distance: 1.5rem;
+  --motion-stagger: 80ms;
+  /* Pricing card lifts by this much on hover */
+  --motion-card-lift: 0.5rem;
+  /* Closing background circles float slower and further than the Hero orbs */
+  --duration-float-slow: 11s;
+  --motion-float-distance-large: 3rem;
+  /* Glass orbs in the Hero float up and down slowly: one full cycle, and how high they rise */
+  --duration-float: 7s;
+  --motion-float-distance: 1.5rem;
+  --motion-float-drift: 0.625rem; /* small sideways sway while floating */
+  --animate-float: float var(--duration-float) ease-in-out infinite;
+  --duration-float-offset: -3.5s;
+  /* Hero channel illustration: a light pulse runs down each line into the "E" hub, and the hub glows when it arrives */
+  --duration-flow: 4s;
+  /* Approach illustration: a ring grows out of the "Conversion" circle and fades, two rings half a cycle apart */
+  --duration-ring-pulse: 3s;
+  /* Approach illustration: dashes travel along the lines into the circle (one dash + gap per cycle) */
+  --duration-dash-run: 1.2s;
+  --animate-dash-run: dash-run var(--duration-dash-run) linear infinite;
+  --animate-ring-pulse: ring-pulse var(--duration-ring-pulse) var(--ease-out) infinite;
+  /* Industries gradient floats between Figma State=A and State=B (Smart animate, ease in-out) */
+  --duration-gradient-drift: 4.5s; /* Figma has 3.5s; tuned with the owner: visible within a few seconds, still soft */
+  --duration-gradient-drift-slow: 9s; /* Engagements background: calmer drift */
+  --animate-gradient-drift: gradient-drift var(--duration-gradient-drift) ease-in-out infinite alternate;
+  --shadow-flow-glow: 0 0 0.375rem var(--color-brand-100); /* soft light halo around the light-blue pulse */
+  --animate-flow: flow var(--duration-flow) ease-in-out infinite;
+  --animate-hub-pulse: hub-pulse var(--duration-flow) ease-out infinite; /* the second orb starts half a cycle later, so they don't move in step */
+
+  /* Accordion open/close: class animate-accordion-down / animate-accordion-up */
+  --animate-accordion-down: accordion-down var(--duration-base) var(--ease-out);
+  --animate-accordion-up: accordion-up var(--duration-base) var(--ease-out);
+  @keyframes accordion-down {
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
+  }
+  @keyframes accordion-up {
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
+  }
+  /* the pulse (a dash 0.2 of the line long) travels the whole line, from just above the chip to inside the hub */
+  @keyframes flow {
+    0% { stroke-dashoffset: 0.2; opacity: 0; }
+    15% { opacity: 1; }
+    85% { opacity: 1; }
+    100% { stroke-dashoffset: -1; opacity: 0; }
+  }
+  /* the hub glow swells as the pulses reach it, at the end of each cycle */
+  @keyframes hub-pulse {
+    0%, 70% { scale: 1; opacity: 0; }
+    85% { opacity: 0.45; }
+    100% { scale: 1.45; opacity: 0; }
+  }
+  @keyframes dash-run {
+    to { stroke-dashoffset: -8; }
+  }
+  @keyframes ring-pulse {
+    0% { scale: 1; opacity: 0.6; }
+    100% { scale: 1.3; opacity: 0; }
+  }
+  @keyframes gradient-drift {
+    from { transform: var(--drift-from); }
+    to { transform: var(--drift-to); }
+  }
+  @keyframes float {
+    0%, 100% { translate: 0 0; scale: 1; }
+    33% { translate: var(--motion-float-drift) calc(var(--motion-float-distance) * -0.6); }
+    66% { translate: calc(var(--motion-float-drift) * -0.5) calc(var(--motion-float-distance) * -1); scale: 1.06; }
+  }
+
+  /* Service names for shadcn/ui components. They point to Figma colours above; no need to edit. */
+  --color-background: var(--color-gray-0);
+  --color-foreground: var(--color-gray-950);
+  --color-primary: var(--color-brand-600);
+  --color-primary-foreground: var(--color-gray-0);
+  --color-secondary: var(--color-gray-100);
+  --color-secondary-foreground: var(--color-gray-950);
+  --color-muted: var(--color-gray-100);
+  --color-muted-foreground: var(--color-gray-500);
+  --color-accent: var(--color-brand-50);
+  --color-accent-foreground: var(--color-gray-950);
+  --color-destructive: var(--color-coral-500);
+  --color-card: var(--color-gray-0);
+  --color-card-foreground: var(--color-gray-950);
+  --color-popover: var(--color-gray-0);
+  --color-popover-foreground: var(--color-gray-950);
+  --color-border: var(--color-gray-200);
+  --color-input: var(--color-gray-200);
+  --color-ring: var(--color-brand-600);
+}
