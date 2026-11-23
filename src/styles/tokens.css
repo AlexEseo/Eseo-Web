@@ -241,6 +241,7 @@
 
   /* Industries: warm circle behind the content (Figma "Floating gradient / right") */
   --color-industries-circle: rgb(244 234 223);
+  --industries-circle-max: 64.5rem; /* Industries gradient circle never grows past its Figma width (1032) */
   --gradient-ind-blob-1: radial-gradient(closest-side, rgb(221 204 187 / 0.85), rgb(221 204 187 / 0));
   --gradient-ind-blob-2: radial-gradient(closest-side, rgb(252 249 246 / 0.9), rgb(252 249 246 / 0));
   --gradient-ind-blob-3: radial-gradient(closest-side, rgb(255 111 94), rgb(255 148 134 / 0.75) 35%, rgb(255 201 192 / 0.35) 70%, rgb(255 230 225 / 0));

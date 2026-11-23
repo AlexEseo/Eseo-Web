@@ -21,8 +21,14 @@ const tabFade =
 function Industries({ text, onCta }) {
   return (
     <section data-slot="industries" className="relative isolate px-5 py-16 md:px-10 md:py-40 lg:px-20">
-      {/* Figma: circle 1032 wide, 124 from the left and 117 from the top of the 1280 section. */}
-      <GradientScene scene={industriesScene} className="-z-10" style={{ left: '9.69%', width: '80.63%', top: '7.31rem' }} />
+      {/* Figma: circle 1032 wide, centred, 117 from the top of the 1280 section.
+          It scales with the screen but never grows past the Figma size (--industries-circle-max),
+          so on wide screens it does not spill over the neighbouring blocks. */}
+      <GradientScene
+        scene={industriesScene}
+        className="left-1/2 -z-10 -translate-x-1/2"
+        style={{ width: 'min(80.63%, var(--industries-circle-max))', top: '7.31rem' }}
+      />
       <Tabs defaultValue={text.items[0].key} className="mx-auto max-w-(--container-page) items-center gap-8 md:gap-13">
         <Reveal>
           <TabsList className="justify-center gap-x-8 gap-y-3">
