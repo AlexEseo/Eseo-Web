@@ -64,14 +64,14 @@ function Scene({ kind, label, channels, className }) {
             <g key={x}>
               {g.halo > 0 && <m.path d={d} strokeWidth={g.halo} strokeLinecap="round" stroke="var(--color-gray-0)" fill="none" {...draw(i)} />}
               <m.path d={d} strokeWidth={g.line} strokeLinecap="round" stroke={`url(#${id})`} fill="none" {...draw(i)} />
-              {/* Light (white) pulse running down the line; all four start together and meet in the hub */}
+              {/* Light-blue pulse running down the line; all four start together and meet in the hub */}
               <path
                 d={d}
                 pathLength="1"
                 strokeDasharray="0.2 1.2"
                 strokeWidth={g.line * 2}
                 strokeLinecap="round"
-                stroke="var(--color-gray-0)"
+                stroke="var(--color-brand-200)"
                 fill="none"
                 className="animate-flow drop-shadow-(--shadow-flow-glow) motion-reduce:hidden"
               />

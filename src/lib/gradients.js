@@ -22,17 +22,18 @@ export const industriesScene = {
   fill: '--color-industries-circle',
   radius: 487,
   blur: 48,
-  // Figma prototype: State=A ↔ State=B, Smart animate, ease in-out, 3.5s each way
+  // Figma prototype: State=A ↔ State=B, Smart animate, ease in-out. Owner's changes: slower (see token), and the
+  // orange parts drift to the LEFT instead of down (B places with a downward move keep their A height and shift left).
   drift: '--duration-gradient-drift',
   layers: [
     { token: '--gradient-ind-blob-1', x: 187, y: 97, w: 487, h: 487, blur: 60, to: { x: 313, y: -77, w: 575, h: 575 } },
-    { token: '--gradient-ind-blob-2', x: 365, y: 573, w: 438, h: 438, blur: 60, to: { x: 218, y: 746, w: 372, h: 372 } },
-    { token: '--gradient-ind-blob-3', x: -42, y: 536, w: 341, h: 341, blur: 56, to: { x: 74, y: 662, w: 409, h: 409 } },
+    { token: '--gradient-ind-blob-2', x: 365, y: 573, w: 438, h: 438, blur: 60, to: { x: 218, y: 573, w: 372, h: 372 } },
+    { token: '--gradient-ind-blob-3', x: -42, y: 536, w: 341, h: 341, blur: 56, to: { x: -120, y: 536, w: 409, h: 409 } },
     { token: '--gradient-ind-blob-4', x: 342, y: -136, w: 487, h: 487, blur: 60, to: { x: 211, y: -256, w: 429, h: 429 } },
-    { token: '--gradient-ind-sweep', x: 0, y: 0, w: 974, h: 974, blur: 80, opacity: 0.5, to: { x: -178, y: 665, w: 974, h: 974, rotate: 60 } },
-    { token: '--gradient-ind-blob-5', x: 560, y: 540, w: 420, h: 420, blur: 56, to: { x: 470, y: 600, w: 483, h: 483 } },
+    { token: '--gradient-ind-sweep', x: 0, y: 0, w: 974, h: 974, blur: 80, opacity: 0.5, to: { x: -178, y: 0, w: 974, h: 974, rotate: 60 } },
+    { token: '--gradient-ind-blob-5', x: 560, y: 540, w: 420, h: 420, blur: 56, to: { x: 400, y: 540, w: 483, h: 483 } },
     // "Highlights" group is Linear dodge in Figma: orange over orange turns into the yellow glow.
-    { token: '--gradient-ind-highlight', x: 48, y: 167, w: 600, h: 600, blur: 64, blend: 'plus-lighter', to: { x: 182, y: 231, w: 732, h: 732 } },
+    { token: '--gradient-ind-highlight', x: 48, y: 167, w: 600, h: 600, blur: 64, blend: 'plus-lighter', to: { x: -40, y: 167, w: 732, h: 732 } },
     { token: '--gradient-ind-highlight', x: 779, y: 635, w: 204, h: 253, blur: 64, rotate: 44, blend: 'plus-lighter', to: { x: 546, y: 494, w: 167, h: 207, rotate: 44 } },
   ],
 }
