@@ -16,6 +16,7 @@ export function motionTokens() {
       fast: seconds(css("--duration-fast")),
       base: seconds(css("--duration-base")),
       slow: seconds(css("--duration-slow")),
+      reveal: seconds(css("--duration-reveal")),
       easeOut: bezier(css("--ease-out")),
       easeStandard: bezier(css("--ease-standard")),
       revealDistance: rem(css("--motion-reveal-distance")),

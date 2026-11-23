@@ -170,8 +170,8 @@
   --container-convergence: 55rem; /* Channel convergence illustration width, from Figma: 880 */
   --container-hero-frame: 80rem;  /* Figma Home frame width 1280: glass orbs in the Hero are placed inside it */
   --hero-glow-shift-phone: 12.82%;  /* gradient square starts 50 of 390 above the illustration */
-  --hero-glow-shift-desktop: 7.66%; /* and 98 of 1280 on desktop */
-  --eng-glow-shift: 12.34%;         /* Engagements gradient starts 158 of 1280 above the section */
+  --hero-glow-shift-desktop: min(7.66%, 6.125rem); /* and 98 of 1280 on desktop; never more than 98 on wide screens */
+  --eng-glow-shift: min(27.97%, 22.375rem); /* Engagements gradient starts 358 of 1280 above the section (owner: 200 higher than Figma, so it doesn't spill onto FAQ); never more on wide screens */
   --container-heading: 40rem;     /* Section heading title width (left aligned), from Figma: 640 */
   --container-card-wide: 35rem;    /* Industry card and calculation notes, from Figma: 560 */
   --container-footnote: 31.25rem;  /* Engagements footnote, from Figma: 500 */
@@ -292,7 +292,8 @@
   --ease-in-out: cubic-bezier(0.45, 0, 0.25, 1); /* soft start and soft end: hover lifts, tab changes */
   /* Scroll reveal: how far a block rises while it fades in, and the pause between items in a group */
   --motion-reveal-distance: 1.5rem;
-  --motion-stagger: 80ms;
+  --motion-stagger: 120ms;       /* pause between items appearing one after another */
+  --duration-reveal: 900ms;      /* how long a block takes to fade in and rise when it scrolls into view */
   /* Pricing card lifts by this much on hover */
   --motion-card-lift: 0.5rem;
   /* Closing background circles float slower and further than the Hero orbs */

@@ -9,7 +9,9 @@
 import { m, useReducedMotion } from "motion/react";
 import { motionTokens } from "@/lib/motion-tokens";
 
-const viewport = { once: true, amount: 0.15 };
+// A block starts appearing as soon as its top edge comes a little into the screen (8% above the bottom edge),
+// so tall blocks don't sit empty first and then pop in.
+const viewport = { once: true, amount: 0, margin: "0% 0% -8% 0%" };
 
 function hidden() {
   return { opacity: 0, y: motionTokens().revealDistance };
@@ -19,7 +21,7 @@ function shown(delay = 0) {
   return {
     opacity: 1,
     y: 0,
-    transition: { duration: t.slow, ease: t.easeOut, delay },
+    transition: { duration: t.reveal, ease: t.easeOut, delay },
   };
 }
 

@@ -21,7 +21,9 @@ function GradientScene({ scene, className, style }) {
       aria-hidden="true"
       data-slot="gradient-scene"
       className={cn('pointer-events-none absolute @container', className)}
-      style={{ aspectRatio: `${fw} / ${fh}`, ...style }}
+      // On screens wider than the Figma frame the scene stretches sideways but never gets taller than in Figma,
+      // so it doesn't spill further onto the blocks below.
+      style={{ width: "100%", aspectRatio: `${fw} / ${fh}`, maxHeight: `${fh / 16}rem`, ...style }}
     >
       <div
         className="absolute inset-0"
