@@ -1,18 +1,88 @@
-// Reveal / RevealGroup / RevealItem: wrappers around page blocks.
-// The scroll-in effect (blocks fading in and rising when they scroll into view) is switched OFF at the owner's
-// request: blocks loaded unevenly on the live site. The wrappers now just render the block as it is, so nothing
-// moves on scroll. Sections keep using these names, so the effect can be brought back here in one place.
+// Reveal: a block softly fades in and rises a little when it scrolls into view (once).
+// RevealGroup + RevealItem: the same, but the items inside appear one after another (cards, steps, rows).
+// For people who ask their system for less motion, nothing moves: blocks are simply shown.
+// Durations, easing, distance and the pause between items come from tokens.css (see motion-tokens.js).
 // Props:
 //   as:        which element to render ("div" by default; "section", "li"... also work)
-//   delay:     kept for compatibility, ignored
+//   delay:     extra wait in seconds before it starts (optional)
 //   className and any other normal attributes
+import { m, useReducedMotion } from "motion/react";
+import { motionTokens } from "@/lib/motion-tokens";
 
-function Static({ as: Tag = "div", delay, children, ...props }) {
-  return <Tag {...props}>{children}</Tag>;
+const viewport = { once: true, amount: 0.15 };
+
+function hidden() {
+  return { opacity: 0, y: motionTokens().revealDistance };
+}
+function shown(delay = 0) {
+  const t = motionTokens();
+  return {
+    opacity: 1,
+    y: 0,
+    transition: { duration: t.slow, ease: t.easeOut, delay },
+  };
 }
 
-const Reveal = Static;
-const RevealGroup = Static;
-const RevealItem = Static;
+function Reveal({ as = "div", delay = 0, children, ...props }) {
+  const reduce = useReducedMotion();
+  if (reduce) {
+    const Tag = as;
+    return <Tag {...props}>{children}</Tag>;
+  }
+  const Tag = m[as];
+  return (
+    <Tag
+      initial={hidden()}
+      whileInView={shown(delay)}
+      viewport={viewport}
+      {...props}
+    >
+      {children}
+    </Tag>
+  );
+}
+
+function RevealGroup({ as = "div", delay = 0, children, ...props }) {
+  const reduce = useReducedMotion();
+  if (reduce) {
+    const Tag = as;
+    return <Tag {...props}>{children}</Tag>;
+  }
+  const Tag = m[as];
+  const variants = {
+    hidden: {},
+    shown: {
+      transition: {
+        staggerChildren: motionTokens().stagger,
+        delayChildren: delay,
+      },
+    },
+  };
+  return (
+    <Tag
+      initial="hidden"
+      whileInView="shown"
+      viewport={viewport}
+      variants={variants}
+      {...props}
+    >
+      {children}
+    </Tag>
+  );
+}
+
+function RevealItem({ as = "div", children, ...props }) {
+  const reduce = useReducedMotion();
+  if (reduce) {
+    const Tag = as;
+    return <Tag {...props}>{children}</Tag>;
+  }
+  const Tag = m[as];
+  return (
+    <Tag variants={{ hidden: hidden(), shown: shown() }} {...props}>
+      {children}
+    </Tag>
+  );
+}
 
 export { Reveal, RevealGroup, RevealItem };
