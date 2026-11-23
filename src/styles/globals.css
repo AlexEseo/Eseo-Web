@@ -65,6 +65,13 @@ html {
   animation: var(--animate-dash-run);
 }
 
+/* Speed: looping animations stop while their section is off the screen (set by usePauseOffscreen). */
+[data-offscreen] *,
+[data-offscreen] *::before,
+[data-offscreen] *::after {
+  animation-play-state: paused !important;
+}
+
 /* Turn animations off for people who ask their system for less motion. */
 @media (prefers-reduced-motion: reduce) {
   *,

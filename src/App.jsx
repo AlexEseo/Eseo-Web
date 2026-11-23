@@ -3,6 +3,7 @@
 import { useEffect } from 'react'
 import site from './content/site.json'
 import { PageShell } from '@/components/layout/page-shell'
+import { usePauseOffscreen } from '@/lib/pause-offscreen'
 import { Hero } from '@/components/sections/Hero'
 import { Principles } from '@/components/sections/Principles'
 import { Approach } from '@/components/sections/Approach'
@@ -26,6 +27,7 @@ const channelIcons = {
 }
 
 export default function App() {
+  usePauseOffscreen()
   useEffect(() => {
     document.title = site.meta.title
   }, [])
