@@ -174,7 +174,6 @@
   --eng-glow-shift: min(27.97%, 22.375rem); /* Engagements gradient starts 358 of 1280 above the section (owner: 200 higher than Figma, so it doesn't spill onto FAQ); never more on wide screens */
   --container-heading: 40rem;     /* Section heading title width (left aligned), from Figma: 640 */
   --container-card-wide: 35rem;    /* Industry card and calculation notes, from Figma: 560 */
-  --container-footnote: 31.25rem;  /* Engagements footnote, from Figma: 500 */
   --container-faq: 45rem;          /* FAQ list, from Figma: 720 */
   --container-document: 45rem;     /* Privacy / Legal text column, from Figma: 720 */
   --container-not-found: 35rem;    /* 404 message block, from Figma: 560 */
