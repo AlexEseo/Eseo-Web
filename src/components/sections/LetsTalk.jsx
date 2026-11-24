@@ -4,8 +4,10 @@
 // Each problem has its own message (site.json → form.fields.*.errors). A personal (Gmail etc.) or temporary address
 // is accepted, with a soft grey note under the field (form.fields.email.notes).
 // Fields are checked on leaving them (if something was typed) and on submit; an error disappears as soon as the person edits the field.
-// NOT CONNECTED YET: "Preview my request" only checks the fields and shows the "Thanks" screen.
-// Sending to Web3Forms (site.form.endpoint + accessKey) is added later, when the owner sends the key.
+// Sending: after the checks pass, the answers go to Web3Forms (site.form.endpoint + accessKey), which emails them
+// to the address of the Web3Forms account (info@eseoads.com). The button shows a spinner while sending;
+// if sending fails, a message (form.error) appears above the button and the answers stay in the fields.
+// A hidden "botcheck" box catches spam bots (people never see or tick it).
 // Props:
 //   text:         site.form (from site.json)
 //   open / onOpenChange: whether the window is shown
@@ -24,6 +26,8 @@ function LetsTalk({ text, open, onOpenChange, initialStep = 'form' }) {
   const [step, setStep] = useState(initialStep)
   const [errors, setErrors] = useState({})
   const [note, setNote] = useState()
+  const [sending, setSending] = useState(false)
+  const [sendError, setSendError] = useState(false)
   const f = text.fields
 
   // An error disappears as soon as the person starts fixing the field.
@@ -40,14 +44,28 @@ function LetsTalk({ text, open, onOpenChange, initialStep = 'form' }) {
     if (key === 'email') setNote(noteFor(e.target.value))
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
     const data = new FormData(e.currentTarget)
     const found = { name: nameError(data.get('name')), email: emailError(data.get('email')) }
     setErrors(found)
     if (Object.values(found).some(Boolean)) return
-    // Web3Forms sending goes here later.
-    setStep('success')
+
+    data.append('access_key', text.accessKey)
+    data.append('subject', text.emailSubject)
+    data.append('from_name', text.fromName)
+    setSending(true)
+    setSendError(false)
+    try {
+      const res = await fetch(text.endpoint, { method: 'POST', headers: { Accept: 'application/json' }, body: data })
+      const result = await res.json()
+      if (!result.success) throw new Error(result.message)
+      setStep('success')
+    } catch {
+      setSendError(true)
+    } finally {
+      setSending(false)
+    }
   }
 
   function handleOpenChange(next) {
@@ -57,6 +75,7 @@ function LetsTalk({ text, open, onOpenChange, initialStep = 'form' }) {
       setStep('form')
       setErrors({})
       setNote(undefined)
+      setSendError(false)
     }
   }
 
@@ -99,7 +118,14 @@ function LetsTalk({ text, open, onOpenChange, initialStep = 'form' }) {
                 <SelectField id="lt-goal" name="goal" options={f.goal.options} defaultValue={f.goal.options[0]} />
               </Field>
             </div>
-            <Button type="submit" variant="primary" size="l" className="mt-12 w-full">
+            {/* Spam trap: hidden from people, bots tick it and Web3Forms then drops the message. */}
+            <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
+            {sendError && (
+              <p role="alert" className="mt-6 text-center text-body-14 text-coral-500">
+                {text.error}
+              </p>
+            )}
+            <Button type="submit" variant="primary" size="l" loading={sending} className={sendError ? 'mt-4 w-full' : 'mt-12 w-full'}>
               {text.submit}
             </Button>
             <p className="mt-6 text-center text-body-12 text-gray-500">{text.note}</p>
