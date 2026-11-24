@@ -11,7 +11,7 @@ function Logo({ href = '/', alt, className }) {
       data-slot="logo"
       className={cn('inline-flex shrink-0 rounded-4 outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-solid focus-visible:outline-brand-600', className)}
     >
-      <img src={logoSrc} alt={alt} width="193" height="28" />
+      <img src={logoSrc} alt={alt} width="127" height="28" />
     </a>
   )
 }
