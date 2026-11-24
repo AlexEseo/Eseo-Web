@@ -4,12 +4,19 @@
 // Figma Home → "02 Industries" (+ the three variant frames). The link opens the "Let's talk" form.
 // A warm gradient circle sits behind the content — exact copy of Figma "Circle right · gradient".
 // Props: text (site.industries from site.json), onCta (opens the form).
+import { Reveal } from '@/components/motion/reveal'
 import { GradientScene } from '@/components/ui/gradient-scene'
 import { IndustryCard } from '@/components/ui/industry-card'
 import { Link } from '@/components/ui/link'
 import { SectionHeading } from '@/components/ui/section-heading'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { industriesScene } from '@/lib/gradients'
+import { cn } from '@/lib/utils'
+
+// Switching tabs: the old texts fade out quickly, then the new ones fade in and rise a little
+// (so two texts never overlap). Hidden texts can't be clicked or read by screen readers (visibility hidden).
+const tabFade =
+  'transition-[opacity,translate,visibility] duration-(--duration-base) delay-(--duration-fast) ease-(--ease-out) group-data-[state=inactive]/tab:invisible group-data-[state=inactive]/tab:translate-y-2 group-data-[state=inactive]/tab:opacity-0 group-data-[state=inactive]/tab:delay-0 group-data-[state=inactive]/tab:duration-(--duration-fast)'
 
 function Industries({ text, onCta }) {
   return (
@@ -17,28 +24,31 @@ function Industries({ text, onCta }) {
       {/* Figma: circle 1032 wide, 124 from the left and 117 from the top of the 1280 section. */}
       <GradientScene scene={industriesScene} className="-z-10" style={{ left: '9.69%', width: '80.63%', top: '7.31rem' }} />
       <Tabs defaultValue={text.items[0].key} className="mx-auto max-w-(--container-page) items-center gap-8 md:gap-13">
-        <TabsList className="justify-center gap-x-8 gap-y-3">
-          {text.items.map((item) => (
-            <TabsTrigger key={item.key} value={item.key}>
-              {item.tab}
-            </TabsTrigger>
-          ))}
-        </TabsList>
+        <Reveal>
+          <TabsList className="justify-center gap-x-8 gap-y-3">
+            {text.items.map((item) => (
+              <TabsTrigger key={item.key} value={item.key}>
+                {item.tab}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+        </Reveal>
         {/* Every tab's heading, card and link share one grid: same rows for all tabs, so every card
-            gets the height of the tallest one. Inactive tabs stay in place but are hidden. */}
-        <div className="grid w-full grid-cols-1 justify-items-center gap-y-8 md:gap-y-13">
+            gets the height of the tallest one. Inactive tabs stay in place but are hidden.
+            Switching tabs: the old texts fade out and the new ones fade in, rising a little (tabFade). */}
+        <Reveal className="grid w-full grid-cols-1 justify-items-center gap-y-8 md:gap-y-13">
           {text.items.map((item) => (
-            <TabsContent key={item.key} value={item.key} forceMount className="contents data-[state=inactive]:invisible">
-              <SectionHeading title={item.title} description={item.description} className="col-start-1 row-start-1" />
+            <TabsContent key={item.key} value={item.key} forceMount className="group/tab contents">
+              <SectionHeading title={item.title} description={item.description} className={cn(tabFade, 'col-start-1 row-start-1')} />
               <IndustryCard
                 heading={item.card.heading}
                 rows={item.card.rows}
                 note={item.card.note}
-                className="col-start-1 row-start-2 w-full max-w-(--container-card-wide)"
+                className={cn(tabFade, 'col-start-1 row-start-2 w-full max-w-(--container-card-wide)')}
               />
               <Link
                 href="#lets-talk"
-                className="col-start-1 row-start-3"
+                className={cn(tabFade, 'col-start-1 row-start-3')}
                 onClick={(e) => {
                   e.preventDefault()
                   onCta?.()
@@ -48,7 +58,7 @@ function Industries({ text, onCta }) {
               </Link>
             </TabsContent>
           ))}
-        </div>
+        </Reveal>
       </Tabs>
     </section>
   )

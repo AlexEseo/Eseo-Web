@@ -3,6 +3,7 @@
 // Phone: one column (E-commerce, Subscriptions, Multi-location, Education — as in the Figma mobile frame).
 // Props: text (site.principles from site.json). Card pictures are exported from Figma (src/assets/illustrations);
 // their small texts ("Revenue", "Start free trial"…) are part of the pictures, not of site.json.
+import { Reveal, RevealGroup, RevealItem } from '@/components/motion/reveal'
 import artEducation from '@/assets/illustrations/principles-education.svg?raw'
 import artMarket from '@/assets/illustrations/principles-market.svg?raw'
 import artShop from '@/assets/illustrations/principles-shop.svg?raw'
@@ -25,12 +26,15 @@ function Principles({ text }) {
   return (
     <section data-slot="principles" className="relative px-5 pt-12 pb-16 md:px-10 md:py-29 lg:px-20">
       <div className="mx-auto flex max-w-(--container-page) flex-col gap-8 md:gap-27">
-        <SectionHeading title={text.title} />
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5 lg:grid-cols-3 lg:grid-rows-2">
+        <Reveal>
+          <SectionHeading title={text.title} />
+        </Reveal>
+        <RevealGroup className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5 lg:grid-cols-3 lg:grid-rows-2">
           {text.cards.map((card) => {
             const setup = cardSetup[card.key]
             return (
-              <article
+              <RevealItem
+                as="article"
                 key={card.key}
                 className={cn(
                   'flex flex-col justify-between gap-8 overflow-hidden rounded-20 border border-gray-200 bg-gray-0 px-6 pt-8 pb-6 shadow-glass-card',
@@ -40,10 +44,10 @@ function Principles({ text }) {
               >
                 <FigmaArt {...setup.art} className="rounded-8" />
                 <CardCaption title={card.title} description={card.description} />
-              </article>
+              </RevealItem>
             )
           })}
-        </div>
+        </RevealGroup>
       </div>
     </section>
   )

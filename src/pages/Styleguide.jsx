@@ -28,6 +28,9 @@ import { PricingCard } from '@/components/ui/pricing-card'
 import { Roadmap } from '@/components/ui/roadmap'
 import { Planner } from '@/components/ui/planner'
 import { useState } from 'react'
+import { LazyMotion, domAnimation } from 'motion/react'
+import { Reveal, RevealGroup, RevealItem } from '@/components/motion/reveal'
+import { CountUp } from '@/components/motion/count-up'
 import site from '@/content/site.json'
 import { Header } from '@/components/sections/Header'
 import { Footer } from '@/components/sections/Footer'
@@ -275,6 +278,41 @@ function LetsTalkDemo() {
       </Button>
       {open && <LetsTalk key={open} text={site.form} open initialStep={open} onOpenChange={(v) => !v && setOpen(null)} />}
     </div>
+  )
+}
+
+// Motion demo: press the button to play the reveal again; the number rolls to a new random value.
+function MotionDemo() {
+  const [round, setRound] = useState(0)
+  const [value, setValue] = useState(48000)
+  return (
+    <LazyMotion features={domAnimation} strict>
+      <div className="flex flex-col gap-6 rounded-16 border border-gray-200 p-6">
+        <p className="text-body-14 text-gray-600">
+          Reveal — блок плавно появляется и чуть поднимается при прокрутке (один раз). RevealGroup — элементы по очереди. CountUp — цифра
+          прокручивается к новому значению. С включённым «уменьшить движение» в системе всё показывается сразу.
+        </p>
+        <div className="flex flex-wrap gap-3">
+          <Button variant="secondary" size="m" onClick={() => setRound((r) => r + 1)}>
+            Повторить появление
+          </Button>
+          <Button variant="secondary" size="m" onClick={() => setValue(Math.round(Math.random() * 200000) - 50000)}>
+            Новая цифра
+          </Button>
+        </div>
+        <div key={round} className="flex flex-col gap-4">
+          <Reveal className="rounded-8 bg-gray-100 p-4 text-body-14">Reveal</Reveal>
+          <RevealGroup className="grid grid-cols-3 gap-4">
+            {['RevealItem 1', 'RevealItem 2', 'RevealItem 3'].map((label) => (
+              <RevealItem key={label} className="rounded-8 bg-brand-50 p-4 text-body-14 text-brand-600">
+                {label}
+              </RevealItem>
+            ))}
+          </RevealGroup>
+        </div>
+        <CountUp value={value} format={(n) => `€${Math.round(n).toLocaleString('en-US')}`} className="text-display-40 font-semibold text-gray-900 tabular-nums" />
+      </div>
+    </LazyMotion>
   )
 }
 
@@ -570,6 +608,10 @@ export default function Styleguide() {
           Форма пока не отправляется: кнопка проверяет имя и почту и показывает экран «спасибо». Кнопка «Let’s talk» в шапке выше тоже открывает форму.
         </p>
         <LetsTalkDemo />
+      </Section>
+
+      <Section title="Motion · анимации">
+        <MotionDemo />
       </Section>
 
       <Section title="Colors">

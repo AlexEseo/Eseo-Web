@@ -281,6 +281,14 @@
   --duration-slow: 600ms;
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Scroll reveal: how far a block rises while it fades in, and the pause between items in a group */
+  --motion-reveal-distance: 1.5rem;
+  --motion-stagger: 80ms;
+  /* Glass orbs in the Hero float up and down slowly: one full cycle, and how high they rise */
+  --duration-float: 6s;
+  --motion-float-distance: 0.5rem;
+  --animate-float: float var(--duration-float) ease-in-out infinite;
+  --duration-float-offset: -3s; /* the second orb starts half a cycle later, so they don't move in step */
 
   /* Accordion open/close: class animate-accordion-down / animate-accordion-up */
   --animate-accordion-down: accordion-down var(--duration-base) var(--ease-out);
@@ -292,6 +300,10 @@
   @keyframes accordion-up {
     from { height: var(--radix-accordion-content-height); }
     to { height: 0; }
+  }
+  @keyframes float {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 0 calc(var(--motion-float-distance) * -1); }
   }
 
   /* Service names for shadcn/ui components. They point to Figma colours above; no need to edit. */
