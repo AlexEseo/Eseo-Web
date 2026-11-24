@@ -1,8 +1,7 @@
-// Engagements: left-aligned heading, three pricing cards (the middle one highlighted) and a footnote.
+// Engagements: left-aligned heading and three pricing cards (the middle one highlighted).
 // Figma Home → "04 Engagements". Card buttons open the "Let's talk" form. Blue gradient behind — exact copy of Figma "Engagements gradient" (starts 158 above the section).
 // Props: text (site.engagements), onCta.
 import { Reveal, RevealGroup, RevealItem } from '@/components/motion/reveal'
-import { Divider } from '@/components/ui/divider'
 import { GradientScene } from '@/components/ui/gradient-scene'
 import { PricingCard } from '@/components/ui/pricing-card'
 import { SectionHeading } from '@/components/ui/section-heading'
@@ -35,10 +34,6 @@ function Engagements({ text, onCta }) {
             </RevealItem>
           ))}
         </RevealGroup>
-        <div className="flex max-w-(--container-footnote) flex-col gap-6">
-          <Divider />
-          <p className="text-body-12 text-gray-600">{text.footnote}</p>
-        </div>
       </div>
     </section>
   )

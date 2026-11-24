@@ -80,7 +80,7 @@
         ]
       }
     },
-    "submit": "Preview my request ↗",
+    "submit": "Send my request ↗",
     "note": "No spam, no automated sequences.",
     "close": "Close",
     "success": {
@@ -141,7 +141,7 @@
     ]
   },
   "principles": {
-    "title": "Built around \nyour business model.",
+    "title": "Built around\nyour business model.",
     "cards": [
       {
         "key": "ecommerce",
@@ -294,7 +294,7 @@
     ]
   },
   "businessCase": {
-    "title": "Make the economics part \nof the monthly conversation.",
+    "title": "Make the economics part\nof the monthly conversation.",
     "description": "Explore a scenario before you speak to us. This is a transparent calculation, not a forecast or a promised result.",
     "planner": {
       "currency": "Currency",
@@ -386,9 +386,7 @@
         "label": "Senior oversight",
         "title": "Advisory",
         "description": "Independent strategic support for teams that already have execution covered.",
-        "price": "€12,000",
-        "from": "from",
-        "period": "per month",
+        "price": "On request",
         "features": [
           "Budget and strategy governance",
           "Quarterly leadership review",
@@ -396,16 +394,15 @@
         ],
         "cta": "Explore advisory ↗"
       }
-    ],
-    "footnote": "Current draft fit: full mandates for brands investing from €150,000/month in media. Media spend is separate from agency fees. Scope and applicable taxes need confirmation."
+    ]
   },
   "faq": {
     "title": "Good questions.\nClear answers.",
-    "description": "Short answers to what enterprise teams usually \nask before a first call.",
+    "description": "Short answers to what enterprise teams usually\nask before a first call.",
     "items": [
       {
         "q": "Is this for B2B or consumer brands?",
-        "a": "ESEO sells its services to businesses. The four industry playbooks cover e-commerce, subscriptions and apps, education, and multi-location operators. For companies selling to other businesses, discovery should also address sales cycles, qualified pipeline and CRM revenue."
+        "a": "Both. We work with brands that sell to consumers and with companies that sell to other businesses. Our four industry playbooks cover e-commerce, subscriptions and apps, education, and multi-location operators. For B2B companies, we also look at sales cycles, qualified pipeline and CRM revenue."
       },
       {
         "q": "Do we need all four channels?",
