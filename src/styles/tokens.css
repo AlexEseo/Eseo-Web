@@ -170,7 +170,6 @@
   --eng-glow-shift: 12.34%;         /* Engagements gradient starts 158 of 1280 above the section */
   --container-heading: 40rem;     /* Section heading title width (left aligned), from Figma: 640 */
   --container-card-wide: 35rem;    /* Industry card and calculation notes, from Figma: 560 */
-  --container-footnote: 31.25rem;  /* Engagements footnote, from Figma: 500 */
   --container-faq: 45rem;          /* FAQ list, from Figma: 720 */
   --container-modal: 31.25rem;   /* Let's talk modal width on desktop, from Figma: 500 */
   --container-roadmap-heading: 12.5rem; /* Roadmap heading width on desktop, from Figma: 200 */
