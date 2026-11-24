@@ -4,8 +4,9 @@
 // Each problem has its own message (site.json → form.fields.*.errors). A personal (Gmail etc.) or temporary address
 // is accepted, with a soft grey note under the field (form.fields.email.notes).
 // Fields are checked on leaving them (if something was typed) and on submit; an error disappears as soon as the person edits the field.
-// NOT CONNECTED YET: "Preview my request" only checks the fields and shows the "Thanks" screen.
-// Sending to Web3Forms (site.form.endpoint + accessKey) is added later, when the owner sends the key.
+// Sending: after the checks the request goes to Web3Forms (src/lib/send-form.js, settings in site.json → form).
+// While it is sending the button shows a spinner; if sending fails, a coral message appears above the button
+// and the filled fields stay, so the person can try again. A hidden trap field (botcheck) stops spam bots.
 // Props:
 //   text:         site.form (from site.json)
 //   open / onOpenChange: whether the window is shown
@@ -17,13 +18,15 @@ import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/compone
 import { Field } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
 import { SelectField } from '@/components/ui/select-field'
-
+import { sendForm } from '@/lib/send-form'
 import { checkEmail, checkName, emailDomain, emailNote } from '@/lib/form-checks'
 
 function LetsTalk({ text, open, onOpenChange, initialStep = 'form' }) {
   const [step, setStep] = useState(initialStep)
   const [errors, setErrors] = useState({})
   const [note, setNote] = useState()
+  const [sending, setSending] = useState(false)
+  const [sendFailed, setSendFailed] = useState(false)
   const f = text.fields
 
   // An error disappears as soon as the person starts fixing the field.
@@ -40,14 +43,22 @@ function LetsTalk({ text, open, onOpenChange, initialStep = 'form' }) {
     if (key === 'email') setNote(noteFor(e.target.value))
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
     const data = new FormData(e.currentTarget)
     const found = { name: nameError(data.get('name')), email: emailError(data.get('email')) }
     setErrors(found)
     if (Object.values(found).some(Boolean)) return
-    // Web3Forms sending goes here later.
-    setStep('success')
+    setSending(true)
+    setSendFailed(false)
+    try {
+      await sendForm(text, data)
+      setStep('success')
+    } catch {
+      setSendFailed(true)
+    } finally {
+      setSending(false)
+    }
   }
 
   function handleOpenChange(next) {
@@ -57,6 +68,7 @@ function LetsTalk({ text, open, onOpenChange, initialStep = 'form' }) {
       setStep('form')
       setErrors({})
       setNote(undefined)
+      setSendFailed(false)
     }
   }
 
@@ -99,7 +111,14 @@ function LetsTalk({ text, open, onOpenChange, initialStep = 'form' }) {
                 <SelectField id="lt-goal" name="goal" options={f.goal.options} defaultValue={f.goal.options[0]} />
               </Field>
             </div>
-            <Button type="submit" variant="primary" size="l" className="mt-12 w-full">
+            {/* Trap for spam bots: hidden from people and screen readers, bots tick it */}
+            <input type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
+            {sendFailed && (
+              <p role="alert" className="mt-6 text-body-12 text-coral-500">
+                {text.sendError}
+              </p>
+            )}
+            <Button type="submit" variant="primary" size="l" loading={sending} className={sendFailed ? 'mt-4 w-full' : 'mt-12 w-full'}>
               {text.submit}
             </Button>
             <p className="mt-6 text-center text-body-12 text-gray-500">{text.note}</p>
