@@ -21,7 +21,7 @@ import logoTiktok from '@/assets/icons/tiktok.svg'
 
 // Channel logos for the Hero illustration (names come from site.json).
 const channelIcons = {
-  seo: <IconSeo />,
+  seo: <IconSeo className="text-brand-600" />,
   'google-ads': <img src={logoGoogleAds} alt="" width="36" height="36" />,
   meta: <img src={logoMeta} alt="" width="36" height="36" />,
   tiktok: <img src={logoTiktok} alt="" width="36" height="36" />,
