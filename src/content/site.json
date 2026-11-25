@@ -140,6 +140,49 @@
       }
     ]
   },
+  "partners": {
+    "awards": [
+      {
+        "key": "meta",
+        "name": "Meta Business Partner"
+      },
+      {
+        "key": "google",
+        "name": "Google Partner"
+      },
+      {
+        "key": "tiktok",
+        "name": "TikTok Marketing Partner"
+      }
+    ],
+    "caption": "Trusted by growth and finance teams across Europe & North America",
+    "clients": [
+      {
+        "key": "booking",
+        "name": "Booking.com"
+      },
+      {
+        "key": "amazon",
+        "name": "Amazon"
+      },
+      {
+        "key": "citi",
+        "name": "Citi"
+      },
+      {
+        "key": "pg",
+        "name": "P&G"
+      },
+      {
+        "key": "oura",
+        "name": "Oura"
+      },
+      {
+        "key": "bytedance",
+        "name": "ByteDance"
+      }
+    ]
+  },
   "principles": {
     "title": "Built around\nyour business model.",
     "cards": [
@@ -186,6 +229,58 @@
         "title": "Scale what earns it.",
         "description": "Review results with marketing and finance. Reallocate only when the evidence supports it.",
         "label": "Budget & performance governance"
+      }
+    ]
+  },
+  "caseStudies": {
+    "label": "Case studies",
+    "title": "Results our clients\nput their name to.",
+    "description": "Measured in the numbers finance uses: contribution after media, CAC and MER.",
+    "previous": "Previous testimonial",
+    "next": "Next testimonial",
+    "goTo": "Go to testimonial",
+    "items": [
+      {
+        "name": "Jacob Shaked",
+        "company": "R & Y A/C Compressors",
+        "photo": "/images/testimonials/jacob-shaked.jpg",
+        "quote": "“The impact on our sales has been substantial. We also appreciate how proactive he is about sharing campaign updates and keeping us informed of progress.”",
+        "metric": "149%"
+      },
+      {
+        "name": "Brittany Browne",
+        "company": "Christian Health Group LLC",
+        "photo": "/images/testimonials/brittany-browne.jpg",
+        "quote": "“Working with ESEO has made online advertising much more manageable. We have weekly conversations to review how things are going and make sure we're getting inquiries that are actually relevant to our practice.”",
+        "metric": "75%"
+      },
+      {
+        "name": "Nathalie Laitmon",
+        "company": "The Calendar Group",
+        "photo": "/images/testimonials/nathalie-laitmon.jpg",
+        "quote": "“They are highly responsive, attentive, and consistently go the extra mile. Their level of commitment stands out among the many firms we’ve worked with, and their data-driven approach gives us clear insight into the value they deliver.”",
+        "metric": "124%"
+      },
+      {
+        "name": "Bruno Levi",
+        "company": "Undetectable.AI",
+        "photo": "/images/testimonials/bruno-levi.jpg",
+        "quote": "“We've had a really positive experience working with the team. They're responsive, know their way around paid advertising, and make the entire process straightforward.”",
+        "metric": "781%"
+      },
+      {
+        "name": "Molly Holmes",
+        "company": "Shildan",
+        "photo": "/images/testimonials/molly-holmes.jpg",
+        "quote": "“We've seen measurable improvements in our keyword rankings in a relatively short time. The progress has been faster than we anticipated based on our previous SEO experiences.”",
+        "metric": "344%"
+      },
+      {
+        "name": "Joe Williams",
+        "company": "PackageUnitPros",
+        "photo": "/images/testimonials/joe-williams.jpg",
+        "quote": "“(2 Months in) seems to be the best for showing improvements in spend & impression share. Conversions are also starting to climb.”",
+        "metric": "190%"
       }
     ]
   },
