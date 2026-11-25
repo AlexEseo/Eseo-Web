@@ -173,6 +173,10 @@
   --spacing-case-card-sm: 18.75rem;
   --spacing-case-card-min: 23.75rem;
   --spacing-dot-active: 1.25rem;
+  /* Case studies slider edge fade: cards fade out in the section side padding instead of being cut off.
+     Fade width = section side padding (20 phone, 40 tablet, 80 desktop) → [mask-image:var(--mask-slider-fade)] */
+  --slider-fade: 1.25rem;
+  --mask-slider-fade: linear-gradient(to right, transparent, #000 var(--slider-fade), #000 calc(100% - var(--slider-fade)), transparent);
 
   /* Layout */
   --container-page: 70rem;       /* content width 1120 from Figma Header and Footer */
@@ -393,3 +397,7 @@
   --color-input: var(--color-gray-200);
   --color-ring: var(--color-brand-600);
 }
+
+/* Slider edge fade follows the section side padding (md: 40, lg: 80) */
+@media (width >= 48rem) { :root { --slider-fade: 2.5rem; } }
+@media (width >= 64rem) { :root { --slider-fade: 5rem; } }
