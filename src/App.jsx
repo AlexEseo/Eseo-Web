@@ -5,8 +5,10 @@ import site from './content/site.json'
 import { PageShell } from '@/components/layout/page-shell'
 import { usePauseOffscreen } from '@/lib/pause-offscreen'
 import { Hero } from '@/components/sections/Hero'
+import { PartnersClients } from '@/components/sections/PartnersClients'
 import { Principles } from '@/components/sections/Principles'
 import { Approach } from '@/components/sections/Approach'
+import { CaseStudies } from '@/components/sections/CaseStudies'
 import { Industries } from '@/components/sections/Industries'
 import { BusinessCase } from '@/components/sections/BusinessCase'
 import { RoadmapSection } from '@/components/sections/RoadmapSection'
@@ -41,8 +43,10 @@ export default function App() {
             channels={site.hero.channels.map((c) => ({ name: c.name, icon: channelIcons[c.icon] }))}
             onCta={openTalk}
           />
+          <PartnersClients text={site.partners} />
           <Principles text={site.principles} />
           <Approach text={site.approach} onCta={openTalk} />
+          <CaseStudies text={site.caseStudies} />
           <Industries text={site.industries} onCta={openTalk} />
           <BusinessCase text={site.businessCase} currencies={site.currencies} currency={currency} onCurrencyChange={setCurrency} />
           <RoadmapSection text={site.roadmap} />
