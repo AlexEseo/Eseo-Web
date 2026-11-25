@@ -618,7 +618,7 @@ export default function Styleguide() {
       </Section>
 
       <Section title="Case studies slider · попробовать">
-        <p className="text-body-14 text-gray-600">Стрелки, точки и свайп работают. На краях ленты стрелка становится неактивной.</p>
+        <p className="text-body-14 text-gray-600">Стрелки, точки и свайп работают. Лента бесконечная, края плавно растворяются.</p>
         <CaseSlider items={site.caseStudies.items} labels={site.caseStudies} />
       </Section>
 

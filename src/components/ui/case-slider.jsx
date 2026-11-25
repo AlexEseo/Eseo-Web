@@ -1,7 +1,11 @@
-// CaseSlider: a row of testimonial cards that scrolls sideways. Figma "Case studies" (Device=Desktop / Mobile).
-// Desktop: three cards are visible, round arrows sit on the left and right edges, dots below
-// (one dot per scroll stop, so 4 dots for 6 cards on desktop and 6 on a phone).
-// Phone: one card plus the edge of the next one (it runs to the screen edge), swipe to scroll, dots below.
+// CaseSlider: a row of testimonial cards that scrolls sideways in an endless loop. Figma "Case studies" (Device=Desktop / Mobile).
+// Desktop: three cards are visible, round arrows sit on the left and right edges, dots below (one dot per card).
+// Phone: one card plus the edge of the next one, swipe to scroll, dots below.
+// Endless loop: the strip is rendered three times; when scrolling stops outside the middle copy,
+// it jumps by one copy without animation, so the same cards stay on screen and you can keep going either way.
+// The copies are hidden from screen readers and keyboard. Arrows never become inactive.
+// Edges: the strip runs into the section side padding and fades out there (token --mask-slider-fade),
+// so cards are never cut off with a hard edge.
 // Built with plain CSS scrolling and snapping, no extra library. Cards stretch to the tallest one.
 // Under "reduce motion" the jump between cards is instant instead of a smooth scroll.
 // Props:
@@ -9,7 +13,7 @@
 //   labels: { previous, next, goTo } — texts for screen readers (site.json → caseStudies)
 //   className
 // SliderArrow (Figma "Slider arrow", Direction=Prev / Next) is exported for the styleguide.
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useLayoutEffect, useRef, useState } from 'react'
 import { useReducedMotion } from 'motion/react'
 import IconChevronDown20 from '@/components/icons/IconChevronDown20'
 import { CaseCard } from '@/components/ui/case-card'
@@ -33,12 +37,14 @@ function SliderArrow({ direction = 'next', className, ...props }) {
   )
 }
 
+const COPIES = [0, 1, 2] // middle copy (1) is the real one, the other two let the loop continue
+
 function CaseSlider({ items, labels, className }) {
   const scroller = useRef(null)
+  const settle = useRef(null)
   const reduce = useReducedMotion()
   const [index, setIndex] = useState(0)
-  const [pages, setPages] = useState(items.length)
-  const [edges, setEdges] = useState({ start: true, end: false })
+  const count = items.length
 
   // Distance from one card to the next (card width + gap), measured from the page.
   const step = useCallback(() => {
@@ -47,26 +53,43 @@ function CaseSlider({ items, labels, className }) {
     return cards[1].offsetLeft - cards[0].offsetLeft
   }, [])
 
-  const update = useCallback(() => {
+  // Card number under the left edge, counted across all three copies.
+  const position = useCallback(() => Math.round((scroller.current?.scrollLeft ?? 0) / step()), [step])
+
+  // After scrolling stops, move back into the middle copy without animation.
+  const recenter = useCallback(() => {
     const el = scroller.current
     if (!el) return
-    // One dot per stop: with three cards visible there are fewer stops than cards.
-    const visible = Math.max(1, Math.floor((el.clientWidth + 1) / step()))
-    const count = Math.max(1, items.length - visible + 1)
-    setPages(count)
-    setIndex(Math.min(count - 1, Math.round(el.scrollLeft / step())))
-    setEdges({ start: el.scrollLeft <= 1, end: el.scrollLeft + el.clientWidth >= el.scrollWidth - 1 })
-  }, [items.length, step])
+    const card = ((position() % count) + count) % count
+    el.scrollTo({ left: (count + card) * step(), behavior: 'auto' })
+  }, [count, position, step])
 
-  useEffect(() => {
-    update()
-    window.addEventListener('resize', update)
-    return () => window.removeEventListener('resize', update)
-  }, [update])
+  const onScroll = () => {
+    setIndex(((position() % count) + count) % count)
+    clearTimeout(settle.current)
+    settle.current = setTimeout(recenter, 150)
+  }
 
+  useLayoutEffect(() => {
+    recenter()
+    window.addEventListener('resize', recenter)
+    return () => {
+      window.removeEventListener('resize', recenter)
+      clearTimeout(settle.current)
+    }
+  }, [recenter])
+
+  const move = (cards) => {
+    clearTimeout(settle.current)
+    scroller.current?.scrollTo({ left: (position() + cards) * step(), behavior: reduce ? 'auto' : 'smooth' })
+  }
+
+  // Dots take the shortest way round the loop.
   const goTo = (i) => {
-    const target = Math.max(0, Math.min(pages - 1, i))
-    scroller.current?.scrollTo({ left: target * step(), behavior: reduce ? 'auto' : 'smooth' })
+    let delta = i - index
+    if (delta > count / 2) delta -= count
+    if (delta < -count / 2) delta += count
+    move(delta)
   }
 
   return (
@@ -74,34 +97,39 @@ function CaseSlider({ items, labels, className }) {
       <div className="relative">
         <ul
           ref={scroller}
-          onScroll={update}
-          className="-mr-5 flex snap-x snap-mandatory gap-3 overflow-x-auto pr-5 [scrollbar-width:none] md:mr-0 md:gap-5 md:pr-0 [&::-webkit-scrollbar]:hidden"
+          onScroll={onScroll}
+          className="-mx-5 flex snap-x snap-mandatory scroll-px-5 gap-3 overflow-x-auto px-5 [mask-image:var(--mask-slider-fade)] [scrollbar-width:none] md:-mx-10 md:scroll-px-10 md:gap-5 md:px-10 lg:-mx-20 lg:scroll-px-20 lg:px-20 [&::-webkit-scrollbar]:hidden"
         >
-          {items.map((item) => (
-            <li key={item.name} className="flex w-case-card-sm shrink-0 snap-start md:w-case-card">
-              <CaseCard {...item} className="w-full" />
-            </li>
-          ))}
+          {COPIES.flatMap((copy) =>
+            items.map((item) => (
+              <li
+                key={`${copy}-${item.name}`}
+                aria-hidden={copy !== 1 || undefined}
+                inert={copy !== 1 || undefined}
+                className="flex w-case-card-sm shrink-0 snap-start md:w-case-card"
+              >
+                <CaseCard {...item} className="w-full" />
+              </li>
+            )),
+          )}
         </ul>
         <SliderArrow
           direction="prev"
           aria-label={labels.previous}
-          disabled={edges.start}
-          onClick={() => goTo(index - 1)}
+          onClick={() => move(-1)}
           className="absolute top-1/2 -left-6 hidden -translate-y-1/2 md:flex"
         />
         <SliderArrow
           direction="next"
           aria-label={labels.next}
-          disabled={edges.end}
-          onClick={() => goTo(index + 1)}
+          onClick={() => move(1)}
           className="absolute top-1/2 -right-6 hidden -translate-y-1/2 md:flex"
         />
       </div>
       <div className="flex justify-center gap-1.5">
-        {Array.from({ length: pages }, (_, i) => (
+        {items.map((item, i) => (
           <button
-            key={i}
+            key={item.name}
             type="button"
             aria-label={`${labels.goTo} ${i + 1}`}
             aria-current={i === index}
