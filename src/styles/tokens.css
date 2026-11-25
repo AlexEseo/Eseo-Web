@@ -162,6 +162,17 @@
   --spacing-not-found: calc(100svh - 4.5625rem);
   /* Info row label column on Legal pages from Figma: 224 → w-info-label */
   --spacing-info-label: 14rem;
+  /* Partners & clients (Figma "Partner award", "Client logo"): award height 58 → h-award, logo slot 32 → h-client-logo,
+     logo slot on phones 28 → h-client-logo-sm */
+  --spacing-award: 3.625rem;
+  --spacing-client-logo: 2rem;
+  --spacing-client-logo-sm: 1.75rem;
+  /* Case studies (Figma "Case card"): card width 360 → w-case-card, on phones 300 → w-case-card-sm,
+     minimum height 380 → min-h-case-card; active pagination dot 20 wide → w-dot-active */
+  --spacing-case-card: 22.5rem;
+  --spacing-case-card-sm: 18.75rem;
+  --spacing-case-card-min: 23.75rem;
+  --spacing-dot-active: 1.25rem;
 
   /* Layout */
   --container-page: 70rem;       /* content width 1120 from Figma Header and Footer */
@@ -194,6 +205,7 @@
   --shadow-glass-card: 0 2px 4px 0 rgb(10 13 18 / 0.04), 0 24px 56px 0 rgb(36 91 232 / 0.22);
   --shadow-device: -8px 12px 32px 0 rgb(10 13 18 / 0.16);
   --shadow-modal: 0 4px 8px 0 rgb(10 13 18 / 0.08), 0 24px 64px -8px rgb(10 13 18 / 0.18); /* Let's talk modal, from the Figma layer */
+  --shadow-slider-arrow: 0 4px 16px 0 rgb(10 13 18 / 0.08); /* Figma "Slider arrow" */
 
   /* Channel chip (Figma "Channel chip"): glass circle. Values copied from the Figma layer. */
   --shadow-chip: 0 8px 16px -4px rgb(36 91 232 / 0.14), inset 0 1.5px 0 0 rgb(255 255 255), inset 0 -4px 6px 0 rgb(36 91 232 / 0.12);
