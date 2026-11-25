@@ -27,6 +27,10 @@ import { PlanRow } from '@/components/ui/plan-row'
 import { PricingCard } from '@/components/ui/pricing-card'
 import { Roadmap } from '@/components/ui/roadmap'
 import { Planner } from '@/components/ui/planner'
+import { PartnerAward } from '@/components/ui/partner-award'
+import { ClientLogos } from '@/components/ui/client-logos'
+import { CaseCard } from '@/components/ui/case-card'
+import { CaseSlider, SliderArrow } from '@/components/ui/case-slider'
 import { useState } from 'react'
 import { LazyMotion, domAnimation } from 'motion/react'
 import { Reveal, RevealGroup, RevealItem } from '@/components/motion/reveal'
@@ -99,6 +103,7 @@ const shadows = [
   ['shadow/card', 'shadow-card'],
   ['shadow/glass-card', 'shadow-glass-card'],
   ['shadow/device', 'shadow-device'],
+  ['shadow/slider-arrow', 'shadow-slider-arrow'],
 ]
 
 // Columns of the button tables: Figma state name → how to show it here.
@@ -579,6 +584,42 @@ export default function Styleguide() {
         <p className="text-body-14 text-gray-600">Сверху вниз справа: Stat card и Card caption.</p>
         <h3 className="text-header-20 font-bold">Industry card</h3>
         <IndustryCard {...demoIndustry} />
+      </Section>
+
+      <Section title="Partner award · Client logos">
+        <div className="flex flex-col items-center gap-8 md:flex-row md:justify-center md:gap-24">
+          {site.partners.awards.map((a) => (
+            <div key={a.key} className="flex flex-col items-center gap-2">
+              <PartnerAward partner={a.key} name={a.name} />
+              <Token>Partner={a.key}</Token>
+            </div>
+          ))}
+        </div>
+        <p className="text-body-14 text-gray-600">Ниже — логотипы клиентов. На широком экране в один ряд, на телефоне по два в ряд.</p>
+        <ClientLogos clients={site.partners.clients} />
+      </Section>
+
+      <Section title="Case card · Slider arrow">
+        <div className="grid gap-6 md:grid-cols-2">
+          <div className="flex flex-col gap-2">
+            <CaseCard {...site.caseStudies.items[0]} />
+            <Token>Case card</Token>
+          </div>
+          <div className="flex flex-col gap-6">
+            {[['Default', {}], ['Hover', { 'data-preview': 'hover' }], ['Focus', { 'data-preview': 'focus' }], ['Disabled', { disabled: true }]].map(([state, props]) => (
+              <div key={state} className="flex items-center gap-4">
+                <SliderArrow direction="prev" aria-label="Previous" {...props} />
+                <SliderArrow direction="next" aria-label="Next" {...props} />
+                <Token>{state}</Token>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      <Section title="Case studies slider · попробовать">
+        <p className="text-body-14 text-gray-600">Стрелки, точки и свайп работают. На краях ленты стрелка становится неактивной.</p>
+        <CaseSlider items={site.caseStudies.items} labels={site.caseStudies} />
       </Section>
 
       <Section title="Roadmap">
